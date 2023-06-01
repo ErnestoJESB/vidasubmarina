@@ -1,0 +1,58 @@
+<%- include("partials/_header") %>
+  <section class="order" id="order">
+    <div class="heading">
+      <span>Editar </span>
+      <h3>Condominio</h3>
+    </div>
+    <form action="/updateCondominio/<%= imageList.id %>" method="POST" enctype="multipart/form-data">
+      <div class="flex">
+        <div class="inputBox">
+          <span>Nombre del Condominio</span>
+          <input type="text" name="name" value="<%= imageList.name %>" placeholder="Condominio" class="input"
+            autofocus />
+        </div>
+        <div class="inputBox">
+          <span>Lugar</span>
+          <input type="text" name="address" value="<%= imageList.address%>" placeholder="Título" class="input" />
+        </div>
+      </div>
+      <div class="flex">
+        <div class="inputBox">
+          <span>descripción</span>
+          <input type="text" name="description" value="<%= imageList.description%>" placeholder="description"
+            class="input" />
+        </div>
+        <div class="inputBox">
+          <div class="centrar">
+            <img src="http://localhost:3000/<%= imageList.imageName%>" alt="" width="200">
+          </div>
+        </div>
+      </div>
+      <div class="flex">
+        <!-- <div class="inputBox">
+          <input id="file" type="file" name="image" accept="image/*" />
+        </div> -->
+        <!-- haz que al apretar la imagen abra el explorador de archivos para que cambie mi foto -->
+        <div class="inputBox">
+          <span>Imagen</span>
+          <input type="file" name="image" accept="image/*" class="form-control" autofocus />
+        </div>
+        <!-- <div class="flex">
+         <div class="inputBox">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.8375079862967!2d-86.8289907223555!3d21.158863930303614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2b9da28e4af1%3A0xd53a3c016a84b637!2sM%20WOLD%20Administradores!5e0!3m2!1sen!2sin!4v1684957761528!5m2!1sen!2sin"
+            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="inputBox">
+          <img src="http://localhost:3000/<%= imageList.imageName%>" alt="" width="200">
+        </div>
+
+      </div> -->
+
+        <button type="submit" class="btn btn-primary">Editar Condominio</button>
+
+    </form>
+  </section>
+
+  <%- include("partials/_footer") %>

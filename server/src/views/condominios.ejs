@@ -1,0 +1,91 @@
+<%- include("partials/_header") %>
+    <section class="order" id="order">
+        <div class="heading">
+            <span>Registrar</span>
+            <h3>Condominio</h3>
+        </div>
+        <form action="/addCondominio" method="post" enctype="multipart/form-data">
+            <div class="flex">
+                <div class="inputBox">
+                    <span>Nombre del Condominio</span>
+                    <input type="text" name="name" placeholder="Condominio" class="form-control">
+                </div>
+                <div class="inputBox">
+                    <span>Lugar</span>
+                    <input type="text" name="address" placeholder="Título" class="form-control">
+                </div>
+            </div>
+            <div class="flex">
+                <div class="inputBox">
+                    <span>descripción</span>
+                    <input type="text" name="description" placeholder="Descripción" class="form-control">
+                </div>
+                <div class="inputBox">
+                    <span>Imagen</span>
+                    <input type="file" name="image" accept="image/*" class="form-control">
+                </div>
+
+            </div>
+            <div class="flex">
+                <!-- <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.8375079862967!2d-86.8289907223555!3d21.158863930303614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4c2b9da28e4af1%3A0xd53a3c016a84b637!2sM%20WOLD%20Administradores!5e0!3m2!1sen!2sin!4v1684957761528!5m2!1sen!2sin"
+                    width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+                <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Registrar Condominio</button>
+
+        </form>
+    </section>
+
+    <section>
+        <div class="order">
+            <div class="col-md-7">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>n°</th>
+                            <th>Condominio</th>
+                            <th>Título</th>
+                            <th>Descripción</th>
+                            <th>Imagen</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (data) { %>
+                            <% for(var i=0; i < data.length; i++){ %>
+                                <tr>
+                                    <td>
+                                        <%= (i+1) %>
+                                    </td>
+                                    <td>
+                                        <%= data[i].name %>
+                                    </td>
+                                    <td>
+                                        <%= data[i].address%>
+                                    </td>
+                                    <td>
+                                        <%= data[i].description%>
+                                    </td>
+                                    <td>
+                                        <img src="http://localhost:3000/<%= data[i].imageName%>" alt="" width="100">
+
+                                    </td>
+                                    <div class="centrar">
+                                        <td><a href="/deleteCondominio/<%= data[i].id %>"
+                                                class="btn btn-danger">Delete</a>
+                                            <a href="/updateCondominio/<%= data[i].id %>" class="btn btn-info">Edit</a>
+                                        </td>
+                                    </div>
+
+                                </tr>
+                                <% } %>
+                                    <% } %>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </section>
+
+
+    <%- include("partials/_footer") %>
