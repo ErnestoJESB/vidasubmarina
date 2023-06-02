@@ -25,16 +25,13 @@ export const Pagination = ({ condominiosPerPage, totalCondominios, currentPage, 
         <div className="cont">
             <div className="pagination">
                 <button className="pagination__button" onClick={onPreviousPage} disabled={currentPage === 1}>Anterior</button>
-                {pageNumbers.map((n) => (
-                    <button className={`pagination__button ${currentPage === n ? 'button_especific' : ''}`} onClick={() => onSpecificPage(n)}>{n}</button>
+                {pageNumbers.map((number) => (
+                    <button className={`pagination__button ${currentPage === number ? 'button_especific' : ''}`} key={number} onClick={() => onSpecificPage(number)}>{number}</button>
                 ))}
                 <button className="pagination__button" onClick={onNextPage} disabled={currentPage === pageNumbers.length}>Siguiente</button>
             </div>
         </div>
 
-
-
     )
-
-
 }
+

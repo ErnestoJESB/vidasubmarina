@@ -12,7 +12,7 @@ const Header = () => {
                 <img src={'http://localhost:3000/' + logo} alt="..." /></div>
             </a>
 
-            <nav class="navbar">
+            <nav className="navbar">
                 <a href="http://localhost:5173/index.html">Inicio</a>
                 <a href="http://localhost:3000/customer">Clientes</a>
                 <a href="http://localhost:3000/condominio">Condominios</a>

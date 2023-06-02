@@ -4,7 +4,7 @@ const Imagen = () => {
     const [listUpdated, setListUpdated] = useState(false)
 
     useEffect(() => {
-        fetch('http://localhost:9000/images/get')
+        fetch('http://localhost:3000/get')
             .then(res => res.json())
             .then(res => setImageList(res))
             .catch(err => {
