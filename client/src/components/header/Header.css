@@ -1,0 +1,396 @@
+
+/* header section start */
+
+.header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--card);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 2rem 9%;
+    border-radius: 0 0 2rem 2rem;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.7rem;
+    font-weight: bolder;
+    color: #ffffff;
+}
+
+.logo img{
+    height: 100px;
+    width: auto;
+}
+
+.header .logo i {
+    padding-right: .5rem;
+    color: var(--color3);
+}
+
+.navbar{
+    background-color: var(--card);
+}
+.header .navbar a {
+    font-size: 1.7rem;
+    margin: 0 1rem;
+    color: #ffffff;
+    transition: all .4s ease-out;
+}
+
+.header .navbar a:hover {
+    color: var(--color4);
+}
+
+.header .icons {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.header .icons div {
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.5rem;
+    font-size: 2rem;
+    background: #edecf2;
+    color: var(--card);
+    border-radius: 50%;
+    margin-left: .3rem;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.4s ease-out;
+}
+
+.header .icons div:hover {
+    background: var(--color3);
+}
+
+#menu-btn {
+    display: none;
+}
+
+/* header section end */
+
+@-webkit-keyframes fadeUp {
+    0% {
+        -webkit-transform: translateY(5rem);
+        transform: translateY(5rem);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeUp {
+    0% {
+        -webkit-transform: translateY(5rem);
+        transform: translateY(5rem);
+        opacity: 0;
+    }
+}
+
+/* search form section start */
+
+.search-form-container {
+    position: fixed;
+    top: 8.5rem;
+    left: 0;
+    right: 0;
+    height: calc(100vh - 8.5rem);
+    background: #f7f6f9;
+    z-index: 1000;
+    display: none;
+    margin: 2%;
+    border-radius: 3rem;
+}
+
+.search-form-container.active {
+    display: block;
+}
+
+.search-form-container form {
+    height: 7rem;
+    border-bottom: 0.2rem solid #130f40;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-animation: fadeUp .4s linear;
+    animation: fadeUp .4s linear;
+}
+
+.search-form-container form input {
+    height: 100%;
+    width: 100%;
+    font-size: 1.7rem;
+    color: #130f40;
+    text-transform: none;
+    padding-right: 1rem;
+    background: transparent;
+}
+
+.search-form-container form label {
+    font-size: 3rem;
+    cursor: pointer;
+    color: #130f40;
+}
+
+.search-form-container form label:hover {
+    color: #52389b;
+}
+
+/* search form section end */
+
+/* shopping cart section start */
+
+.shopping-cart-container {
+    position: fixed;
+    top: 9.5rem;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: calc(100vh - 8.5rem);
+    background: #f7f6f9;
+    overflow-y: scroll;
+    padding-bottom: 8rem;
+    display: none;
+    margin: 2%;
+    border-radius: 3rem;
+}
+
+.shopping-cart-container.active {
+    display: block;
+}
+
+.shopping-cart-container::-webkit-scrollbar {
+    width: 0.3rem;
+}
+
+.shopping-cart-container::-webkit-scrollbar-track {
+    background: #f7f6f9;
+}
+
+.shopping-cart-container::-webkit-scrollbar-thumb {
+    background: #130f40;
+    border-radius: 5rem;
+}
+
+.shopping-cart-container .title {
+    font-size: 2.5rem;
+    padding: 1rem;
+    color: #130f40;
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.shopping-cart-container .products-container {
+    border: 0.1rem solid rgba(0, 0, 0, 0.2);
+    border-radius: 2rem;
+    -webkit-animation: fadeUp .4s linear;
+    animation: fadeUp .4s linear;
+}
+
+.shopping-cart-container .products-container .box-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit];
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.shopping-cart-container .products-container .box-container .box {
+    border-radius: 2rem;
+    background: #edecf2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.3s ease-out;
+}
+
+.shopping-cart-container .products-container .box-container .box:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.shopping-cart-container .products-container .box-container .box:hover img {
+    transform: translateY(-3px);
+}
+
+.shopping-cart-container .products-container .box-container .box .close-icon {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #130f40;
+}
+
+.shopping-cart-container .products-container .box-container .box .close-icon:hover {
+    transform: rotate(180deg);
+    color: #52389b;
+}
+
+.shopping-cart-container .products-container .box-container .box img {
+    height: 8rem;
+}
+
+.shopping-cart-container .products-container .box-container .box .content h3 {
+    font-size: 2rem;
+    color: #130f40;
+}
+
+.shopping-cart-container .products-container .box-container .box .content span {
+    font-size: 1.5rem;
+    color: #494262;
+}
+
+.shopping-cart-container .products-container .box-container .box .content span.price {
+    color: #52389b;
+    font-size: 1.7rem;
+}
+
+.shopping-cart-container .products-container .box-container .box .content input {
+    width: 8rem;
+    padding: .5rem 1.2rem;
+    font-size: 1.5rem;
+    color: #130f40;
+    margin: .7rem 0;
+    border-radius: .5rem;
+    background: #f7f6f9;
+}
+
+.shopping-cart-container .cart-total {
+    margin-top: 2rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.2);
+    border-radius: 2rem;
+    -webkit-animation: fadeUp .4s linear .4s backwards;
+    animation: fadeUp .4s linear .4s backwards;
+}
+
+.shopping-cart-container .cart-total .box {
+    padding: 1.5rem;
+}
+
+.shopping-cart-container .cart-total .box h3 {
+    color: #130f40;
+    font-size: 2rem;
+    padding-bottom: .7rem;
+}
+
+.shopping-cart-container .cart-total .box h3 span {
+    color: #52389b;
+}
+
+/* shopping cart section end */
+
+/* login section start */
+
+.login-form-container {
+    position: fixed;
+    top: 8.5rem;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: calc(100vh - 8.5rem);
+    background: var(--card);
+    padding: 0 2rem;
+    display: none;
+    margin: 2%;
+    border-radius: 3rem;
+}
+
+.login-form-container.active {
+    display: block;
+}
+
+.login-form-container form {
+    margin: 2rem auto;
+    max-width: 40rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    border-radius: 2rem;
+    -webkit-animation: fadeUp .4s linear;
+    animation: fadeUp .4s linear;
+}
+
+.login-form-container form:hover {
+    box-shadow: rgba(147, 100, 58, 0.8) 0px 4px 12px;
+}
+
+.login-form-container form h3 {
+    padding-bottom: 1rem;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: var(--color1);
+}
+
+.login-form-container form .box {
+    margin: .7rem 0;
+    border-radius: .5rem;
+    background: #fff;
+    padding: 1rem 1.2rem;
+    font-size: 1.6rem;
+    color: #000;
+    text-transform: none;
+    width: 100%;
+}
+
+.login-form-container form .remember {
+    padding: 1rem 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.login-form-container form .remember label {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color3);
+}
+
+.login-form-container form .btn {
+    margin: 1rem 0;
+    width: 100%;
+    text-align: center;
+}
+
+.login-form-container form p {
+    padding-top: 1rem;
+    font-size: 1.5rem;
+    color: var(--color1);
+}
+
+.login-form-container form p a {
+    color: var(--color3);
+}
+
+.login-form-container form p a:hover {
+    color: var(--color1);
+    text-decoration: underline;
+}
+
+/* login section end */

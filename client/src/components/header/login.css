@@ -1,0 +1,91 @@
+/* login section start */
+
+.login-form-container {
+    position: fixed;
+    top: 8.5rem;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: calc(100vh - 8.5rem);
+    background: var(--card);
+    padding: 0 2rem;
+    display: none;
+    margin: 2%;
+    border-radius: 3rem;
+}
+
+.login-form-container.active {
+    display: block;
+}
+
+.login-form-container form {
+    margin: 2rem auto;
+    max-width: 40rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    border-radius: 2rem;
+    -webkit-animation: fadeUp .4s linear;
+    animation: fadeUp .4s linear;
+}
+
+.login-form-container form:hover {
+    box-shadow: rgba(147, 100, 58, 0.8) 0px 4px 12px;
+}
+
+.login-form-container form h3 {
+    padding-bottom: 1rem;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: var(--color1);
+}
+
+.login-form-container form .box {
+    margin: .7rem 0;
+    border-radius: .5rem;
+    background: #fff;
+    padding: 1rem 1.2rem;
+    font-size: 1.6rem;
+    color: #000;
+    text-transform: none;
+    width: 100%;
+}
+
+.login-form-container form .remember {
+    padding: 1rem 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.login-form-container form .remember label {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color3);
+}
+
+.login-form-container form .btn {
+    margin: 1rem 0;
+    width: 100%;
+    text-align: center;
+}
+
+.login-form-container form p {
+    padding-top: 1rem;
+    font-size: 1.5rem;
+    color: var(--color1);
+}
+
+.login-form-container form p a {
+    color: var(--color3);
+}
+
+.login-form-container form p a:hover {
+    color: var(--color1);
+    text-decoration: underline;
+}
+
+/* login section end */

@@ -1,0 +1,53 @@
+.cont {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: var(--card);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.pagination__button {
+    width: auto;
+    padding: 10px 10px;
+    border-radius: 10%;
+    background-color: var(--card);
+    cursor: pointer;
+    color: #ffff;
+    font-size: 1rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
+
+.pagination__button:hover {
+    background-color: var(--color3);
+}
+
+.button_especific {
+    width: auto;
+    padding: 10px 10px;
+    border-radius: 10%;
+    cursor: pointer;
+    color: #ffff;
+    font-size: 2rem;
+    background-color: var(--color3);
+}
+
+.button_especific:hover {
+    background-color: var(--color2);
+}
+
+.button_especific:active {
+    background-color: var(--color1);
+}
