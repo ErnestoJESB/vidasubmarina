@@ -12,6 +12,8 @@
     display: none;
     margin: 2%;
     border-radius: 3rem;
+    -webkit-animation: fadeUp .4s linear;
+    animation: fadeUp .4s linear;
 }
 
 .login-form-container.active {

@@ -260,6 +260,23 @@ controller.update = (req, res) => {
   });
 };
 
+controller.login = (req, res) => {
+  const sql = 'SELECT * FROM login WHERE user = ? AND password = ?';
+  req.getConnection((err, conn) => {
+    if (err) return res.status(500).send('Error del servidor');
+    conn.query(sql, [req.body.email, req.body.password], (err, result) => {
+      if(err) return res.json("Hey papu algo salio mal"); 
+      if(result.length > 0) {
+        return res.json('Hey papu estas logeado');
+      } else {
+        return res.json('Hey papu estas mal');
+      }
+    });
+  });
+  
+};
+
+
 module.exports = controller;
 
 /* controller.list = (req, res) => {
