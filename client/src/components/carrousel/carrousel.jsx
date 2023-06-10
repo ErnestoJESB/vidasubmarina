@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Pagination } from "./pagination";
 import "./carrousel.css"
 
-const Conocenos = () => {
+const Carrousel = () => {
 
 
     const [customersData, setCustomersData] = useState([]);
@@ -37,9 +37,9 @@ const Conocenos = () => {
             <div className="box-container">
                 <div className="wrapper">
                     <div className="cols">
-                        {customersData && customersData.map((customer, i) => (
-                            <div className="col" onTouchStart="this.classList.toggle('hover');">
-                                <div className="container" key={i}>
+                        {customersData && customersData.map((customer) => (
+                            <div className="col" key={customer.id}/*  onTouchStart="this.classList.toggle('hover');" */>
+                                <div className="container">
                                     <div className="front" style={{ backgroundImage: `url(http://localhost:3000/${customer.imageName})` }}>
                                         <div className="inner">
                                             <p>{customer.name}</p>
@@ -54,19 +54,20 @@ const Conocenos = () => {
                                 </div>
                             </div>
                         )).slice(indexOfFirstCondominio, indexOfLastCondominio)}
+
                     </div>
 
                 </div>
             </div>
-                <Pagination
-                    condominiosPerPage={condominiosPerPage}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    totalCondominios={totalCondominios}
-                />
+            <Pagination
+                condominiosPerPage={condominiosPerPage}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+                totalCondominios={totalCondominios}
+            />
 
         </section>
     )
 }
 
-export default Conocenos
+export default Carrousel

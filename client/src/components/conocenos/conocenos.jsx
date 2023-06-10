@@ -1,21 +1,21 @@
 import React from "react";
 import "./conocenos.css"
-import Imagen from "../img/img"
 import "./conocenos.css"
 
-<Imagen />
-const empresario = "15-reporte.png"
-const iconos = "11-reporte.png"
-const iconos2 = "12-reporte.png"
-const iconos3 = "13-reporte.png"
 
 
 const Conocenos = () => {
+    var empresario = ""
+    var iconos = "11-reporte.png"
+    var iconos2 = "16-reporte.png"
+    var iconos3 = "13-reporte.png"
+
     return (
+
         <section className="about" id="servicios">
             <div className="image">
-                <div key={empresario}>
-                    <img src={'http://localhost:3000/' + empresario} alt="..." />
+                <div>
+                    <img src={'http://localhost:3000/15-reporte.png'} alt="..." />
                 </div>
             </div>
             <div className="content">
@@ -27,8 +27,8 @@ const Conocenos = () => {
                     {/* Modal asesoria*/}
                     <a href="#asesoria">
                         <div className="icons">
-                            <div key={iconos}>
-                                <img src={'http://localhost:3000/' + iconos} alt="..." style={{ width: "6rem" }} />
+                            <div>
+                                <img src={'http://localhost:3000/11-reporte.png'} alt="..." style={{ width: "6rem" }} />
                             </div>
                             <h3>Asesoría</h3>
                         </div>
@@ -54,8 +54,8 @@ const Conocenos = () => {
                     {/* Modal Real estate*/}
                     <a href="#real_estate">
                         <div className="icons">
-                            <div key={iconos3}>
-                                <img src={'http://localhost:3000/' + iconos} alt="..." style={{ width: "6rem" }} />
+                            <div>
+                                <img src={'http://localhost:3000/14-reporte.png'} alt="..." style={{ width: "6rem" }} />
                             </div>
                             <h3>Real Estate</h3>
                         </div>
@@ -77,8 +77,8 @@ const Conocenos = () => {
                     {/* Modal administradores*/}
                     <a href="#administradores">
                         <div className="icons">
-                            <div key={iconos2}>
-                                <img src={'http://localhost:3000/' + iconos} alt="..." style={{ width: "6rem" }} />
+                            <div>
+                                <img src={'http://localhost:3000/17-reporte.png'} alt="..." style={{ width: "6rem" }} />
                             </div>
                             <h3>Administradores</h3>
                         </div>
