@@ -5,18 +5,25 @@ import Carrousel from "./components/carrousel/carrousel"
 import Login from "./components/header/Login";
 import Register from "./components/header/register";
 import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
       <Header />
-      <Login />
-      <Cards />
-      <Conocenos />
-      <Carrousel/>
-    </div>
-    );
+      <Routes>
+        <Route path="/" element={<div>
+          <Login />
+          <Cards />
+          <Conocenos />
+          <Carrousel />
+        </div>} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </BrowserRouter>
+
+  );
 }
 
 export default App;
