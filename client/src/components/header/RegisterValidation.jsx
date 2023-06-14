@@ -30,13 +30,13 @@ function Validation(values) {
         error.lastname = "";
     }
 
-    if (values.number === "") {
-        error.number = "Debe ingresar un número de teléfono";
-        }
-    else if (values.number.length < 10) {
-        error.number = "El número de teléfono debe tener al menos 10 caracteres";
+    if (values.phone === "") {
+        error.phone = "Debe ingresar un número de teléfono";
+    }
+    else if (values.phone.length <= 10) {
+        error.phone = "El número de teléfono debe tener al menos 10 caracteres";
     } else {
-        error.number = "";
+        error.phone = "";
     }
 
     if (values.address === "") {

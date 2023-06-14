@@ -16,6 +16,7 @@ app.use(cors({
 //importando routes
 const customersRoutes = require('./routes/customer');
 const condominioRoutes = require('./routes/condominio');
+const loginRoutes = require('./routes/login');
 
 
 //settings
@@ -43,6 +44,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // Para analizar el cuerpo d
 //Routes
 app.use('/', customersRoutes);
 app.use('/', condominioRoutes);
+app.use('/', loginRoutes);
 
 app.listen(3000, () => {
   console.log('It´s works')

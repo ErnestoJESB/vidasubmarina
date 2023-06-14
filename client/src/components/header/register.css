@@ -1,0 +1,125 @@
+
+/* order section start */
+
+.order .icons-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit];
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.order .icons-container .icons {
+    border-radius: 2rem;
+    padding: 2rem;
+    text-align: center;
+    background:var(--color1);
+}
+
+.order .icons-container .icons img {
+    height: 10rem;
+}
+
+.order .icons-container .icons h3 {
+    font-size: 2rem;
+    color: #130f40;
+    margin-top: .5rem;
+}
+
+.order form {
+    background: var(--card);
+    padding: 2.3rem;
+    border-radius: 2rem;
+}
+
+.order form .flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.order form .flex .inputBox {
+    width: 49%;
+    padding: .7rem 0;
+}
+
+.order form .flex span {
+    font-size: 1.7rem;
+    color: var(--color1);
+}
+
+.inputBox .error {
+    font-size: 1.7rem;
+    color: red;
+}
+
+.order form .flex input,
+.order form .flex textarea {
+    width: 100%;
+    margin-top: .5rem;
+    padding: 1rem 1.2rem;
+    border-radius: .5rem;
+    font-size: 1.6rem;
+    text-transform: none;
+    color: #130f40;
+}
+
+.order form .flex textarea {
+    height: 20rem;
+    resize: none;
+}
+
+.order form .flex .map {
+    height: 100%;
+    width: 100%;
+    border-radius: .5rem;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+form p {
+    padding-top: 1rem;
+    font-size: 1.5rem;
+    color: var(--color1);
+    text-align: center;
+}
+
+form p a {
+    color: var(--color3);
+}
+
+form p a:hover {
+    color: var(--color1);
+    text-decoration: underline;
+}
+
+/* haz que se ponga en medio el btn */
+.btn2{
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* order section end */
