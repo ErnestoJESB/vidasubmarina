@@ -24,8 +24,8 @@ function Validation(values) {
     if (values.lastname === "") {
         error.lastname = "Debe ingresar un apellido";
     }
-    else if (values.lastname.length < 3) {
-        error.lastname = "El apellido debe tener al menos 3 caracteres";
+    else if (values.lastname.length < 2) {
+        error.lastname = "El apellido debe tener al menos 2 caracteres";
     } else {
         error.lastname = "";
     }
