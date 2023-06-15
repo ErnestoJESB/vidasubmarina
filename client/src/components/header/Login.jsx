@@ -21,7 +21,7 @@ const Login = () => {
         if (errors.email === "" && errors.password === "") {
             axios.post("http://localhost:3000/login", values)
                 .then(res => {
-                    if (res.data === "success") {
+                    if (res.data === "Success") {
                         navigate("/home");
                     } else {
                         alert("Usuario o contraseña incorrectos");

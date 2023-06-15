@@ -36,12 +36,12 @@ controller.login = (req, res) => {
     if (err) return res.status(500).send('Error del servidor');
     conn.query(sql, [req.body.email, req.body.password], (err, data) => {
       if (err) {
-        return res.json("Error al iniciar sesión");
+        return res.json("Error");
       }
       if(data.length > 0){
-        return res.json("success");
+        return res.json("Success");
       }else{
-        return res.json("Usuario o contraseña incorrectos");
+        return res.json("Fail");
       }
     });
   });
