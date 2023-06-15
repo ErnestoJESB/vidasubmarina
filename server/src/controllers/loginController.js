@@ -30,23 +30,19 @@ controller.register = (req, res) => {
 };
 
 controller.login = (req, res) => {
-  const sql = 'SELECT * FROM login WHERE `email` = ? AND `password` = ?';
-
+  const sql = 'SELECT * FROM login WHERE email = ? AND password = ?';
   req.getConnection((err, conn) => {
     if (err) return res.status(500).send('Error del servidor');
     conn.query(sql, [req.body.email, req.body.password], (err, data) => {
-      if (err) {
-        return res.json("Error");
-      }
-      if(data.length > 0){
-        return res.json("Success");
-      }else{
-        return res.json("Fail");
+      if(err) return res.json("Obi wan kenobi has failed us"); 
+      if(data.length > 0) {
+        return res.json('Success');
+      } else {
+        return res.json('Anakin, I have the high ground');
       }
     });
   });
-
+  
 };
-
 
 module.exports = controller;

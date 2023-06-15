@@ -18,6 +18,7 @@ const Login = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         setErrors(Validation(values));
+        /* haz que se envién los datos de value con un post a  la api http://localhost:3000/login */
         if (errors.email === "" && errors.password === "") {
             axios.post("http://localhost:3000/login", values)
                 .then(res => {

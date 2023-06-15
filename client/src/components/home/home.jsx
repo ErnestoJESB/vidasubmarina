@@ -7,6 +7,7 @@ const Home = () => {
         <div>
             <h1 style={{color: 'white', fontSize: '5rem'}}>Bienvenido a la página principal</h1>
         </div>
+
     )
 }
 
