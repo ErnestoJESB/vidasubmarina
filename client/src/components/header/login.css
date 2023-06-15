@@ -6,27 +6,28 @@
     margin-top: 1rem;
 }
 .login-form-container {
-    position: fixed;
-    top: 8.5rem;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    height: calc(100vh - 8.5rem);
+    position: inherit;
+    height: 40rem;
     background: var(--card);
     padding: 0 2rem;
     display: none;
-    margin: 2%;
+    margin: 2% 10%;
     border-radius: 3rem;
     -webkit-animation: fadeUp .4s linear;
     animation: fadeUp .4s linear;
 }
 
-.login-form-container.active {
-    display: block;
+.login-form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
+
 .login-form-container form {
-    margin: 2rem auto;
+    margin: 2%;
     max-width: 50rem;
     border: 0.1rem solid rgba(0, 0, 0, 0.2);
     padding: 2rem;

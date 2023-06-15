@@ -15,11 +15,11 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<div>
-          <Login />
           <Cards />
           <Conocenos />
           <Carrousel />
         </div>} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
       </Routes>
