@@ -33,8 +33,8 @@ function Validation(values) {
     if (values.phone === "") {
         error.phone = "Debe ingresar un número de teléfono";
     }
-    else if (values.phone.length <= 10) {
-        error.phone = "El número de teléfono debe tener al menos 10 caracteres";
+    else if (values.phone.length < 8) {
+        error.phone = "El número de teléfono debe tener al menos 8 caracteres";
     } else {
         error.phone = "";
     }

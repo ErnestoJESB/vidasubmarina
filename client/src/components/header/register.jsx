@@ -56,12 +56,12 @@ const Register = () => {
             <div className="flex">
                 <div className="inputBox">
                     <span>Apellido</span>
-                    <input type="text" placeholder="apellido" className="form-control" name="apellido" onChange={handleInput} autoComplete="disable" />
+                    <input type="text" placeholder="apellido" className="form-control" name="lastname" onChange={handleInput} autoComplete="disable" />
                     {errors.lastname && <span style={{ fontSize: '1.4rem', color: 'red' }}>{errors.lastname}</span>}
                 </div>
                 <div className="inputBox">
                     <span>Número de teléfono</span>
-                    <input type="number" placeholder="número de teléfono" className="form-control" name="number" onChange={handleInput} autoComplete="disable" />
+                    <input type="number" placeholder="número de teléfono" className="form-control" name="phone" onChange={handleInput} autoComplete="disable" />
                     {errors.phone && <span style={{ fontSize: '1.4rem', color: 'red' }}>{errors.phone}</span>}
                 </div>
             </div>

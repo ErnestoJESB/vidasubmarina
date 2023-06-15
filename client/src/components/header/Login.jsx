@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import "./login.css"
 import Validation from "./LoginValidation";
-/* hay algo el login que no me deja ver cosas en el navegador */
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
     const [values, setValues] = useState({
         email: '',
         password: ''
     });
+    const navigate = useNavigate();
     const [errors, setErrors] = useState({});
 
     const handleInput = (event) => {
@@ -15,7 +18,19 @@ const Login = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         setErrors(Validation(values));
-
+        if (errors.email === "" && errors.password === "") {
+            axios.post("http://localhost:3000/login", values)
+                .then(res => {
+                    if (res.data === "success") {
+                        navigate("/home");
+                    } else {
+                        alert("Usuario o contraseña incorrectos");
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        }
     }
 
     return (
