@@ -34,15 +34,32 @@ controller.login = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.status(500).send('Error del servidor');
     conn.query(sql, [req.body.email, req.body.password], (err, data) => {
-      if(err) return res.json("Obi wan kenobi has failed us"); 
-      if(data.length > 0) {
+      if (err) return res.json("Obi wan kenobi has failed us");
+      if (data.length > 0) {
         return res.json('Success');
       } else {
         return res.json('Anakin, I have the high ground');
       }
     });
   });
-  
+
 };
+
+controller.authAdmin = (req, res) => {
+  const sql2 = 'SELECT * FROM login WHERE email = ? AND tipo_usuario = "admin"';
+  req.getConnection((err, conn) => {
+    if (err) return res.status(500).send('Error del servidor');
+            conn.query(sql2, [req.body.email], (err, data) => {
+              if (err) return res.json("Obi wan kenobi has failed us");
+              if (data.length > 0) {
+                return res.json('SuccessAdmin');
+              } else {
+                return res.json('Success');
+              }
+            });    
+  });
+
+};
+
 
 module.exports = controller;

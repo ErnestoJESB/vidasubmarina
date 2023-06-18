@@ -86,7 +86,7 @@ const Register = () => {
             </div>
             <input type="submit" value="Registrar" className="btn btn2" onClick={handleSubmit} />
             <p>
-                ¿Ya tienes una cuenta? <a href="http://localhost:5173/">Inicia sesión</a>{" "}
+                ¿Ya tienes una cuenta? <a href="http://localhost:5173/login">Inicia sesión</a>{" "}
             </p>
         </form>
 
