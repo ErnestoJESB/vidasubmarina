@@ -15,13 +15,25 @@ const Login = () => {
     const handleInput = (event) => {
         setValues(prev => ({ ...prev, [event.target.name]: event.target.value }));
     }
+    axios.defaults.withCredentials = true;
+    useEffect(() => {
+        axios.get("http://localhost:3000/home")
+        .then(res => {
+            if(res.data.valid){
+                navigate("/home");
+            }else{
+                navigate("/login");
+            }
+            })
+            .catch(error => console.log(error))
+    }, [])
     const handleSubmit = (event) => {
         event.preventDefault();
         setErrors(Validation(values));
         if (errors.email === "" && errors.password === "") {
             axios.post("http://localhost:3000/login", values)
                 .then(res => {
-                    if (res.data === "Success") {
+                    if (res.data.Login) {
                         navigate("/home");
                     } else {
                         alert("Usuario o contraseña incorrectos");

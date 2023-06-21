@@ -5,12 +5,25 @@ const mysql = require('mysql2');
 const myConnection = require('express-myconnection');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 
 
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: 'http://localhost:5173'
+  origin: ['http://localhost:5173'],
+  methods: ['GET', 'POST'],
+  credentials: true
+}))
+app.use(cookieParser());
+app.use(session({
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 // 1 day
+  }
 }));
 
 //importando routes
@@ -50,6 +63,6 @@ app.listen(3000, () => {
   console.log('It´s works')
 })
 
-app.use(cors())
+
 app.use(express.static(path.join(__dirname, 'dbimages')))
 app.use(express.static(path.join(__dirname, 'condominios')))
