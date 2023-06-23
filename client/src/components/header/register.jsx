@@ -13,7 +13,6 @@ const Register = () => {
         phone: '',
         address: '',
         password2: ''
-
     });
     const navigate = useNavigate();
     const [errors, setErrors] = useState({});
