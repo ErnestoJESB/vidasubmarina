@@ -12,7 +12,7 @@ const Cards = () => {
                 <h3>administradores de condominos</h3>
                 <p>
                     Ofrecemos soluciones a la medida de su presupuesto, por lo que nos convierte en la mejor opción dentro del sector de administración de condominios del sureste Mexicano.</p>
-                <a href="#popular" className="btn">Conócenos</a>
+                <a href="https://www.facebook.com/people/M-Wold-Administradores/100055314671843/" className="btn">Conócenos</a>
             </div>
             <div className="image">
                 <div key={edificio}>

@@ -16,17 +16,21 @@ const Login = () => {
         setValues(prev => ({ ...prev, [event.target.name]: event.target.value }));
     }
     axios.defaults.withCredentials = true;
+    
     useEffect(() => {
-        axios.get("http://localhost:3000/home")
-        .then(res => {
-            if(res.data.valid){
-                navigate("/home");
-            }else{
-                navigate("/login");
-            }
+        axios.get("http://localhost:3000/user")
+            .then(res => {
+                if (res.data.Status === "Success") {
+                    navigate("/home");
+                } else {
+                    navigate("/login");
+                }
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                console.log(error);
+            })
     }, [])
+
     const handleSubmit = (event) => {
         event.preventDefault();
         setErrors(Validation(values));

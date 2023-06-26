@@ -28,6 +28,12 @@ body {
     background-color: #000000;
 }
 
+h3 {
+    font-size: 4rem;
+    color: var(--color3);
+    padding-top: 1rem;
+}
+
 p{
     text-transform: none;
 }
