@@ -1,9 +1,10 @@
 import React from "react";
 
-const Admin = () => {
+const Admin = ({userName}) => {
     return (
         <div>
-            <h1>Admin</h1>
+            <h3>Admin</h3>
+            <h3>Bienvenido {userName}</h3>
         </div>
     );
 }

@@ -7,6 +7,7 @@ import Register from "./components/header/register";
 import Home from "./components/home/home";
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import RegistrarIncidencia from "./components/incidencias/crear/registrarincidencia";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/crearincidencia" element={<RegistrarIncidencia/>}/>
       </Routes>
     </BrowserRouter>
 

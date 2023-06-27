@@ -9,6 +9,7 @@ const Home = () => {
     const [auth, setAuth] = useState(false);
     const [message, setMessage] = useState('');
     const [role, setRole] = useState('');
+    const [name, setName] = useState('');
 
 
     const navigate = useNavigate();
@@ -19,6 +20,7 @@ const Home = () => {
                 if (res.data.Status === "Success") {
                     setAuth(true);
                     setRole(res.data.userRole);
+                    setName(res.data.userName);
                 } else {
                     navigate("/login");
                     setAuth(false);
@@ -35,7 +37,9 @@ const Home = () => {
             .then(res => {
                 location.reload(true);
             })
-            .then(error => console.log(error))
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     return (
@@ -43,18 +47,18 @@ const Home = () => {
         <div>
             {
                 auth ?
-                <div>
-                    <div> 
-                        { role === "super-admin" && <SuperAdmin/>} 
-                        { role === "admin" && <Admin/> }
-                        { role === "cliente" && <Condomino/> }
+                    <div>
+                        <button className="btn" onClick={handleDelete}>logout</button>
+                        <div>
+                            {role === "super-admin" && <SuperAdmin userName={name} />}
+                            {role === "admin" && <Admin userName={name} />}
+                            {role === "cliente" && <Condomino userName={name} />}
+                        </div>
                     </div>
-                    <button className="btn" onClick={handleDelete}>logout</button>
-                </div>
-                :
-                <div>
-                
-                </div>
+                    :
+                    <div>
+
+                    </div>
 
             }
         </div>

@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 
 
+
 const controller = {};
 
 
@@ -31,6 +32,8 @@ controller.register = (req, res) => {
   })
 };
 
+
+
 controller.login = (req, res) => {
   const sql = 'SELECT * FROM login WHERE email = ?';
   req.getConnection((err, conn) => {
@@ -42,9 +45,10 @@ controller.login = (req, res) => {
           if (err) return res.json({ Error: "Error al comparar contraseñas" });
           if (result) {
             const role = data[0].role;
-            const token = jwt.sign({ role }, 'MWOLD', { expiresIn: '1h' })
+            const name = data[0].name;
+            const token = jwt.sign({ role, name }, 'MWOLD', { expiresIn: '1h' })
             res.cookie('token', token)
-            return res.json({ Login: true, userRole: data[0].role });
+            return res.json({ Login: true, userRole: data[0].role, userName: data[0].name });
           }
           return res.json({ Login: false });
         });
@@ -63,9 +67,10 @@ controller.user = (req, res, next) => {
   jwt.verify(token, 'MWOLD', (err, decoded) => {
     if (err) return res.json({ Error: "Token invalido" });
     req.userRole = decoded.role;
+    req.userName = decoded.name;
     next();
   });
-  return res.json({ Status: "Success", userRole: req.userRole });
+  return res.json({ Status: "Success", userRole: req.userRole, userName: req.userName });
 };
 
 controller.logout = (req, res) => {

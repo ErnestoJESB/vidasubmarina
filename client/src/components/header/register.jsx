@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./register.css"
 import Validation from "./RegisterValidation";
 import axios from "axios";
 
