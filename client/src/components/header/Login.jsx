@@ -4,6 +4,8 @@ import Validation from "./LoginValidation";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+
+
 const Login = () => {
     const [values, setValues] = useState({
         email: '',
@@ -15,6 +17,16 @@ const Login = () => {
     const handleInput = (event) => {
         setValues(prev => ({ ...prev, [event.target.name]: event.target.value }));
     }
+
+    let reloadEjecutado = false;
+
+    function recargarPaginaUnaVez() {
+        if (!reloadEjecutado) {
+          reloadEjecutado = true;
+          location.reload();
+        }
+      }
+
     axios.defaults.withCredentials = true;
     
     useEffect(() => {
@@ -22,8 +34,6 @@ const Login = () => {
             .then(res => {
                 if (res.data.Status === "Success") {
                     navigate("/home");
-                } else {
-                    navigate("/login");
                 }
             })
             .catch(error => {
@@ -39,6 +49,7 @@ const Login = () => {
                 .then(res => {
                     if (res.data.Login) {
                         navigate("/home");
+                        recargarPaginaUnaVez();
                     } else {
                         alert("Usuario o contraseña incorrectos");
                     }

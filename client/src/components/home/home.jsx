@@ -4,13 +4,15 @@ import { useNavigate } from "react-router-dom";
 import Admin from "../vistasUsuarios/admin/admin";
 import SuperAdmin from "../vistasUsuarios/superadmin/superadmin";
 import Condomino from "../vistasUsuarios/condomino/condomino";
+import IniciaSesion from "../cards/inicia_sesion";
 
 const Home = () => {
     const [auth, setAuth] = useState(false);
     const [message, setMessage] = useState('');
     const [role, setRole] = useState('');
     const [name, setName] = useState('');
-
+    const [id, setId] = useState('');
+    
 
     const navigate = useNavigate();
     axios.defaults.withCredentials = true;
@@ -21,8 +23,8 @@ const Home = () => {
                     setAuth(true);
                     setRole(res.data.userRole);
                     setName(res.data.userName);
+                    setId(res.data.userId);                    
                 } else {
-                    navigate("/login");
                     setAuth(false);
                     setMessage("No estas logeado");
                 }
@@ -31,16 +33,7 @@ const Home = () => {
                 console.log(error);
             })
     }, [])
-
-    const handleDelete = () => {
-        axios.get("http://localhost:3000/logout")
-            .then(res => {
-                location.reload(true);
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }
+ 
 
     return (
 
@@ -48,16 +41,16 @@ const Home = () => {
             {
                 auth ?
                     <div>
-                        <button className="btn" onClick={handleDelete}>logout</button>
                         <div>
-                            {role === "super-admin" && <SuperAdmin userName={name} />}
-                            {role === "admin" && <Admin userName={name} />}
-                            {role === "cliente" && <Condomino userName={name} />}
+                            {role === "super-admin" && <SuperAdmin userName={name} userId={id} />}
+                            {role === "admin" && <Admin userName={name} userId={id} />}
+                            {role === "cliente" && <Condomino userName={name} userId={id} />}
                         </div>
                     </div>
                     :
                     <div>
-
+                        {/* haz un div que diga que debes iniciar sesión */}
+                        <IniciaSesion />
                     </div>
 
             }

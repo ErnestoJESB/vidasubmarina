@@ -46,9 +46,10 @@ controller.login = (req, res) => {
           if (result) {
             const role = data[0].role;
             const name = data[0].name;
-            const token = jwt.sign({ role, name }, 'MWOLD', { expiresIn: '1h' })
+            const id = data[0].idlogin;
+            const token = jwt.sign({ role, name, id}, 'MWOLD', { expiresIn: '1h' })
             res.cookie('token', token)
-            return res.json({ Login: true, userRole: data[0].role, userName: data[0].name });
+            return res.json({ Login: true, userRole: data[0].role, userName: data[0].name, userId: data[0].idlogin });
           }
           return res.json({ Login: false });
         });
@@ -68,9 +69,10 @@ controller.user = (req, res, next) => {
     if (err) return res.json({ Error: "Token invalido" });
     req.userRole = decoded.role;
     req.userName = decoded.name;
+    req.userId = decoded.id;
     next();
   });
-  return res.json({ Status: "Success", userRole: req.userRole, userName: req.userName });
+  return res.json({ Status: "Success", userRole: req.userRole, userName: req.userName, userId: req.userId });
 };
 
 controller.logout = (req, res) => {

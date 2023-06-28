@@ -79,6 +79,20 @@ section {
     color: var(--color3);
 }
 
+/* quiero que este botón se encuentre en el lado superior derecho un poco escondido */
+.button{
+    display: inline-block;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+    color: #f7f6f9;
+    background: linear-gradient(135deg, var(--color1), var(--color3));
+    border-radius: 1rem;
+}
+
 .btn {
     display: inline-block;
     margin-top: 1rem;

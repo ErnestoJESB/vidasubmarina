@@ -22,7 +22,7 @@ function App() {
         </div>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/home" element={<Home/>} />
         <Route path="/crearincidencia" element={<RegistrarIncidencia/>}/>
       </Routes>
     </BrowserRouter>
