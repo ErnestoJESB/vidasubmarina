@@ -45,7 +45,7 @@ app.use(myConnection(mysql, {
   user: 'root',
   password: 'Soberano15',
   port: 3306,
-  database: 'customersdb'
+  database: 'mwold'
 }, 'single'))
 app.use(express.urlencoded({ extended: false }))
 

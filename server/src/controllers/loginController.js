@@ -9,16 +9,18 @@ const controller = {};
 
 
 controller.register = (req, res) => {
-  const sql = 'INSERT INTO login (email, password, name, lastname, address, phone) VALUES (?)';
+  const sql = 'INSERT INTO usuario (email, password, name, lastname, address, telefono, idcondominio) VALUES (?)';
   bcrypt.hash(req.body.password.toString(), salt, (err, hash) => {
     if (err) return res.json({ Error: "Error al encriptar contraseña" });
+    console.log(req.body.condominio);
     const values = [
       req.body.email,
       hash,
       req.body.name,
       req.body.lastname,
       req.body.address,
-      req.body.phone
+      req.body.phone,
+      req.body.condominio
     ];
     req.getConnection((err, conn) => {
       if (err) return res.status(500).send('Error del servidor');
@@ -35,7 +37,7 @@ controller.register = (req, res) => {
 
 
 controller.login = (req, res) => {
-  const sql = 'SELECT * FROM login WHERE email = ?';
+  const sql = 'SELECT * FROM usuario WHERE email = ?';
   req.getConnection((err, conn) => {
     if (err) return res.status(500).send('Error del servidor');
     conn.query(sql, [req.body.email], (err, data) => {
@@ -44,12 +46,12 @@ controller.login = (req, res) => {
         bcrypt.compare(req.body.password.toString(), data[0].password, (err, result) => {
           if (err) return res.json({ Error: "Error al comparar contraseñas" });
           if (result) {
-            const role = data[0].role;
+            const tipo_usuario = data[0].tipo_usuario;
             const name = data[0].name;
-            const id = data[0].idlogin;
-            const token = jwt.sign({ role, name, id}, 'MWOLD', { expiresIn: '1h' })
+            const id = data[0].id;
+            const token = jwt.sign({ tipo_usuario, name, id}, 'MWOLD', { expiresIn: '1h' })
             res.cookie('token', token)
-            return res.json({ Login: true, userRole: data[0].role, userName: data[0].name, userId: data[0].idlogin });
+            return res.json({ Login: true, tipo_usuario: data[0].tipo_usuario, userName: data[0].name, userId: data[0].id });
           }
           return res.json({ Login: false });
         });
@@ -67,12 +69,12 @@ controller.user = (req, res, next) => {
   if (!token) return res.json({ Error: "No hay token" });
   jwt.verify(token, 'MWOLD', (err, decoded) => {
     if (err) return res.json({ Error: "Token invalido" });
-    req.userRole = decoded.role;
+    req.tipo_usuario = decoded.tipo_usuario;
     req.userName = decoded.name;
     req.userId = decoded.id;
     next();
   });
-  return res.json({ Status: "Success", userRole: req.userRole, userName: req.userName, userId: req.userId });
+  return res.json({ Status: "Success", tipo_usuario: req.tipo_usuario, userName: req.userName, userId: req.userId });
 };
 
 controller.logout = (req, res) => {

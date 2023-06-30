@@ -29,7 +29,7 @@ controller.get = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.status(500).send('server error');
 
-    const query = 'SELECT * FROM condominios ORDER BY name ASC';
+    const query = 'SELECT * FROM condominio ORDER BY name ASC';
     conn.query(query, (err, rows) => {
       if (err) return res.status(500).send('server error');
 
@@ -93,7 +93,7 @@ controller.save = (req, res) => {
       data.name_image = name_image;
       data.data_image = data_image;
 
-      conn.query('INSERT INTO condominios SET ?', data, (err, rows) => {
+      conn.query('INSERT INTO condominio SET ?', data, (err, rows) => {
         if (err) {
           console.error('Error inserting image:', err);
           return res.status(500).send('Error inserting image');
@@ -109,7 +109,7 @@ controller.delete = (req, res) => {
   const { id } = req.params;
 
   req.getConnection((err, conn) => {
-    conn.query('SELECT * FROM condominios WHERE id = ?', [id], (err, rows) => {
+    conn.query('SELECT * FROM condominio WHERE id = ?', [id], (err, rows) => {
       if (err) {
         console.error('Error retrieving condominio:', err);
         return res.status(500).send('Error retrieving condominio');
@@ -138,7 +138,7 @@ controller.delete = (req, res) => {
         }
 
         // Eliminar la entrada del condominio de la base de datos
-        conn.query('DELETE FROM condominios WHERE id = ?', [id], (err, rows) => {
+        conn.query('DELETE FROM condominio WHERE id = ?', [id], (err, rows) => {
           if (err) {
             console.error('Error deleting condominio:', err);
             return res.status(500).send('Error deleting condominio');
@@ -157,7 +157,7 @@ controller.edit = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.status(500).send('Error del servidor');
 
-    const query = 'SELECT * FROM condominios WHERE id = ?'; // Filtrando por el ID proporcionado
+    const query = 'SELECT * FROM condominio WHERE id = ?'; // Filtrando por el ID proporcionado
     conn.query(query, [id], (err, rows) => {
       if (err) return res.status(500).send('Error del servidor');
 
@@ -218,7 +218,7 @@ controller.update = (req, res) => {
         updatedCondominios.data_image = data_image;
         
       }      
-      conn.query('SELECT * FROM condominios WHERE id = ?', [id], (err, rows) => {
+      conn.query('SELECT * FROM condominio WHERE id = ?', [id], (err, rows) => {
         if (err) {
           console.error('Error retrieving condominio:', err);
           return res.status(500).send('Error retrieving condominio');
@@ -249,7 +249,7 @@ controller.update = (req, res) => {
         updatedCondominios.description = description;
         console.log(updatedCondominios);
 
-      conn.query('UPDATE condominios SET ? WHERE id = ?', [updatedCondominios, id], (err, rows) => {
+      conn.query('UPDATE condominio SET ? WHERE id = ?', [updatedCondominios, id], (err, rows) => {
         if (err) {
           console.error('Error updating condominio:', err);
           return res.status(500).send('Error updating condominio');
@@ -265,7 +265,7 @@ module.exports = controller;
 
 /* controller.list = (req, res) => {
       req.getConnection((err, conn) => {
-        conn.query('SELECT * FROM condominios', (err, condominios) => {
+        conn.query('SELECT * FROM condominio', (err, condominios) => {
           if (err) {
             res.json(err);
           }
@@ -349,7 +349,7 @@ module.exports = controller;
   const { id } = req.params;
 
  req.getConnection((err, conn) => {
-    conn.query('SELECT * FROM condominios WHERE id = ?', [id], (err, condominio) => {
+    conn.query('SELECT * FROM condominio WHERE id = ?', [id], (err, condominio) => {
       res.render('condominios_edit', {
         data: condominio[0]
       })

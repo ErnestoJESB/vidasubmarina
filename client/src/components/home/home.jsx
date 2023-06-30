@@ -12,7 +12,7 @@ const Home = () => {
     const [role, setRole] = useState('');
     const [name, setName] = useState('');
     const [id, setId] = useState('');
-    
+
 
     const navigate = useNavigate();
     axios.defaults.withCredentials = true;
@@ -21,9 +21,9 @@ const Home = () => {
             .then(res => {
                 if (res.data.Status === "Success") {
                     setAuth(true);
-                    setRole(res.data.userRole);
+                    setRole(res.data.tipo_usuario);
                     setName(res.data.userName);
-                    setId(res.data.userId);                    
+                    setId(res.data.userId);
                 } else {
                     setAuth(false);
                     setMessage("No estas logeado");
@@ -33,7 +33,7 @@ const Home = () => {
                 console.log(error);
             })
     }, [])
- 
+
 
     return (
 
@@ -41,11 +41,9 @@ const Home = () => {
             {
                 auth ?
                     <div>
-                        <div>
-                            {role === "super-admin" && <SuperAdmin userName={name} userId={id} />}
-                            {role === "admin" && <Admin userName={name} userId={id} />}
-                            {role === "cliente" && <Condomino userName={name} userId={id} />}
-                        </div>
+                        {role === "super-admin" && <SuperAdmin userName={name} userId={id} />}
+                        {role === "admin" && <Admin userName={name} userId={id} />}
+                        {role === "usuario" && <Condomino userName={name} userId={id} />}
                     </div>
                     :
                     <div>

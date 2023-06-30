@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 import "./Header.css"
 const Header = () => {
 
   useEffect(() => {
-    ;
+    
     const navbar = document.querySelector('.header .navbar');
     const menuBtn = document.querySelector('#menu-btn');
 
@@ -33,14 +32,13 @@ const Header = () => {
   const [auth, setAuth] = useState(false);
   const [role, setRole] = useState('');
 
-  const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios.get("http://localhost:3000/user")
       .then(res => {
         if (res.data.Status === "Success") {
           setAuth(true);
-          setRole(res.data.userRole);
+          setRole(res.data.tipo_usuario);
         } else {
           setAuth(false);
         }
@@ -60,9 +58,6 @@ const Header = () => {
       })
   }
 
-  
-
-
   return (
     <div>
       {
@@ -71,14 +66,12 @@ const Header = () => {
             <a href="http://localhost:5173/" className="logo"><div>
               <img src={'http://localhost:3000/13-reporte.png'} alt="..." /></div>
             </a>
-
             <nav className="navbar">
               <a href="http://localhost:5173/">Inicio</a>
               <a href="http://localhost:3000/customer">Clientes</a>
               <a href="http://localhost:3000/condominio">Condominios</a>
               <a href="http://localhost:5173/home">{role}</a>
             </nav>
-
             <div className="icons">
               <div id="menu-btn" className="ri-menu-line"></div>
               <button className="btn" onClick={handleDelete}>logout</button>

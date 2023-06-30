@@ -67,6 +67,14 @@ function Validation(values) {
     else {
         error.password2 = "";
     }
+
+    if(values.condominio === ""){
+        error.condominio = "No debe estar vacío";
+    }
+    else{
+        error.condominio = "";
+    }
+
     return error;
     
 
