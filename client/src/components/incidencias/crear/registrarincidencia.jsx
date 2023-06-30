@@ -1,7 +1,9 @@
 import React from "react";
 
 
-const RegistrarIncidencia = () => {
+
+const RegistrarIncidencia = ({id}) => {
+    
     return (
         <section className="order" id="order">
             <div className="heading">

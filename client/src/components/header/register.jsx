@@ -26,7 +26,7 @@ const Register = () => {
         if (errors.email === "" && errors.password === "" && errors.name === "" && errors.lastname === "" && errors.phone === "" && errors.address === "" && errors.password2 === "" && errors.condominio === "") {
             axios.post('http://localhost:3000/register', values)
                 .then(res => {
-                    navigate('/');
+                    navigate('/home');
                 })
                 .catch(err => {
                     console.log(err);

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import Admin from "../vistasUsuarios/admin/admin";
 import SuperAdmin from "../vistasUsuarios/superadmin/superadmin";
 import Condomino from "../vistasUsuarios/condomino/condomino";
@@ -12,9 +11,9 @@ const Home = () => {
     const [role, setRole] = useState('');
     const [name, setName] = useState('');
     const [id, setId] = useState('');
+    const [incidencias, setIncidencias] = useState('');
 
 
-    const navigate = useNavigate();
     axios.defaults.withCredentials = true;
     useEffect(() => {
         axios.get("http://localhost:3000/user")
@@ -34,7 +33,20 @@ const Home = () => {
             })
     }, [])
 
-
+    useEffect(() => {
+        axios.get(`http://localhost:3000/incidencias/${id}`)
+            .then(res => {
+                if (res.data.Status === "Success") {
+                    setIncidencias(res.data.data);
+                } else {
+                    setIncidencias([]);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }, [id])
+    
     return (
 
         <div>

@@ -31,6 +31,7 @@ app.use(session({
 const customersRoutes = require('./routes/customer');
 const condominioRoutes = require('./routes/condominio');
 const loginRoutes = require('./routes/login');
+const incidenciaRoutes = require('./routes/incidencias');
 
 
 //settings

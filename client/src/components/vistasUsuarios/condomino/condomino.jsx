@@ -11,7 +11,7 @@ const Condomino = ({ userName, userId}) => {
             </div>
             <div>
                 <section className="category">
-                    <a href="#" className="box">
+                    <a href="http://localhost:5173/crearincidencia" className="box">
                         <img src="img/condominio-1.jpg" alt="" />
                         <h3>Crear incidencia</h3>
                     </a>

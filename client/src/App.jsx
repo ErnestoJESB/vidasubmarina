@@ -10,10 +10,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RegistrarIncidencia from "./components/incidencias/crear/registrarincidencia";
 
 
-function App() {
+function App({ auth, role, id}) {
+  const autenticacion = auth;
+  const rol = role;
+  const idUsuario = id;
   return (
     <BrowserRouter>
-      <Header />
+      <Header auth={autenticacion} role={rol}/>
       <Routes>
         <Route path="/" element={<div>
           <Cards />
@@ -23,7 +26,12 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home/>} />
-        <Route path="/crearincidencia" element={<RegistrarIncidencia/>}/>
+        {
+          auth ?
+          <Route path="/crearincidencia" element={<RegistrarIncidencia id={idUsuario}/>}/>
+          :
+          <Route path="/crearincidencia" element={<Login/>}/>
+        }
       </Routes>
     </BrowserRouter>
 

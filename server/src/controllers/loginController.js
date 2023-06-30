@@ -12,7 +12,6 @@ controller.register = (req, res) => {
   const sql = 'INSERT INTO usuario (email, password, name, lastname, address, telefono, idcondominio) VALUES (?)';
   bcrypt.hash(req.body.password.toString(), salt, (err, hash) => {
     if (err) return res.json({ Error: "Error al encriptar contraseña" });
-    console.log(req.body.condominio);
     const values = [
       req.body.email,
       hash,

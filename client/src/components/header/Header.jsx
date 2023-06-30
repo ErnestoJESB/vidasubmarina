@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import "./Header.css"
-const Header = () => {
+const Header = ({auth, role}) => {
 
   useEffect(() => {
     
@@ -29,24 +29,7 @@ const Header = () => {
   }, []);
   /* A partir de aquí todo estaba bien xd */
 
-  const [auth, setAuth] = useState(false);
-  const [role, setRole] = useState('');
-
-  axios.defaults.withCredentials = true;
-  useEffect(() => {
-    axios.get("http://localhost:3000/user")
-      .then(res => {
-        if (res.data.Status === "Success") {
-          setAuth(true);
-          setRole(res.data.tipo_usuario);
-        } else {
-          setAuth(false);
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      })
-  }, [])
+  
 
   const handleDelete = () => {
     axios.get("http://localhost:3000/logout")

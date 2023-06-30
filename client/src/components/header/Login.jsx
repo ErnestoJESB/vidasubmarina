@@ -23,23 +23,12 @@ const Login = () => {
     function recargarPaginaUnaVez() {
         if (!reloadEjecutado) {
           reloadEjecutado = true;
+          navigate("/home");
           location.reload();
         }
       }
 
     axios.defaults.withCredentials = true;
-    
-    useEffect(() => {
-        axios.get("http://localhost:3000/user")
-            .then(res => {
-                if (res.data.Status === "Success") {
-                    navigate("/home");
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }, [])
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -48,7 +37,6 @@ const Login = () => {
             axios.post("http://localhost:3000/login", values)
                 .then(res => {
                     if (res.data.Login) {
-                        navigate("/home");
                         recargarPaginaUnaVez();
                     } else {
                         alert("Usuario o contraseña incorrectos");
