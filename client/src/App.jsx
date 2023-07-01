@@ -7,7 +7,7 @@ import Register from "./components/header/register";
 import Home from "./components/home/home";
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import RegistrarIncidencia from "./components/incidencias/crear/registrarincidencia";
+import RegistrarIncidencia from "./components/incidencias/registrarincidencia";
 
 
 function App({ auth, role, id}) {

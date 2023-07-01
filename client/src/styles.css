@@ -838,3 +838,108 @@ form p a:hover {
 
 /* order section end */
 
+/*  start tabl */  
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    vertical-align: top;
+    border-color:var(--color1) ;
+    background-color: var(--card);
+}
+
+table {
+    caption-side: bottom;
+    border-collapse: collapse;
+}
+.col-md-7 {
+    display: flex;
+    justify-content: center;
+}
+
+.table>:not(caption)>*>* {
+    padding: 0.5rem 0.5rem;
+    background-color: var(--card);
+    border-width: 1px;
+    border-color:var(--card2) ;
+}
+tbody, td, tfoot, th, thead, tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    font-size: 1rem;
+}
+ /* End table*/
+
+ /* Cards Incidencias */
+ .card {
+    padding: 20px;
+    width: 330px;
+    min-height: 370px;
+    border-radius: 20px;
+    background: #212121;
+    box-shadow: 5px 5px 8px #1b1b1b,
+               -5px -5px 8px #272727;
+    transition: 0.4s;
+    margin: 20px;
+  }
+
+  .listar{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+    
+  }
+  
+  .card:hover {
+    translate: 0 -10px;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #b2eccf;
+    margin: 15px 0 0 10px;
+  }
+
+    .card-subtitle {
+        font-size: 18px;
+        font-weight: 600;
+        color: #b2eccf;
+        margin: 15px 0 0 10px;
+    }
+  
+  .card-image {
+    min-height: 170px;
+    background-color: #313131;
+    border-radius: 15px;
+    background: #313131;
+    box-shadow: inset 5px 5px 3px #2f2f2f,
+              inset -5px -5px 3px #333333;
+  }
+
+    .card-image img {
+        width: 100%;
+        height: 30rem;
+        border-radius: 15px;
+        object-fit: cover;
+    }
+  
+  .card-body {
+    margin: 13px 0 0 10px;
+    color: rgb(184, 184, 184);
+    font-size: 15px;
+  }
+  
+  .foote {
+    float: right;
+    margin: 28px 0 0 18px;
+    font-size: 13px;
+    color: #b3b3b3;
+  }
+  
+  .by-name {
+    font-weight: 700;
+  }
+ /* Cards Incidencias */

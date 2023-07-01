@@ -11,7 +11,6 @@ const Home = () => {
     const [role, setRole] = useState('');
     const [name, setName] = useState('');
     const [id, setId] = useState('');
-    const [incidencias, setIncidencias] = useState('');
 
 
     axios.defaults.withCredentials = true;
@@ -33,19 +32,6 @@ const Home = () => {
             })
     }, [])
 
-    useEffect(() => {
-        axios.get(`http://localhost:3000/incidencias/${id}`)
-            .then(res => {
-                if (res.data.Status === "Success") {
-                    setIncidencias(res.data.data);
-                } else {
-                    setIncidencias([]);
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }, [id])
     
     return (
 
@@ -59,7 +45,6 @@ const Home = () => {
                     </div>
                     :
                     <div>
-                        {/* haz un div que diga que debes iniciar sesión */}
                         <IniciaSesion />
                     </div>
 

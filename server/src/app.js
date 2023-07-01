@@ -60,6 +60,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // Para analizar el cuerpo d
 app.use('/', customersRoutes);
 app.use('/', condominioRoutes);
 app.use('/', loginRoutes);
+app.use('/', incidenciaRoutes);
 
 app.listen(3000, () => {
   console.log('It´s works')

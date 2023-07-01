@@ -1,6 +1,7 @@
 import React from "react";
 
-const SuperAdmin = ({userName}) => {
+const SuperAdmin = ({userName, userId}) => {
+
     return (
         <div>
             <h3>Super Admin</h3>
