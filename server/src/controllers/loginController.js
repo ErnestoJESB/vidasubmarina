@@ -48,9 +48,10 @@ controller.login = (req, res) => {
             const tipo_usuario = data[0].tipo_usuario;
             const name = data[0].name;
             const id = data[0].id;
-            const token = jwt.sign({ tipo_usuario, name, id}, 'MWOLD', { expiresIn: '1h' })
+            const idcondominio = data[0].idcondominio;
+            const token = jwt.sign({ tipo_usuario, name, id, idcondominio}, 'MWOLD', { expiresIn: '1h' })
             res.cookie('token', token)
-            return res.json({ Login: true, tipo_usuario: data[0].tipo_usuario, userName: data[0].name, userId: data[0].id });
+            return res.json({ Login: true, tipo_usuario: data[0].tipo_usuario, userName: data[0].name, userId: data[0].id, idcondominio: data[0].idcondominio });
           }
           return res.json({ Login: false });
         });
@@ -71,9 +72,10 @@ controller.user = (req, res, next) => {
     req.tipo_usuario = decoded.tipo_usuario;
     req.userName = decoded.name;
     req.userId = decoded.id;
+    req.idcondominio = decoded.idcondominio;
     next();
   });
-  return res.json({ Status: "Success", tipo_usuario: req.tipo_usuario, userName: req.userName, userId: req.userId });
+  return res.json({ Status: "Success", tipo_usuario: req.tipo_usuario, userName: req.userName, userId: req.userId, idcondominio: req.idcondominio });
 };
 
 controller.logout = (req, res) => {

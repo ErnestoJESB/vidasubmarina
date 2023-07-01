@@ -10,10 +10,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RegistrarIncidencia from "./components/incidencias/registrarincidencia";
 
 
-function App({ auth, role, id}) {
+function App({ auth, role, id, condominioUser}) {
   const autenticacion = auth;
   const rol = role;
   const idUsuario = id;
+  const condominio = condominioUser;
   return (
     <BrowserRouter>
       <Header auth={autenticacion} role={rol}/>
@@ -28,7 +29,7 @@ function App({ auth, role, id}) {
         <Route path="/home" element={<Home/>} />
         {
           auth ?
-          <Route path="/crearincidencia" element={<RegistrarIncidencia id={idUsuario}/>}/>
+          <Route path="/crearincidencia" element={<RegistrarIncidencia id={idUsuario} condominioUs={condominio}/>}/>
           :
           <Route path="/crearincidencia" element={<Login/>}/>
         }

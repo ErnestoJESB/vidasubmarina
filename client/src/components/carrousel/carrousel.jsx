@@ -54,9 +54,7 @@ const Carrousel = () => {
                                 </div>
                             </div>
                         )).slice(indexOfFirstCondominio, indexOfLastCondominio)}
-
                     </div>
-
                 </div>
             </div>
             <Pagination
@@ -65,7 +63,6 @@ const Carrousel = () => {
                 setCurrentPage={setCurrentPage}
                 totalCondominios={totalCondominios}
             />
-
         </section>
     )
 }

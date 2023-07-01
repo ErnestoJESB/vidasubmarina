@@ -10,6 +10,7 @@ const cookieParser = require('cookie-parser');
 const salt = 10;
 
 
+
 const app = express();
 app.use(express.json());
 app.use(cors({
@@ -69,3 +70,4 @@ app.listen(3000, () => {
 
 app.use(express.static(path.join(__dirname, 'dbimages')))
 app.use(express.static(path.join(__dirname, 'condominios')))
+app.use(express.static(path.join(__dirname, 'incidencias')))
