@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 
-:root{
+:root {
     --card: #1b1a1a;
-    --color1:#c49c4c;
-    --color2: #4d3102 ;
-    --color3: #93643a; 
+    --color1: #c49c4c;
+    --color2: #4d3102;
+    --color3: #93643a;
     --color4: #a47c54;
     --color5: #cbb7a5;
-  }
+}
 
 * {
     font-family: 'Poppins', sans-serif;
@@ -34,7 +34,7 @@ h3 {
     padding-top: 1rem;
 }
 
-p{
+p {
     text-transform: none;
 }
 
@@ -80,7 +80,7 @@ section {
 }
 
 /* quiero que este botón se encuentre en el lado superior derecho un poco escondido */
-.button{
+.button {
     display: inline-block;
     top: 0;
     right: 0;
@@ -121,9 +121,10 @@ section {
     padding-bottom: 5rem;
 }
 
-.category h3{
+.category h3 {
     color: #fff;
 }
+
 .category .box {
     flex: 1;
     max-width: 30rem;
@@ -235,30 +236,31 @@ section {
     height: 100%;
     perspective: 1000px;
     font-family: sans-serif;
-  }
-  
-  .title {
+}
+
+.title {
     font-size: 1.5em;
     font-weight: 900;
     text-align: center;
     margin: 0;
-  }
-  
-  .flip-card-inner {
+}
+
+.flip-card-inner {
     position: relative;
     width: 100%;
     height: 100%;
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-  }
-  
-  .flip-card:hover .flip-card-inner {
+}
+
+.flip-card:hover .flip-card-inner {
     transform: rotateY(180deg);
-  }
-  
-  .flip-card-front, .flip-card-back {
-    box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card-front,
+.flip-card-back {
+    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -269,21 +271,21 @@ section {
     backface-visibility: hidden;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 1rem;
-  }
-  
-  .flip-card-front {
-    color: coral;
-  }
+}
 
-  
-  .flip-card-back {
+.flip-card-front {
+    color: coral;
+}
+
+
+.flip-card-back {
     background: linear-gradient(120deg, rgb(255, 174, 145) 30%, coral 88%,
-    bisque 40%, rgb(255, 185, 160) 78%);
+            bisque 40%, rgb(255, 185, 160) 78%);
     color: white;
     transform: rotateY(180deg);
-  }
+}
 
-/* popular section end */       
+/* popular section end */
 
 /* banner section start */
 
@@ -730,7 +732,7 @@ section {
     border-radius: 2rem;
     padding: 2rem;
     text-align: center;
-    background:var(--color1);
+    background: var(--color1);
 }
 
 .order .icons-container .icons img {
@@ -812,7 +814,7 @@ section {
     -moz-appearance: none;
     appearance: none;
     border-radius: 0.25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 form p {
@@ -832,7 +834,7 @@ form p a:hover {
 }
 
 /* haz que se ponga en medio el btn */
-.btn2{
+.btn2 {
     margin-left: 50%;
     transform: translateX(-50%);
 }
@@ -840,13 +842,13 @@ form p a:hover {
 
 /* order section end */
 
-/*  start tabl */  
+/*  start tabl */
 .table {
     width: 100%;
     margin-bottom: 1rem;
     color: #ffffff;
     vertical-align: top;
-    border-color:var(--color1) ;
+    border-color: var(--color1);
     background-color: var(--card);
 }
 
@@ -854,6 +856,7 @@ table {
     caption-side: bottom;
     border-collapse: collapse;
 }
+
 .col-md-7 {
     display: flex;
     justify-content: center;
@@ -863,114 +866,101 @@ table {
     padding: 0.5rem 0.5rem;
     background-color: var(--card);
     border-width: 1px;
-    border-color:var(--card2) ;
+    border-color: var(--card2);
 }
-tbody, td, tfoot, th, thead, tr {
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
     border-color: inherit;
     border-style: solid;
     border-width: 0;
     font-size: 1rem;
 }
- /* End table*/
 
- /* Cards Incidencias */
- .card {
+/* End table*/
+
+/* Cards Incidencias */
+.card {
     padding: 20px;
     width: 330px;
     min-height: 370px;
     border-radius: 20px;
     background: #212121;
     box-shadow: 5px 5px 8px #1b1b1b,
-               -5px -5px 8px #272727;
+        -5px -5px 8px #272727;
     transition: 0.4s;
     margin: 20px;
-  }
+}
 
-  .listar{
+.listar {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
     padding: 20px;
-    
-  }
-  
-  .card:hover {
-    translate: 0 -10px;
-  }
-  
-  .card-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: #b2eccf;
-    margin: 15px 0 0 10px;
-  }
 
-    .card-subtitle {
-        font-size: 18px;
-        font-weight: 600;
-        color: #b2eccf;
-        margin: 15px 0 0 10px;
-    }
-  
-  .card-image {
+}
+
+.card:hover {
+    translate: 0 -10px;
+}
+
+.card-image {
     min-height: 170px;
     background-color: #313131;
     border-radius: 15px;
     background: #313131;
     box-shadow: inset 5px 5px 3px #2f2f2f,
-              inset -5px -5px 3px #333333;
-  }
+        inset -5px -5px 3px #333333;
+}
 
-    .card-image img {
-        width: 100%;
-        height: 30rem;
-        border-radius: 15px;
-        object-fit: cover;
-    }
-  
-  .card-body {
+.card-image img {
+    width: 100%;
+    height: 30rem;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.card-body {
     margin: 13px 0 0 10px;
     color: rgb(184, 184, 184);
     font-size: 15px;
-  }
-  
-  .foote {
-    float: right;
-    margin: 28px 0 0 18px;
-    font-size: 13px;
-    color: #b3b3b3;
-  }
-  
-  .by-name {
-    font-weight: 700;
-  }
- /* Cards Incidencias */
+}
 
- /* Cards */
+.by-name {
+    font-weight: 700;
+}
+
+/* Cards Incidencias */
+
+/* Cards */
 
 * {
     margin: 0;
     padding: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-  }
-  
-  h1 {
+}
+
+h1 {
     font-size: 2.5rem;
     font-family: 'Montserrat';
     font-weight: normal;
     color: #444;
     text-align: center;
     margin: 2rem 0;
-  }
-  
-  .wrapper {
+}
+
+.wrapper {
     width: 90%;
     margin: 0 auto;
     max-width: 80rem;
-  }
-  
-  .cols {
+}
+
+.cols {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -979,23 +969,23 @@ tbody, td, tfoot, th, thead, tr {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-  }
-  
-  .col {
+}
+
+.col {
     width: calc(25% - 2rem);
     margin: 1rem;
     cursor: pointer;
-  }
-  
-  .container {
+}
+
+.container {
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     -webkit-perspective: 1000px;
     perspective: 1000px;
-  }
-  
-  .front,
-  .back {
+}
+
+.front,
+.back {
     background-size: cover;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
     border-radius: 10px;
@@ -1013,16 +1003,16 @@ tbody, td, tfoot, th, thead, tr {
     border-radius: 10px;
     color: #fff;
     font-size: 1.5rem;
-  }
-  
-  .back {
+}
+
+.back {
     background: #cedce7;
     background: -webkit-linear-gradient(45deg, #cedce7 0%, #596a72 100%);
     background: -o-linear-gradient(45deg, #cedce7 0%, #596a72 100%);
     background: linear-gradient(45deg, #cedce7 0%, #596a72 100%);
-  }
-  
-  .front:after {
+}
+
+.front:after {
     position: absolute;
     top: 0;
     left: 0;
@@ -1036,25 +1026,25 @@ tbody, td, tfoot, th, thead, tr {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 10px;
-  }
-  
-  .container:hover .front,
-  .container:hover .back {
+}
+
+.container:hover .front,
+.container:hover .back {
     -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
     transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
     -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
     transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
     transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
-  }
-  
-  .back {
+}
+
+.back {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-  }
-  
-  .inner {
+}
+
+.inner {
     -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
     transform: translateY(-50%) translateZ(60px) scale(0.94);
     top: 50%;
@@ -1068,43 +1058,43 @@ tbody, td, tfoot, th, thead, tr {
     -webkit-perspective: inherit;
     perspective: inherit;
     z-index: 2;
-  }
-  
-  .container .back {
+}
+
+.container .back {
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-  }
-  
-  .container .front {
+}
+
+.container .front {
     -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-  }
-  
-  .container:hover .back {
+}
+
+.container:hover .back {
     -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-  }
-  
-  .container:hover .front {
+}
+
+.container:hover .front {
     -webkit-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-  }
-  
-  .front .inner p {
+}
+
+.front .inner p {
     font-size: 2rem;
     margin-bottom: 2rem;
     position: relative;
-  }
-  
-  .front .inner p:after {
+}
+
+.front .inner p:after {
     content: '';
     width: 4rem;
     height: 2px;
@@ -1115,31 +1105,104 @@ tbody, td, tfoot, th, thead, tr {
     right: 0;
     margin: 0 auto;
     bottom: -.75rem;
-  }
-  
-  .front .inner span {
+}
+
+.front .inner span {
     color: rgba(255, 255, 255, 0.7);
     font-family: 'Montserrat';
     font-weight: 300;
-  }
-  
-  @media screen and (max-width: 64rem) {
+}
+
+@media screen and (max-width: 64rem) {
     .col {
-      width: calc(33.333333% - 2rem);
+        width: calc(33.333333% - 2rem);
     }
-  }
-  
-  @media screen and (max-width: 48rem) {
+}
+
+@media screen and (max-width: 48rem) {
     .col {
-      width: calc(50% - 2rem);
+        width: calc(50% - 2rem);
     }
-  }
-  
-  @media screen and (max-width: 32rem) {
+}
+
+@media screen and (max-width: 32rem) {
     .col {
-      width: 100%;
-      margin: 0 0 2rem 0;
+        width: 100%;
+        margin: 0 0 2rem 0;
     }
-  }
-  
-  /* Cards end */
+}
+
+/* Cards end */
+
+.card {
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.999s;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+    font-size: 24px;
+    transform: rotateY(180deg);
+}
+
+.card-back {
+    background-color: #313131;
+    color: #ff1b1b;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+    font-size: 2rem;
+    transform: rotateY(0deg);
+}
+
+.card1 {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+}
+
+
+.m-10 {
+    width: 100%;
+    height: 70%;
+    padding: 10px;
+}
+
+.m-10 p {
+    font-size: 1.5rem;
+
+}
+
+.centrar {
+    display: flex;
+    justify-content: space-around;
+}
