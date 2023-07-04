@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import fs from "fs";
 
 
 const RegistrarIncidencia = ({ id, condominioUs }) => {
@@ -9,10 +10,23 @@ const RegistrarIncidencia = ({ id, condominioUs }) => {
         descripcion: '',
         lugar: '',
         fecha: '',
-        image: '',
+        image: null,
         idcondominio: condominioUs,
         idusuario: id
     });
+
+    const [images, setImage] = useState('');
+
+    const handleImageChange = (event) => {
+        const selectedImage = event.target.files[0];
+        if (selectedImage) {
+          setValues(prev => ({ ...prev, image: selectedImage.name }));
+        } else {
+          setValues(prev => ({ ...prev, image: '' }));
+        }
+      };
+      console.log(images);
+
     console.log(values);
     const navigate = useNavigate();
     const handleInput = (event) => {
@@ -22,7 +36,7 @@ const RegistrarIncidencia = ({ id, condominioUs }) => {
         event.preventDefault();
         axios.post('http://localhost:3000/incidencias', values)
             .then(res => {
-                navigate('/home'); 
+                navigate('/home');
             })
             .catch(err => {
                 console.log(err);
@@ -63,7 +77,7 @@ const RegistrarIncidencia = ({ id, condominioUs }) => {
                 <div className="flex">
                     <div className="inputBox">
                         <span>Insertar evidencia</span>
-                        <input onChange={handleInput} type="file" placeholder="Inserte evidencia" className="form-control" name="image" autoComplete="disable" />
+                        <input onChange={handleImageChange} type="file" accept="image/*" placeholder="Inserte evidencia" className="form-control" name="image" autoComplete="disable" />
                     </div>
                 </div>
                 <input onClick={handleSubmit} type="submit" value="Registrar" className="btn btn2" />

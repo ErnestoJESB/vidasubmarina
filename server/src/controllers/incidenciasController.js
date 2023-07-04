@@ -30,28 +30,35 @@ const fileUpload = multer({
   storage: diskstorage
 }).single('image');
 
+const fs = require('fs');
+
 controller.create = (req, res) => {
   fileUpload(req, res, (err) => {
     if (err) {
-      res.json(err);
+      console.error('Error uploading image:', err);
+      return res.status(500).send('Error uploading image');
     }
+    console.log(req.file);
     const data = req.body;
-    const image = req.file.filename;
-    data.image = image;
+    console.log(data);
+
     req.getConnection((err, conn) => {
       if (err) {
-        res.json(err);
+        console.error('Server error:', err);
+        return res.status(500).send('Server error');
       }
-      conn.query('INSERT INTO incidencia set ?', [data], (err, incidencia) => {
+
+
+      conn.query('INSERT INTO incidencia SET ?', data, (err, rows) => {
         if (err) {
-          res.json(err);
+          console.error('Error inserting image:', err);
+          return res.status(500).send('Error inserting image');
         }
-        res.json(incidencia);
+        console.log('Image inserted successfully');
       });
     });
   });
 };
-
 
 
 
