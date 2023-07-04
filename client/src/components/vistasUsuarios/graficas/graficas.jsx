@@ -1,13 +1,19 @@
+/* yarn add chart.js react-chartjs-2 */
 import React from "react";
-import Graficas from "../graficas/graficas";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Pie } from "react-chartjs-2";
 
-const Admin = ({userName}) => {
+ChartJS.register(ArcElement, Tooltip, Legend);
+
+
+const Graficas = ({ datas, label }) => {
+    
     const data = {
-        labels: ["Midtown", "Grand Arrecife", "Torre Península"],
+        labels: label,
         datasets: [
             {
                 label: "# of Votes",
-                data: [12, 19, 3],
+                data: datas,
                 backgroundColor: ["red", "blue", "yellow"],
                 borderColor: ["red", "blue", "yellow"],
                 borderWidth: 1,
@@ -21,13 +27,12 @@ const Admin = ({userName}) => {
             },
         },
     };
+
     return (
         <div>
-            <h3>Admin</h3>
-            <h3>Bienvenido {userName}</h3>
-            <Graficas data={data} options={options}/>
+            <Pie data={data} options={options} />
         </div>
-    );
+    )
 }
 
-export default Admin;
+export default Graficas

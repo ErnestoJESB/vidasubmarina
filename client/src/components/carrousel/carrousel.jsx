@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Pagination } from "./pagination";
-import "./carrousel.css"
 
 const Carrousel = () => {
 
