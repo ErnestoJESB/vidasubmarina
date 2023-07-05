@@ -10,7 +10,7 @@ controller.list = (req, res) => {
     if (err) {
       res.json(err);
     }
-    conn.query('SELECT tipo, descripcion, fecha, lugar, image, estatus FROM incidencia WHERE idusuario = ?', [usuarioId], (err, incidencia) => {
+    conn.query('SELECT tipo, descripcion, fecha, lugar, image, estatus FROM incidencia WHERE idusuario = ? ORDER BY fecha DESC', [usuarioId], (err, incidencia) => {
       if (err) {
         res.json(err);
       }
@@ -56,6 +56,36 @@ controller.create = (req, res) => {
         }
         console.log('Image inserted successfully');
       });
+    });
+  });
+};
+
+
+controller.upload = (req, res) => {
+  fileUpload(req, res, (err) => {
+    if (err) {
+      console.error('Error uploading image:', err);
+      return res.status(500).send('Error uploading image');
+    }
+    console.log(req.file);
+    const filename = req.file.filename;
+    const data = req.body;
+    data.image = filename;
+    console.log(data);
+    req.getConnection((err, conn) => {
+      if (err) {
+        console.error('Server error:', err);
+        return res.status(500).send('Server error');
+      }
+
+
+      conn.query('INSERT INTO incidencia SET ?', data, (err, rows) => {
+        if (err) {
+          console.error('Error inserting image:', err);
+          return res.status(500).send('Error inserting image');
+        }
+        console.log('Image inserted successfully');
+      }); 
     });
   });
 };

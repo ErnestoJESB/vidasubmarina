@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import fs from "fs";
-
 
 const RegistrarIncidencia = ({ id, condominioUs }) => {
     const [values, setValues] = useState({
@@ -10,31 +8,32 @@ const RegistrarIncidencia = ({ id, condominioUs }) => {
         descripcion: '',
         lugar: '',
         fecha: '',
-        image: null,
+        image: [],
         idcondominio: condominioUs,
         idusuario: id
     });
 
-    const [images, setImage] = useState('');
-
     const handleImageChange = (event) => {
         const selectedImage = event.target.files[0];
-        if (selectedImage) {
-          setValues(prev => ({ ...prev, image: selectedImage.name }));
-        } else {
-          setValues(prev => ({ ...prev, image: '' }));
-        }
-      };
-      console.log(images);
+        setValues(prev => ({ ...prev, image: selectedImage }));
+    };
 
-    console.log(values);
     const navigate = useNavigate();
     const handleInput = (event) => {
         setValues(prev => ({ ...prev, [event.target.name]: event.target.value }));
     }
     const handleSubmit = (event) => {
+        const formData = new FormData();
+        formData.append('tipo', values.tipo);
+        formData.append('descripcion', values.descripcion);
+        formData.append('lugar', values.lugar);
+        formData.append('fecha', values.fecha);
+        formData.append('idcondominio', values.idcondominio);
+        formData.append('idusuario', values.idusuario);
+        formData.append('image', values.image);
+
         event.preventDefault();
-        axios.post('http://localhost:3000/incidencias', values)
+        axios.post('http://localhost:3000/upload', formData)
             .then(res => {
                 navigate('/home');
             })
@@ -49,7 +48,7 @@ const RegistrarIncidencia = ({ id, condominioUs }) => {
                 <span>Registrar</span>
                 <h3>incidencia</h3>
             </div>
-            <form action="" method="post" encType="multipart/form-data">
+            <form action="" onSubmit={handleSubmit} encType="multipart/form-data">
                 <div className="flex">
                     <div className="inputBox">
                         <span>Tipo de incidencia</span>
@@ -80,7 +79,7 @@ const RegistrarIncidencia = ({ id, condominioUs }) => {
                         <input onChange={handleImageChange} type="file" accept="image/*" placeholder="Inserte evidencia" className="form-control" name="image" autoComplete="disable" />
                     </div>
                 </div>
-                <input onClick={handleSubmit} type="submit" value="Registrar" className="btn btn2" />
+                <input type="submit" value="Registrar" className="btn btn2" onClick={handleSubmit} />
             </form>
         </section>
     );
