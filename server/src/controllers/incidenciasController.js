@@ -38,9 +38,7 @@ controller.create = (req, res) => {
       console.error('Error uploading image:', err);
       return res.status(500).send('Error uploading image');
     }
-    console.log(req.file);
     const data = req.body;
-    console.log(data);
 
     req.getConnection((err, conn) => {
       if (err) {

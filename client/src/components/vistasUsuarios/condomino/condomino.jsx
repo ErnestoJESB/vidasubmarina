@@ -67,7 +67,7 @@ const Condomino = ({ userName, userId }) => {
                     {incidencias.map((incidencia, index) => (
                         <div className="col" key={index}>
                             <div className="container">
-                                <div className="front" style={{ backgroundImage: 'url(img/condominio-1.jpg)' }}>
+                                <div className="front" style={{ backgroundImage: `url(http://localhost:3000/${incidencia.image})` }}>
                                     <div className="inner">
                                         <p>Incidencia {index + 1}</p>
                                         <span>{incidencia.fecha}</span>
