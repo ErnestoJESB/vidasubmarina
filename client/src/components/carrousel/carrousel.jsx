@@ -8,7 +8,7 @@ const Carrousel = () => {
 
     /* Start Pagination */
     const totalCondominios = customersData.length;
-    const [condominiosPerPage, setCodominiosPerPage] = useState(8);
+    const [condominiosPerPage, setCodominiosPerPage] = useState(4);
     const [currentPage, setCurrentPage] = useState(1);
 
     const indexOfLastCondominio = currentPage * condominiosPerPage;

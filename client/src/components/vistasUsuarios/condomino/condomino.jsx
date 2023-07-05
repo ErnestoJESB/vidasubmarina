@@ -20,11 +20,30 @@ const Condomino = ({ userName, userId }) => {
         axios.get(`http://localhost:3000/incidencias/${userId}`)
             .then(res => {
                 setIncidencias(res.data);
+                for (let i = 0; i < res.data.length; i++) {
+                    let fecha1 = res.data[i].fecha;
+                    let fecha = new Date(res.data[i].fecha);
+                    if (fecha1 === null) {
+                        res.data[i].fecha = "";
+                    } else {
+
+                        let dia = fecha.getDate();
+                        let mes = fecha.getMonth() + 1;
+                        let año = fecha.getFullYear();
+                        let fechaFinal = `${dia}/${mes}/${año}`;
+                        res.data[i].fecha = fechaFinal;
+                    }
+
+
+                }
+
+
             })
             .catch(error => {
                 console.log(error);
             })
     }, [userId]);
+
 
     return (
         <section className="order" id="order">
@@ -46,25 +65,27 @@ const Condomino = ({ userName, userId }) => {
             <div className="wrapper">
                 <div className="cols">
                     {incidencias.map((incidencia, index) => (
-                        <div className="card" key={index}>
-                            <div className="card-inner">
-                                <div className="card-front" style={{ backgroundImage: 'url(img/condominio-1.jpg)' }}>
-                                    <p>Incidencia {index + 1}</p>
+                        <div className="col" key={index}>
+                            <div className="container">
+                                <div className="front" style={{ backgroundImage: 'url(img/condominio-1.jpg)' }}>
+                                    <div className="inner">
+                                        <p>Incidencia {index + 1}</p>
+                                        <span>{incidencia.fecha}</span>
+                                    </div>
+
                                 </div>
-                                <div className="card-back">
-                                    <div className="card1">
-                                        <div className="m-10">
-                                            <p>Incidencia</p>
-                                            <p>{incidencia.tipo}</p>
-                                            <p>{incidencia.lugar}</p>
-                                            <p>{incidencia.descripcion}</p>
-                                            <p>Comentarios<span className="by-name"></span> {comentarios} <span className="date">{incidencia.fecha}</span></p>
-                                        </div>
-                                        <div className="centrar">
-                                            <a href="/deleteCondominio/${condominio._id}"
-                                                className="btn">Delete</a>
-                                            <a href="/updateCondominio/{}" className="btn">Edit</a>
-                                        </div>
+                                <div className="back">
+                                    <div className="inner">
+                                        <h4>Tipo de incidencia</h4>
+                                        <p>{incidencia.tipo}</p>
+                                        <h4>Lugar</h4>
+                                        <p>{incidencia.lugar}</p>
+                                        <h4>Descripción del problema</h4>
+                                        <p>{incidencia.descripcion}</p>
+
+                                        <a href="/deleteCondominio/${condominio._id}"
+                                            className="btn">Delete</a>
+                                        <a href="/updateCondominio/{}" className="btn">Edit</a>
                                     </div>
                                 </div>
                             </div>
@@ -79,11 +100,6 @@ const Condomino = ({ userName, userId }) => {
                     totalCondominios={totalCondominios}
                 />
             </div>
-
-
-
-
-
         </section>
     );
 }

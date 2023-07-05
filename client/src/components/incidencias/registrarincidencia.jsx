@@ -69,8 +69,8 @@ const RegistrarIncidencia = ({ id, condominioUs }) => {
 
                     </div>
                     <div className="inputBox">
-                        <span>Fecha y hora</span>
-                        <input onChange={handleInput} type="datetime-local" placeholder="número de teléfono" className="form-control" name="fecha" autoComplete="disable" />
+                        <span>Fecha</span>
+                        <input onChange={handleInput} type="date" placeholder="Escribe la fecha" className="form-control" name="fecha" autoComplete="disable" />
 
                     </div>
                 </div>
