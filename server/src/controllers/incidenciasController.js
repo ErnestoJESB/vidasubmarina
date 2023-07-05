@@ -10,7 +10,24 @@ controller.list = (req, res) => {
     if (err) {
       res.json(err);
     }
-    conn.query('SELECT tipo, descripcion, fecha, lugar, image, estatus FROM incidencia WHERE idusuario = ? ORDER BY fecha DESC', [usuarioId], (err, incidencia) => {
+    conn.query('SELECT id, tipo, descripcion, fecha, lugar, image, estatus FROM incidencia WHERE idusuario = ? ORDER BY fecha DESC', [usuarioId], (err, incidencia) => {
+      if (err) {
+        res.json(err);
+      }
+      res.json(incidencia);
+    });
+  });
+};
+controller.listIncidencia = (req, res) => {
+  const usuarioId = req.params.id; // Obtener el ID del cliente desde los parámetros de la URL
+  const idIncidencia = req.params.idIncidencia; // Obtener el ID del cliente desde los parámetros de la URL
+  console.log(usuarioId);
+  console.log(idIncidencia);
+  req.getConnection((err, conn) => {
+    if (err) {
+      res.json(err);
+    }
+    conn.query('SELECT id, tipo, descripcion, fecha, lugar, image, estatus FROM incidencia WHERE idusuario = ? AND id = ? ORDER BY fecha DESC', [usuarioId, idIncidencia], (err, incidencia) => {
       if (err) {
         res.json(err);
       }
@@ -19,10 +36,12 @@ controller.list = (req, res) => {
   });
 };
 
+
 const diskstorage = multer.diskStorage({
   destination: path.join(__dirname, '../incidencias'),
   filename: (req, file, cb) => {
-    cb(null, 'MWOLD' + '-incidencia-' + file.originalname);
+    const originalname = file.originalname.replace(/[^\w.-]/g, ''); // Eliminar espacios en blanco
+    cb(null, 'MWOLD-incidencia-' + originalname);
   }
 });
 
@@ -84,6 +103,22 @@ controller.upload = (req, res) => {
         }
         console.log('Image inserted successfully');
       }); 
+    });
+  });
+};
+
+controller.comentarios = (req, res) => { 
+  const idincidencia = req.params.id; // Obtener el ID del cliente desde los parámetros de la URL
+  const sql = 'SELECT comentario, fecha FROM comentarios WHERE idincidencia = ?';
+  req.getConnection((err, conn) => {
+    if (err) {
+      res.json(err);
+    }
+    conn.query(sql, [idincidencia], (err, comentario) => {
+      if (err) {
+        res.json(err);
+      }
+      res.json(comentario);
     });
   });
 };
