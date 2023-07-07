@@ -83,4 +83,17 @@ controller.logout = (req, res) => {
   return res.json({ Status: "Success" });
 };
 
+
+controller.condominios = (req, res) => {
+  const sql = 'SELECT id, name FROM condominio';
+  req.getConnection((err, conn) => {
+    if (err) return res.status(500).send('Error del servidor');
+    conn.query(sql, (err, result) => {
+      if (err) return res.json("Error al obtener condominios");
+      return res.json(result);
+    });
+  });
+};
+
+
 module.exports = controller;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Validation from "./RegisterValidation";
 import axios from "axios";
@@ -16,6 +16,19 @@ const Register = () => {
     });
     const navigate = useNavigate();
     const [errors, setErrors] = useState({});
+    const [condominio, setCondominio] = useState('');
+
+    useEffect(() => {
+        axios.get('http://localhost:3000/condominios')
+            .then(res => {
+                setCondominio(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }, [])
+
+    console.log(condominio);
 
     const handleInput = (event) => {
         setValues(prev => ({ ...prev, [event.target.name]: event.target.value }));
@@ -84,7 +97,12 @@ const Register = () => {
                     </div>
                     <div className="inputBox">
                         <span>Condominio</span>
-                        <input type="text" placeholder="Condominio" className="form-control" name="condominio" onChange={handleInput} autoComplete="disable" />
+                        <select name="condominio" className="form-control" onChange={handleInput}>
+                            <option value="">Selecciona un condominio</option>
+                            {condominio && condominio.map((condo, index) => (
+                                <option key={index} value={condo.id}>{condo.name}</option>
+                            ))}
+                        </select>
                         {errors.condominio && <span style={{ fontSize: '1.4rem', color: 'red' }}>{errors.condominio}</span>}
                     </div>
                 </div>

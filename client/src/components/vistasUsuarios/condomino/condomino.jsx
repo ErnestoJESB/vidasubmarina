@@ -40,11 +40,25 @@ const Condomino = ({ userName, userId }) => {
             })
     }, [userId]);
 
-    for(let i = 0; i < incidencias.length; i++){
+    for (let i = 0; i < incidencias.length; i++) {
         idIncidencia[i] = incidencias[i].id;
+
     }
 
-    console.log(idIncidencia);
+
+    /* Crea una funcion que si la incidencia está en 0 que el nombre de la clase sea "front pendiente" y si dice 1 signifique que está resuelta y que la clase se ponga como "front resuelta" */
+    let front = "";
+    function asignarClase(estatus) {
+        if (estatus === 0) {
+            front = "front pendiente";
+        } else if (estatus === 1) {
+            front = "front resuelta";
+        } else {
+            front = "";
+        }
+    }
+
+
     return (
         <section className="order" id="order">
             <div className="heading">
@@ -61,12 +75,22 @@ const Condomino = ({ userName, userId }) => {
                     <h3>Avisos</h3>
                 </a>
             </section>
+            <div className="heading">
+                <span>Reportes</span>
+                <h3>de incidencias</h3>
+                <div className="centrar">
+                    <h5 className="resuelta">Resuelta</h5>
+                    <h6 className="pediente">Pendiente</h6>
+                </div>
+
+            </div>
             <div className="wrapper">
                 <div className="cols">
                     {incidencias.map((incidencia, index) => (
                         <div className="col" key={index}>
                             <div className="container">
-                                <div className="front" style={{backgroundImage: `url(http://localhost:3000/${incidencia.image})`}}>
+                                {asignarClase(incidencia.estatus)}
+                                <div className={front} style={{ backgroundImage: `url(http://localhost:3000/${incidencia.image})` }}>
                                     <div className="inner">
                                         <p>Incidencia {index + 1}</p>
                                         <span>{incidencia.fecha}</span>
@@ -81,7 +105,7 @@ const Condomino = ({ userName, userId }) => {
                                         <p>{incidencia.lugar}</p>
                                         <h4>Descripción del problema</h4>
                                         <p>{incidencia.descripcion}</p>
-
+                                        {/* Hay que ver que cuando le de click verificar si hay o no incidencias, porque si no hay no da nada */}
                                         <a href={`/comentarios/${idIncidencia[index]}`} className="btn">Comentarios</a>
                                         <a href="/updateCondominio/{}" className="btn">Edit</a>
                                     </div>

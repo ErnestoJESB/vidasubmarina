@@ -778,7 +778,8 @@ section {
 }
 
 .order form .flex input,
-.order form .flex textarea {
+.order form .flex textarea,
+.order form .flex select {
     width: 100%;
     margin-top: .5rem;
     padding: 1rem 1.2rem;
@@ -1042,6 +1043,24 @@ h1 {
     top: 0;
     left: 0;
     width: 100%;
+}
+
+.pendiente p, h6{
+    background-color: #e1bf38;
+    color: #000000;
+    font-size: 1.5rem;
+}
+
+.resuelta p, h5{
+    font-size: 1.5rem;
+    background-color: #189c18;
+    color: #000000;
+}
+
+.centrar {
+    text-align: center;
+    margin: 0 auto;
+    width: 10%;
 }
 
 .inner {
