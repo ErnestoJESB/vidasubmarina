@@ -45,6 +45,7 @@ const Incidencias = ({ condominoId }) => {
     for (let i = 0; i < incidencias.length; i++) {
         idIncidencia[i] = incidencias[i].id;
     }
+
     /* Crea una funcion que si la incidencia está en 0 que el nombre de la clase sea "front pendiente" y si dice 1 signifique que está resuelta y que la clase se ponga como "front resuelta" */
     let front = "";
     function asignarClase(estatus) {

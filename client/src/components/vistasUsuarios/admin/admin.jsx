@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 
-const Admin = ({userName, userId, idCondominio}) => {
+const Admin = ({ userName, userId, idCondominio }) => {
     const [condominio, setCondominio] = useState([]);
     const [condominioName, setCondominioName] = useState('');
     const [condominos, setCondominos] = useState([]);
@@ -18,11 +18,12 @@ const Admin = ({userName, userId, idCondominio}) => {
 
     return (
         <div>
-            <h3>Admin</h3>
-            <h3>Bienvenido {userName}</h3>
-            <h3>{condominioName}</h3>
             <section>
                 <div className="order">
+                    <div className="heading">
+                        <span>Bienvenido administrador</span>
+                        <h3>{userName}</h3>
+                    </div>
                     <div className="col-md-7">
                         <table className="table">
                             <thead>
