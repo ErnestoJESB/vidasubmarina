@@ -8,23 +8,22 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mwold
+-- Schema mwold_mwold
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mwold
+-- Schema mwold_mwold
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mwold` DEFAULT CHARACTER SET utf8 ;
-USE `mwold` ;
+USE `mwold_mwold` ;
 
 -- -----------------------------------------------------
--- Table `mwold`.`condominio`
+-- Table `mwold_mwold`.`condominio`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mwold`.`condominio` (
+CREATE TABLE IF NOT EXISTS `mwold_mwold`.`condominio` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
-  `address` VARCHAR(45) NULL,
-  `description` VARCHAR(45) NULL,
+  `address` VARCHAR(255) NULL,
+  `description` VARCHAR(255) NULL,
   `type` VARCHAR(100) NULL,
   `name_image` VARCHAR(100) NULL,
   `data_image` LONGBLOB NULL,
@@ -33,9 +32,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mwold`.`usuario`
+-- Table `mwold_mwold`.`usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mwold`.`usuario` (
+CREATE TABLE IF NOT EXISTS `mwold_mwold`.`usuario` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(45) NULL,
   `password` VARCHAR(100) NULL,
@@ -49,21 +48,21 @@ CREATE TABLE IF NOT EXISTS `mwold`.`usuario` (
   INDEX `fk_usuario_condominio_idx` (`idcondominio` ASC) VISIBLE,
   CONSTRAINT `fk_usuario_condominio`
     FOREIGN KEY (`idcondominio`)
-    REFERENCES `mwold`.`condominio` (`id`)
+    REFERENCES `mwold_mwold`.`condominio` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mwold`.`incidencia`
+-- Table `mwold_mwold`.`incidencia`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mwold`.`incidencia` (
+CREATE TABLE IF NOT EXISTS `mwold_mwold`.`incidencia` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `tipo` VARCHAR(15) NULL,
+  `tipo` VARCHAR(255) NULL,
   `descripcion` VARCHAR(255) NULL,
   `lugar` VARCHAR(45) NULL,
-  `fecha` DATETIME NULL,
+  `fecha` DATE NULL,
   `image` VARCHAR(45) NULL,
   `estatus` INT(1) NULL,
   `idusuario` INT NOT NULL,
@@ -73,19 +72,19 @@ CREATE TABLE IF NOT EXISTS `mwold`.`incidencia` (
   UNIQUE INDEX `lugar_UNIQUE` (`lugar` ASC) VISIBLE,
   CONSTRAINT `fk_incidencia_usuario1`
     FOREIGN KEY (`idusuario` , `idcondominio`)
-    REFERENCES `mwold`.`usuario` (`id` , `idcondominio`)
+    REFERENCES `mwold_mwold`.`usuario` (`id` , `idcondominio`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mwold`.`avisos`
+-- Table `mwold_mwold`.`avisos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mwold`.`avisos` (
+CREATE TABLE IF NOT EXISTS `mwold_mwold`.`avisos` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `titulo` VARCHAR(45) NULL,
-  `fecha` DATETIME NULL,
+  `fecha` DATE NULL,
   `aviso` VARCHAR(255) NULL,
   `estatus` TINYINT(1) NULL,
   `usuario_idusuario` INT NOT NULL,
@@ -94,19 +93,19 @@ CREATE TABLE IF NOT EXISTS `mwold`.`avisos` (
   INDEX `fk_avisos_usuario1_idx` (`usuario_idusuario` ASC, `usuario_idcondominio` ASC) VISIBLE,
   CONSTRAINT `fk_avisos_usuario1`
     FOREIGN KEY (`usuario_idusuario` , `usuario_idcondominio`)
-    REFERENCES `mwold`.`usuario` (`id` , `idcondominio`)
+    REFERENCES `mwold_mwold`.`usuario` (`id` , `idcondominio`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mwold`.`comentarios`
+-- Table `mwold_mwold`.`comentarios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mwold`.`comentarios` (
+CREATE TABLE IF NOT EXISTS `mwold_mwold`.`comentarios` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `comentario` VARCHAR(45) NULL,
-  `fecha` DATETIME NULL,
+  `fecha` DATE NULL,
   `incidencia_idincidencia` INT NOT NULL,
   `incidencia_idusuario` INT NOT NULL,
   `incidencia_idcondominio` INT NOT NULL,
@@ -114,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `mwold`.`comentarios` (
   INDEX `fk_comentarios_incidencia1_idx` (`incidencia_idincidencia` ASC, `incidencia_idusuario` ASC, `incidencia_idcondominio` ASC) VISIBLE,
   CONSTRAINT `fk_comentarios_incidencia1`
     FOREIGN KEY (`incidencia_idincidencia` , `incidencia_idusuario` , `incidencia_idcondominio`)
-    REFERENCES `mwold`.`incidencia` (`id` , `idusuario` , `idcondominio`)
+    REFERENCES `mwold_mwold`.`incidencia` (`id` , `idusuario` , `idcondominio`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -123,3 +122,223 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+
+
+
+
+/* esta funciona en phpmyadmin */
+
+
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: localhost:3306
+-- Tiempo de generación: 17-07-2023 a las 13:54:54
+-- Versión del servidor: 10.3.39-MariaDB
+-- Versión de PHP: 8.1.16
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `mwold_mwold`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `avisos`
+--
+
+CREATE TABLE `avisos` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(45) DEFAULT NULL,
+  `fecha` date DEFAULT NULL,
+  `aviso` varchar(255) DEFAULT NULL,
+  `estatus` tinyint(4) DEFAULT NULL,
+  `usuario_idusuario` int(11) NOT NULL,
+  `usuario_idcondominio` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentarios`
+--
+
+CREATE TABLE `comentarios` (
+  `id` int(11) NOT NULL,
+  `comentario` varchar(45) DEFAULT NULL,
+  `fecha` date DEFAULT NULL,
+  `incidencia_idincidencia` int(11) NOT NULL,
+  `incidencia_idusuario` int(11) NOT NULL,
+  `incidencia_idcondominio` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `condominio`
+--
+
+CREATE TABLE `condominio` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `type` varchar(100) DEFAULT NULL,
+  `name_image` varchar(100) DEFAULT NULL,
+  `data_image` longblob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `incidencia`
+--
+
+CREATE TABLE `incidencia` (
+  `id` int(11) NOT NULL,
+  `tipo` varchar(255) DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `lugar` varchar(45) DEFAULT NULL,
+  `fecha` date DEFAULT NULL,
+  `image` varchar(45) DEFAULT NULL,
+  `estatus` int(11) DEFAULT NULL,
+  `idusuario` int(11) NOT NULL,
+  `idcondominio` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `lastname` varchar(45) DEFAULT NULL,
+  `address` varchar(45) DEFAULT NULL,
+  `telefono` varchar(15) DEFAULT NULL,
+  `tipo_usuario` varchar(10) DEFAULT NULL,
+  `idcondominio` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `avisos`
+--
+ALTER TABLE `avisos`
+  ADD PRIMARY KEY (`id`,`usuario_idusuario`,`usuario_idcondominio`),
+  ADD KEY `fk_avisos_usuario1_idx` (`usuario_idusuario`,`usuario_idcondominio`);
+
+--
+-- Indices de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id`,`incidencia_idincidencia`,`incidencia_idusuario`,`incidencia_idcondominio`),
+  ADD KEY `fk_comentarios_incidencia1_idx` (`incidencia_idincidencia`,`incidencia_idusuario`,`incidencia_idcondominio`);
+
+--
+-- Indices de la tabla `condominio`
+--
+ALTER TABLE `condominio`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `incidencia`
+--
+ALTER TABLE `incidencia`
+  ADD PRIMARY KEY (`id`,`idusuario`,`idcondominio`),
+  ADD UNIQUE KEY `lugar_UNIQUE` (`lugar`),
+  ADD KEY `fk_incidencia_usuario1_idx` (`idusuario`,`idcondominio`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`,`idcondominio`),
+  ADD KEY `fk_usuario_condominio_idx` (`idcondominio`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `avisos`
+--
+ALTER TABLE `avisos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `condominio`
+--
+ALTER TABLE `condominio`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `incidencia`
+--
+ALTER TABLE `incidencia`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `avisos`
+--
+ALTER TABLE `avisos`
+  ADD CONSTRAINT `fk_avisos_usuario1` FOREIGN KEY (`usuario_idusuario`,`usuario_idcondominio`) REFERENCES `usuario` (`id`, `idcondominio`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD CONSTRAINT `fk_comentarios_incidencia1` FOREIGN KEY (`incidencia_idincidencia`,`incidencia_idusuario`,`incidencia_idcondominio`) REFERENCES `incidencia` (`id`, `idusuario`, `idcondominio`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `incidencia`
+--
+ALTER TABLE `incidencia`
+  ADD CONSTRAINT `fk_incidencia_usuario1` FOREIGN KEY (`idusuario`,`idcondominio`) REFERENCES `usuario` (`id`, `idcondominio`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD CONSTRAINT `fk_usuario_condominio` FOREIGN KEY (`idcondominio`) REFERENCES `condominio` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

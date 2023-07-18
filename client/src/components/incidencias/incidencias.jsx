@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Pagination } from "../carrousel/pagination";
 import axios from "axios";
 
-const Incidencias = ({condominoId}) => {
+const Incidencias = ({ condominoId }) => {
     /* Este es el id del condominio */
     const idCondomino = condominoId;
     console.log(idCondomino);
@@ -47,16 +47,30 @@ const Incidencias = ({condominoId}) => {
 
     console.log(incidencias);
 
-    for(let i = 0; i < incidencias.length; i++){
+    for (let i = 0; i < incidencias.length; i++) {
         idIncidencia[i] = incidencias[i].id;
     }
+
+    let front = ""
+
+    function asignarClase(estatus) {
+        if (estatus === 0) {
+            front = "front pendiente";
+        } else if (estatus === 1) {
+            front = "front resuelta";
+        } else {
+            front = "front";
+        }
+    }
+
     return (
         <div className="wrapper">
             <div className="cols">
                 {incidencias.map((incidencia, index) => (
                     <div className="col" key={index}>
+                        {asignarClase(incidencia.estatus)}
                         <div className="container">
-                            <div className="front" style={{ backgroundImage: `url(http://localhost:3000/${incidencia.image})` }}>
+                            <div className={front} style={{ backgroundImage: `url(http://localhost:3000/${incidencia.image})` }}>
                                 <div className="inner">
                                     <p>Incidencia {index + 1}</p>
                                     <span>{incidencia.fecha}</span>

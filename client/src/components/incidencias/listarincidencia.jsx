@@ -4,13 +4,16 @@ import { useParams } from 'react-router-dom';
 
 const ListarIncidencia = () => {
     const params = useParams();
-    const  idCondomino  = params.idUsuario;
+    const idCondomino = params.idUsuario;
     console.log('este es el id del condomino ' + idCondomino);
     return (
         <div>
+            <div className="heading">
+                <span>Condómino</span>
+            </div>
             <Incidencias condominoId={idCondomino} />
         </div>
-        )    
+    )
 }
 
 export default ListarIncidencia;
