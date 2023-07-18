@@ -51,13 +51,14 @@ const fileUpload = multer({
 
 const fs = require('fs');
 
-controller.create = (req, res) => {
+/* controller.create = (req, res) => {
   fileUpload(req, res, (err) => {
     if (err) {
       console.error('Error uploading image:', err);
       return res.status(500).send('Error uploading image');
     }
     const data = req.body;
+    data.estatus ='0';
 
     req.getConnection((err, conn) => {
       if (err) {
@@ -76,7 +77,7 @@ controller.create = (req, res) => {
     });
   });
 };
-
+ */
 
 controller.upload = (req, res) => {
   fileUpload(req, res, (err) => {
@@ -88,6 +89,7 @@ controller.upload = (req, res) => {
     const filename = req.file.filename;
     const data = req.body;
     data.image = filename;
+    data.estatus ='0';
     console.log(data);
     req.getConnection((err, conn) => {
       if (err) {

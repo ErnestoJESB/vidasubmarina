@@ -47,7 +47,6 @@ const Comentario = ({ usuarioId, condominioId }) => {
             })
     }, [usuarioId, idIncidencia]);
 
-    console.log(incidencias);
     return (
         <div>
             <section className="blogs" id="blogs">
