@@ -47,7 +47,7 @@ const Header = ({auth, role}) => {
         auth ?
           <header className="header">
             <a href="http://localhost:5173/" className="logo"><div>
-              <img src={'http://localhost:3000/13-reporte.png'} alt="..." /></div>
+              <img src="/img/logoMWOLD.png" alt="..." /></div>
             </a>
             <nav className="navbar">
               <a href="http://localhost:5173/">Inicio</a>
@@ -63,7 +63,7 @@ const Header = ({auth, role}) => {
           :
           <header className="header">
             <a href="http://localhost:5173/" className="logo"><div>
-              <img src={'http://localhost:3000/13-reporte.png'} alt="..." /></div>
+              <img src="/img/logoMWOLD.png" alt="..." /></div>
             </a>
 
             <nav className="navbar">

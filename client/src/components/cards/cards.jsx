@@ -1,7 +1,6 @@
 import React from "react";
 import "./styles.css"
 
-var edificio = "14-reporte.png"
 
 
 const Cards = () => {
@@ -15,8 +14,8 @@ const Cards = () => {
                 <a href="https://www.facebook.com/people/M-Wold-Administradores/100055314671843/" className="btn">Conócenos</a>
             </div>
             <div className="image">
-                <div key={edificio}>
-                    <img src={'http://localhost:3000/' + edificio} alt="..." />
+                <div>
+                    <img src="/img/edificio.png" alt="..." />
                 </div>
             </div>
         </section>

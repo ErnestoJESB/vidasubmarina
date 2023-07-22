@@ -15,7 +15,7 @@ const Conocenos = () => {
         <section className="about" id="servicios">
             <div className="image">
                 <div>
-                    <img src={'http://localhost:3000/15-reporte.png'} alt="..." />
+                    <img src="/img/ejecutivo2.jpg" alt="..." />
                 </div>
             </div>
             <div className="content">
@@ -28,7 +28,7 @@ const Conocenos = () => {
                     <a href="#asesoria">
                         <div className="icons">
                             <div>
-                                <img src={'http://localhost:3000/11-reporte.png'} alt="..." style={{ width: "6rem" }} />
+                            <img src="/img/legal.png" alt="..." style={{ width: "6rem" }} />
                             </div>
                             <h3>Asesoría</h3>
                         </div>
@@ -54,9 +54,7 @@ const Conocenos = () => {
                     {/* Modal Real estate*/}
                     <a href="#real_estate">
                         <div className="icons">
-                            <div>
-                                <img src={'http://localhost:3000/14-reporte.png'} alt="..." style={{ width: "6rem" }} />
-                            </div>
+                            <img src="/img/real.png" alt="..." style={{ width: "6rem" }} />
                             <h3>Real Estate</h3>
                         </div>
                     </a>
@@ -78,7 +76,7 @@ const Conocenos = () => {
                     <a href="#administradores">
                         <div className="icons">
                             <div>
-                                <img src={'http://localhost:3000/17-reporte.png'} alt="..." style={{ width: "6rem" }} />
+                                <img src="/img/admin.png" alt="..." style={{ height:"6rem" }} />
                             </div>
                             <h3>Administradores</h3>
                         </div>

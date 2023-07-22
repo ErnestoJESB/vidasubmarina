@@ -11,6 +11,7 @@ import RegistrarIncidencia from "./components/incidencias/registrarincidencia";
 import Comentario from "./components/incidencias/comentarios/comentario";
 import ListarIncidencia from "./components/incidencias/listarincidencia";
 import ListarComentario from "./components/incidencias/comentarios/listarcomentarios";
+import CrearComentario from "./components/incidencias/comentarios/crearcomentario";
 
 
 function App({ auth, role, id, condominioUser }) {
@@ -39,9 +40,16 @@ function App({ auth, role, id, condominioUser }) {
 
         {
           auth ?
-            <Route path="/comentarios/:idIncidencia/:idCondomino" element={<ListarComentario usuarioId={idUsuario} condominioId={idCondominio} rolUser={rol}/>} />
+            <Route path="/comentarios/:idIncidencia/:idCondomino" element={<ListarComentario usuarioId={idUsuario} condominioId={idCondominio} rolUser={rol} />} />
             :
             <Route path="/comentarios/:idIncidencia/:idCondomino" element={<Login />} />
+        }
+
+        {
+          auth ?
+            <Route path="/crearcomentarios/:idIncidencia/:idCondomino/:idCondominio" element={<CrearComentario usuarioId={idUsuario} condominioId={idCondominio} rolUser={rol} />} />
+            :
+            <Route path="/crearcomentarios/:idIncidencia/:idCondomino/:idCondominio" element={<Login />} />
         }
 
         {

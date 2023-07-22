@@ -1,25 +1,35 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from 'react-router-dom';
-import CrearComentario from "./crearcomentario";
 
 
 const Comentario = ({ usuarioId, condominioId }) => {
     const params = useParams();
     const idIncidencia = params.idIncidencia;
 
-
-    console.log('este es el id del usuario actual ' + usuarioId);
-    console.log('este es el id del condominio ' + condominioId);
-    console.log('este es el id de la incidencia ' + idIncidencia);
-
     const [comentario, setComentario] = useState([]);
     const [incidencias, setIncidencias] = useState([]);
 
+    function Fecha(res) {
+        for (let i = 0; i < res.data.length; i++) {
+            let fecha1 = res.data[i].fecha;
+            let fecha = new Date(res.data[i].fecha);
+            if (fecha1 === null) {
+                res.data[i].fecha = "";
+            } else {
+                let dia = fecha.getDate();
+                let mes = fecha.getMonth() + 1;
+                let año = fecha.getFullYear();
+                let fechaFinal = `${dia}/${mes}/${año}`;
+                res.data[i].fecha = fechaFinal;
+            }
+        }
+    }
     useEffect(() => {
         axios.get(`http://localhost:3000/comentarios/${idIncidencia}`)
             .then(res => {
                 setComentario(res.data);
+                Fecha(res);
             })
     }, [idIncidencia]);
 
@@ -27,25 +37,14 @@ const Comentario = ({ usuarioId, condominioId }) => {
         axios.get(`http://localhost:3000/incidencias/${usuarioId}/${idIncidencia}`)
             .then(res => {
                 setIncidencias(res.data);
-                for (let i = 0; i < res.data.length; i++) {
-                    let fecha1 = res.data[i].fecha;
-                    let fecha = new Date(res.data[i].fecha);
-                    if (fecha1 === null) {
-                        res.data[i].fecha = "";
-                    } else {
-
-                        let dia = fecha.getDate();
-                        let mes = fecha.getMonth() + 1;
-                        let año = fecha.getFullYear();
-                        let fechaFinal = `${dia}/${mes}/${año}`;
-                        res.data[i].fecha = fechaFinal;
-                    }
-                }
+                Fecha(res);
             })
             .catch(error => {
                 console.log(error);
             })
     }, [usuarioId, idIncidencia]);
+
+    
 
     return (
         <div>
@@ -74,7 +73,12 @@ const Comentario = ({ usuarioId, condominioId }) => {
                     ))}
                 </div>
             </section>
-            <CrearComentario idUsuario={usuarioId} idCondominio={condominioId} incidenciaId={idIncidencia}/>
+            <section className="order" id="order">
+                <div className="heading">
+                    <h3>Registrar Nuevo Comentario</h3>
+                    <button className="btn" style={{ background: "#fffff" }}><a href={`http://localhost:5173/crearcomentarios/${idIncidencia}/${usuarioId}/${condominioId}`}>Crear comentario</a></button>
+                </div>
+            </section>
             <section>
                 <div className="order">
                     <div className="col-md-7">
