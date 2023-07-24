@@ -11,7 +11,7 @@ const SuperAdmin = ({ userName, userId }) => {
                 <h3>{userName}</h3>
             </div>
             <section className="category">
-                <a href="http://localhost:5173/crearincidencia" className="box">
+                <a href="https://n.mwold.net/crearincidencia" className="box">
                     <img src="img/condominio-1.jpg" alt="" />
                     <h3>Incidencias</h3>
                 </a>

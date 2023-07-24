@@ -10,7 +10,7 @@ const IniciaSesion = () => {
             <div className="content">
                 <span>Bienvenido a M WOLD administradores</span>
                 <h3>Debes de iniciar sesión</h3>
-                <a href="http://localhost:5173/login" className="btn">Inicia Aquí</a>
+                <a href="https://n.mwold.net/login" className="btn">Inicia Aquí</a>
             </div>
             <div className="image">
                 <div key={edificio}>

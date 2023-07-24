@@ -33,7 +33,7 @@ const RegistrarIncidencia = ({ id, condominioUs }) => {
         formData.append('image', values.image);
 
         event.preventDefault();
-        axios.post('http://localhost:3000/upload', formData)
+        axios.post('https://n.mwold.net/server/upload', formData)
             .then(res => {
                 navigate('/home');
             })

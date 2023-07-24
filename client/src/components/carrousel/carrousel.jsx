@@ -16,7 +16,7 @@ const Carrousel = () => {
 
     /* End Pagination */
     useEffect(() => {
-        fetch('http://localhost:3000/getCondominio')
+        fetch('https://n.mwold.net/server/getCondominio')
             .then(response => response.json())
             .then(data => {
                 setCustomersData(data);
@@ -39,7 +39,7 @@ const Carrousel = () => {
                         {customersData && customersData.map((customer) => (
                             <div className="col" key={customer.id}/*  onTouchStart="this.classList.toggle('hover');" */>
                                 <div className="container">
-                                    <div className="front" style={{ backgroundImage: `url(http://localhost:3000/${customer.imageName})` }}>
+                                    <div className="front" style={{ backgroundImage: `url(https://n.mwold.net/server/${customer.imageName})` }}>
                                         <div className="inner">
                                             <p>{customer.name}</p>
                                             <span>{customer.address}</span>

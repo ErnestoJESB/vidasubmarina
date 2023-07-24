@@ -34,7 +34,7 @@ const Login = () => {
         event.preventDefault();
         setErrors(Validation(values));
         if (errors.email === "" && errors.password === "") {
-            axios.post("http://localhost:3000/login", values)
+            axios.post("https://n.mwold.net/server/login", values)
                 .then(res => {
                     if (res.data.Login) {
                         recargarPaginaUnaVez();
@@ -66,7 +66,7 @@ const Login = () => {
                         ¿Olvidaste tu contraseña? <a href="#">Presiona aquí</a>{" "}
                     </p>
                     <p>
-                        ¿No tienes una cuenta? <a href="http://localhost:5173/register">Crea uno</a>{" "}
+                        ¿No tienes una cuenta? <a href="https://n.mwold.net/register">Crea uno</a>{" "}
                     </p>
                 </form>
             </div>

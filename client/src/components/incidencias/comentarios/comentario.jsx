@@ -26,7 +26,7 @@ const Comentario = ({ usuarioId, condominioId }) => {
         }
     }
     useEffect(() => {
-        axios.get(`http://localhost:3000/comentarios/${idIncidencia}`)
+        axios.get(`https://n.mwold.net/server/comentarios/${idIncidencia}`)
             .then(res => {
                 setComentario(res.data);
                 Fecha(res);
@@ -34,7 +34,7 @@ const Comentario = ({ usuarioId, condominioId }) => {
     }, [idIncidencia]);
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/incidencias/${usuarioId}/${idIncidencia}`)
+        axios.get(`https://n.mwold.net/server/incidencias/${usuarioId}/${idIncidencia}`)
             .then(res => {
                 setIncidencias(res.data);
                 Fecha(res);
@@ -59,7 +59,7 @@ const Comentario = ({ usuarioId, condominioId }) => {
                         <div className="box" key={index}>
                             <div className="image">
                                 <h3> <i className="fas fa-calendar"></i> {incidencia.fecha} </h3>
-                                <img src={`http://localhost:3000/${incidencia.image}`} alt="" />
+                                <img src={`https://n.mwold.net/server/${incidencia.image}`} alt="" />
                             </div>
                             <div className="content">
                                 <div className="tags">
@@ -76,7 +76,7 @@ const Comentario = ({ usuarioId, condominioId }) => {
             <section className="order" id="order">
                 <div className="heading">
                     <h3>Registrar Nuevo Comentario</h3>
-                    <button className="btn" style={{ background: "#fffff" }}><a href={`http://localhost:5173/crearcomentarios/${idIncidencia}/${usuarioId}/${condominioId}`}>Crear comentario</a></button>
+                    <button className="btn" style={{ background: "#fffff" }}><a href={`https://n.mwold.net/crearcomentarios/${idIncidencia}/${usuarioId}/${condominioId}`}>Crear comentario</a></button>
                 </div>
             </section>
             <section>

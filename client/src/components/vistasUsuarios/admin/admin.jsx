@@ -45,7 +45,7 @@ const Admin = ({ userName, userId, idCondominio }) => {
                                             <td>{condominos.lastname}</td>
                                             <td>{condominos.telefono}</td>
                                             <td>{condominos.email}</td>
-                                            <td><a href={`http://localhost:5173/incidencias/${condominos.id}`} className="btn">Incidencias</a></td>
+                                            <td><a href={`https://n.mwold.net/incidencias/${condominos.id}`} className="btn">Incidencias</a></td>
                                         </tr>
                                     ))
                                 }
