@@ -46,14 +46,14 @@ const Header = ({auth, role}) => {
       {
         auth ?
           <header className="header">
-            <a href="https://n.mwold.net/" className="logo"><div>
+            <a href="http://localhost:5173/" className="logo"><div>
               <img src="/img/logoMWOLD.png" alt="..." /></div>
             </a>
             <nav className="navbar">
-              <a href="https://n.mwold.net/">Inicio</a>
+              <a href="http://localhost:5173/">Inicio</a>
               <a href="http://localhost:3000/customer">Clientes</a>
               <a href="http://localhost:3000/condominio">Condominios</a>
-              <a href="https://n.mwold.net/home">{role}</a>
+              <a href="http://localhost:5173/home">{role}</a>
             </nav>
             <div className="icons">
               <div id="menu-btn" className="ri-menu-line"></div>
@@ -62,19 +62,19 @@ const Header = ({auth, role}) => {
           </header>
           :
           <header className="header">
-            <a href="https://n.mwold.net/" className="logo"><div>
+            <a href="http://localhost:5173/" className="logo"><div>
               <img src="/img/logoMWOLD.png" alt="..." /></div>
             </a>
 
             <nav className="navbar">
-              <a href="https://n.mwold.net/">Inicio</a>
+              <a href="http://localhost:5173/">Inicio</a>
               <a href="http://localhost:3000/customer">Clientes</a>
               <a href="http://localhost:3000/condominio">Condominios</a>
             </nav>
 
             <div className="icons">
               <div id="menu-btn" className="ri-menu-line"></div>
-              <a href="https://n.mwold.net/login"><div className="ri-user-line"></div></a>
+              <a href="http://localhost:5173/login"><div className="ri-user-line"></div></a>
             </div>
           </header>
       }

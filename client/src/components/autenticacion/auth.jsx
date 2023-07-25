@@ -12,7 +12,7 @@ const Auth = () => {
       
         axios.defaults.withCredentials = true;
         useEffect(() => {
-          axios.get("https://n.mwold.net/server/user")
+          axios.get("http://localhost:3000/user")
             .then(res => {
               if (res.data.Status === "Success") {
                 setAuth(true);

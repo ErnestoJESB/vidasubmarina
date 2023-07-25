@@ -19,7 +19,7 @@ const Register = () => {
     const [condominio, setCondominio] = useState('');
 
     useEffect(() => {
-        axios.get('https://n.mwold.net/server/condominios')
+        axios.get('http://localhost:3000/condominios')
             .then(res => {
                 setCondominio(res.data);
             })
@@ -37,7 +37,7 @@ const Register = () => {
         event.preventDefault();
         setErrors(Validation(values));
         if (errors.email === "" && errors.password === "" && errors.name === "" && errors.lastname === "" && errors.phone === "" && errors.address === "" && errors.password2 === "" && errors.condominio === "") {
-            axios.post('https://n.mwold.net/server/register', values)
+            axios.post('http://localhost:3000/register', values)
                 .then(res => {
                     navigate('/home');
                 })
@@ -108,7 +108,7 @@ const Register = () => {
                 </div>
                 <input type="submit" value="Registrar" className="btn btn2" onClick={handleSubmit} />
                 <p>
-                    ¿Ya tienes una cuenta? <a href="https://n.mwold.net/login">Inicia sesión</a>{" "}
+                    ¿Ya tienes una cuenta? <a href="http://localhost:5173/login">Inicia sesión</a>{" "}
                 </p>
             </form>
 

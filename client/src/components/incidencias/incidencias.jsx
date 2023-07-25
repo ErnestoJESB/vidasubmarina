@@ -18,7 +18,7 @@ const Incidencias = ({ condominoId }) => {
     const setcomentarios = incidencias.slice(indexOfFirstCondominio, indexOfLastCondominio);
 
     useEffect(() => {
-        axios.get(`https://n.mwold.net/server/incidencias/${idCondomino}`)
+        axios.get(`http://localhost:3000/incidencias/${idCondomino}`)
             .then(res => {
                 setIncidencias(res.data);
                 for (let i = 0; i < res.data.length; i++) {
@@ -73,7 +73,7 @@ const Incidencias = ({ condominoId }) => {
                         <div className="col" key={index}>
                             <div className="container">
                             {asignarClase(incidencia.estatus)}
-                                <div className={front} style={{ backgroundImage: `url(https://n.mwold.net/server/${incidencia.image})` }}>
+                                <div className={front} style={{ backgroundImage: `url(http://localhost:3000/${incidencia.image})` }}>
                                     <div className="inner">
                                         <p>Incidencia {index + 1}</p>
                                         <span>{incidencia.fecha}</span>

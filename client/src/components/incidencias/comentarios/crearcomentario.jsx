@@ -30,7 +30,7 @@ const CrearComentario = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('https://n.mwold.net/server/comentarios', values)
+        axios.post('http://localhost:3000/comentarios', values)
         navigate(`/comentarios/${idIncidencia}/${idCondomino}`);
         window.location.reload();
     }
