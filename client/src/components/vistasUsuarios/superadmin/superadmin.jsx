@@ -15,9 +15,9 @@ const SuperAdmin = ({ userName, userId }) => {
                     <img src="img/condominio-1.jpg" alt="" />
                     <h3>Incidencias</h3>
                 </a>
-                <a href="#" className="box">
+                <a href="http://localhost:3000/condominio" className="box">
                     <img src="img/alberca.png" alt="" />
-                    <h3>Avisos</h3>
+                    <h3>Condominios</h3>
                 </a>
                 <a href="http://localhost:5173/usuarios" className="box">
                     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user" width="64" height="64" viewBox="0 0 24 24" strokeWidth="2" stroke="#000000" fill="none" strokeLinecap="round" strokeLinejoin="round">

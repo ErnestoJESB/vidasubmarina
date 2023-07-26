@@ -552,7 +552,7 @@ section {
 /* footer section start */
 
 .footer {
-    background: #f7f6f9;
+    background: var(--card);
     border-radius: 3rem;
     margin: 2%;
     padding: 3rem;
@@ -565,40 +565,10 @@ section {
 
 .footer .newsletter h3 {
     font-size: 2.5rem;
-    color: #130f40;
+    color: var(--color1);
     padding-bottom: 1rem;
 }
 
-.footer .newsletter form {
-    max-width: 70rem;
-    margin: 1rem auto;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    border-radius: .5rem;
-    overflow: hidden;
-}
-
-.footer .newsletter form input[type="email"] {
-    height: 100%;
-    width: 100%;
-    padding: 1rem 1.2rem;
-    font-size: 1.6rem;
-    color: #130f40;
-    text-transform: none;
-}
-
-.footer .newsletter form input[type="submit"] {
-    padding: 0 2rem;
-    font-size: 1.6rem;
-    color: #fff;
-    background: #494262;
-    cursor: pointer;
-}
-
-.footer .newsletter form input[type="submit"]:hover {
-    background: #130f40;
-}
 
 .footer .box-container {
     display: -ms-grid;
@@ -610,25 +580,25 @@ section {
 
 .footer .box-container .box h3 {
     font-size: 2.2rem;
-    color: #130f40;
+    color: var(--color3);
     padding: 1rem 0;
 }
 
 .footer .box-container .box p {
     font-size: 1.4rem;
-    color: #494262;
+    color: var(--color4);
     padding: 1rem 0;
 }
 
 .footer .box-container .box a {
     display: block;
     font-size: 1.4rem;
-    color: #494262;
+    color: var(--color4);
     padding: 1rem 0;
 }
 
 .footer .box-container .box a:hover {
-    color: #52389b;
+    color: var(--color1);
 }
 
 .footer .box-container .box a:hover i {
@@ -637,7 +607,7 @@ section {
 
 .footer .box-container .box a i {
     padding-right: .5rem;
-    color: #52389b;
+    color: var(--color5);
 }
 
 .footer .bottom {
@@ -656,25 +626,22 @@ section {
     font-size: 2rem;
     border-radius: 50%;
     margin: 0 .3rem;
-    color: #494262;
+    color: var(--color3);
     background: #edecf2;
     transition: all 0.3s ease-out;
 }
 
 .footer .bottom .share a:hover {
-    color: #edecf2;
-    background: #494262;
+    color: #fff;
+    background: var(--color3);
 }
 
 .footer .bottom .credit {
     font-size: 2rem;
-    color: #494262;
+    color: var(--color1);
     padding: 1rem;
 }
 
-.footer .bottom .credit span {
-    color: #52389b;
-}
 
 /* footer section end */
 

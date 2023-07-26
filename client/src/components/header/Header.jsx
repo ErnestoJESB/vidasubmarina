@@ -68,7 +68,7 @@ const Header = ({auth, role}) => {
 
             <nav className="navbar">
               <a href="http://localhost:5173/">Inicio</a>
-              <a href="http://localhost:3000/customer">Clientes</a>
+              <a href="http://localhost:5173/conocenos">Conócenos</a>
               <a href="http://localhost:3000/condominio">Condominios</a>
             </nav>
 

@@ -26,6 +26,7 @@
 
 .home .content span {
     font-size: 2rem;
+    text-transform: none;
     color: var(--color4);
 }
 

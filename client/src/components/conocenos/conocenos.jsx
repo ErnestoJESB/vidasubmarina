@@ -14,9 +14,7 @@ const Conocenos = () => {
 
         <section className="about" id="servicios">
             <div className="image">
-                <div>
-                    <img src="/img/ejecutivo2.jpg" alt="..." />
-                </div>
+                <img src="/img/ejecutivo2.jpg" alt="..." />
             </div>
             <div className="content">
                 <span>¿Qué hacemos?</span>
@@ -28,7 +26,7 @@ const Conocenos = () => {
                     <a href="#asesoria">
                         <div className="icons">
                             <div>
-                            <img src="/img/legal.png" alt="..." style={{ width: "6rem" }} />
+                                <img src="/img/legal.png" alt="..." style={{ width: "6rem" }} />
                             </div>
                             <h3>Asesoría</h3>
                         </div>
@@ -76,7 +74,7 @@ const Conocenos = () => {
                     <a href="#administradores">
                         <div className="icons">
                             <div>
-                                <img src="/img/admin.png" alt="..." style={{ height:"6rem" }} />
+                                <img src="/img/admin.png" alt="..." style={{ height: "6rem" }} />
                             </div>
                             <h3>Administradores</h3>
                         </div>

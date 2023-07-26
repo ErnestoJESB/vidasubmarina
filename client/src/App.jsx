@@ -13,6 +13,8 @@ import ListarIncidencia from "./components/incidencias/listarincidencia";
 import ListarComentario from "./components/incidencias/comentarios/listarcomentarios";
 import CrearComentario from "./components/incidencias/comentarios/crearcomentario";
 import Usuarios from "./components/vistasUsuarios/superadmin/usuarios";
+import Conocenosweb from "./components/website/conócenos";
+import Footer from "./components/footer/footer";
 
 function App({ auth, role, id, condominioUser }) {
   const autenticacion = auth;
@@ -28,6 +30,7 @@ function App({ auth, role, id, condominioUser }) {
           <Conocenos />
           <Carrousel />
         </div>} />
+        <Route path="/conocenos" element={<Conocenosweb />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
@@ -70,6 +73,7 @@ function App({ auth, role, id, condominioUser }) {
 
 
       </Routes>
+      <Footer />
     </BrowserRouter>
 
   );
