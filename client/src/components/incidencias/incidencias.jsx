@@ -90,7 +90,6 @@ const Incidencias = ({ condominoId }) => {
                                         <p>{incidencia.descripcion}</p>
 
                                         <a href={`/comentarios/${idIncidencia[index]}/${idCondomino}`} className="btn">Comentarios</a>
-                                        <a href="/updateCondominio/{}" className="btn">Edit</a>
                                     </div>
                                 </div>
                             </div>

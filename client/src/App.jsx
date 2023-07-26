@@ -12,7 +12,7 @@ import Comentario from "./components/incidencias/comentarios/comentario";
 import ListarIncidencia from "./components/incidencias/listarincidencia";
 import ListarComentario from "./components/incidencias/comentarios/listarcomentarios";
 import CrearComentario from "./components/incidencias/comentarios/crearcomentario";
-
+import Usuarios from "./components/vistasUsuarios/superadmin/usuarios";
 
 function App({ auth, role, id, condominioUser }) {
   const autenticacion = auth;
@@ -37,6 +37,7 @@ function App({ auth, role, id, condominioUser }) {
             :
             <Route path="/crearincidencia" element={<Login />} />
         }
+        
 
         {
           auth ?
@@ -58,6 +59,14 @@ function App({ auth, role, id, condominioUser }) {
             :
             <Route path="/incidencias/:idUsuario" element={<Login />} />
         }
+
+        {
+          auth ?
+            <Route path="/usuarios" element={<Usuarios/>} />
+            :
+            <Route path="/usuarios" element={<Login />} />
+        }
+
 
 
       </Routes>

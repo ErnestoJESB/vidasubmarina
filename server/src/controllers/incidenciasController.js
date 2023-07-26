@@ -111,7 +111,7 @@ controller.upload = (req, res) => {
 
 controller.comentarios = (req, res) => { 
   const idincidencia = req.params.id; // Obtener el ID del cliente desde los parámetros de la URL
-  const sql = 'SELECT comentario, fecha FROM comentarios WHERE idincidencia = ?';
+  const sql = 'SELECT id, comentario, fecha FROM comentarios WHERE idincidencia = ?';
   req.getConnection((err, conn) => {
     if (err) {
       res.json(err);
@@ -142,6 +142,41 @@ controller.createComentario = (req, res) => {
   });
 };
 
+controller.deleteComentario = (req, res) => {
+  const id = req.params.id;
+  req.getConnection((err, conn) => {
+    if (err) {
+      console.error('Server error:', err);
+      return res.status(500).send('Server error');
+    }
+    conn.query('DELETE FROM comentarios WHERE id = ?', [id], (err, rows) => {
+      if (err) {
+        console.error('Error deleting comment:', err);
+        return res.status(500).send('Error deleting comment');
+      }
+      console.log('Comment deleted successfully');
+    });
+  });
+};
+
+
+controller.updateIncidencia = (req, res) => {
+  const id = req.params.id;
+  const data = req.body;
+  req.getConnection((err, conn) => {
+    if (err) {
+      console.error('Server error:', err);
+      return res.status(500).send('Server error');
+    }
+    conn.query('UPDATE incidencia SET estatus = ? WHERE id = ?', [data.estatus, id], (err, rows) => {
+      if (err) {
+        console.error('Error updating incidencia:', err);
+        return res.status(500).send('Error updating incidencia');
+      }
+      console.log('Incidencia updated successfully');
+    });
+  });
+};
 
 
 

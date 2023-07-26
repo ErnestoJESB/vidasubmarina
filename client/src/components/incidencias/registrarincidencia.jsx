@@ -12,6 +12,34 @@ const RegistrarIncidencia = ({ id, condominioUs }) => {
         idcondominio: condominioUs,
         idusuario: id
     });
+    const [error, setError] = useState(null);
+
+    const options = [
+        "Selecciona una opción",
+        "Goteras",
+        "Ruidos",
+        "Focos",
+        "Alberca",
+        "Elevador",
+        "Plomería",
+        "Seguridad",
+        "Basura",
+        "Estacionamiento",
+        "Jardín",
+        "Humedad",
+        "Ascensor",
+        "Pestes",
+        "Vigilancia",
+        "Piscina",
+        "Desperdicios",
+        "Portón",
+        "Pintura",
+        "Juegos",
+        "Iluminación",
+        "Otros"
+    ];
+
+    /* ENUM('Goteras', 'Ruidos', 'Focos', 'Alberca', 'Elevador', 'Plomería', 'Seguridad', 'Basura', 'Estacionamiento', 'Jardín', 'Humedad', 'Ascensor', 'Pestes', 'Vigilancia', 'Piscina', 'Desperdicios', 'Portón', 'Pintura', 'Juegos', 'Iluminación') */
 
     const handleImageChange = (event) => {
         const selectedImage = event.target.files[0];
@@ -35,11 +63,16 @@ const RegistrarIncidencia = ({ id, condominioUs }) => {
         event.preventDefault();
         axios.post('http://localhost:3000/upload', formData)
             .then(res => {
-                navigate('/home');
+                if (res.data) {
+                    console.log(res.data);
+                    navigate('/home');
+                }
             })
             .catch(err => {
+                // Capturamos el error y mostramos un mensaje al usuario
                 console.log(err);
-            })
+                setError('Ha ocurrido un error al registrar la incidencia. Por favor, inténtalo nuevamente.');
+              });
     }
 
     return (
@@ -52,8 +85,13 @@ const RegistrarIncidencia = ({ id, condominioUs }) => {
                 <div className="flex">
                     <div className="inputBox">
                         <span>Tipo de incidencia</span>
-                        <input onChange={handleInput} type="text" placeholder="Luz, agua, derrame de líquido..." className="form-control" name="tipo" autoComplete="disabled" />
-
+                        <select  onChange={handleInput} placeholder="Luz, agua, derrame de líquido..." className="form-control" name="tipo">
+                            {options.map((option) => (
+                                <option key={option} value={option}>
+                                    {option}
+                                </option>
+                            ))}
+                        </select>
                     </div>
                     <div className="inputBox">
                         <span>Descripción</span>
@@ -80,6 +118,7 @@ const RegistrarIncidencia = ({ id, condominioUs }) => {
                     </div>
                 </div>
                 <input type="submit" value="Registrar" className="btn btn2" onClick={handleSubmit} />
+                {error && <p className="error-message">{error}</p>}
             </form>
         </section>
     );

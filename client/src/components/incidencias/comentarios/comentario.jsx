@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 
 const Comentario = ({ usuarioId, condominioId }) => {
@@ -9,6 +9,9 @@ const Comentario = ({ usuarioId, condominioId }) => {
 
     const [comentario, setComentario] = useState([]);
     const [incidencias, setIncidencias] = useState([]);
+    const [estatus, setEstatus] = useState({
+        estatus: 1
+    });
 
     function Fecha(res) {
         for (let i = 0; i < res.data.length; i++) {
@@ -44,7 +47,17 @@ const Comentario = ({ usuarioId, condominioId }) => {
             })
     }, [usuarioId, idIncidencia]);
 
-    
+
+    const eliminarComentario = (id) => {
+        axios.delete(`http://localhost:3000/comentarios/${id}`)
+        window.location.reload();
+    }
+
+    const estatusComentario = (id) => {
+        axios.put(`http://localhost:3000/incidencias/${id}`, estatus)
+        window.location.reload();
+    }
+
 
     return (
         <div>
@@ -68,6 +81,7 @@ const Comentario = ({ usuarioId, condominioId }) => {
                                 </div>
                                 <h3>Descripción</h3>
                                 <p>{incidencia.descripcion}</p>
+                                <a href={`http://localhost:5173/incidencias/${usuarioId}`} className="btn" onClick={() => estatusComentario(incidencia.id)}>Estatus</a>
                             </div>
                         </div>
                     ))}

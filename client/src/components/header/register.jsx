@@ -28,7 +28,6 @@ const Register = () => {
             })
     }, [])
 
-    console.log(condominio);
 
     const handleInput = (event) => {
         setValues(prev => ({ ...prev, [event.target.name]: event.target.value }));
@@ -46,6 +45,7 @@ const Register = () => {
                 })
         }
     }
+
     return (
         <section className="order" id="order">
             <div className="heading">

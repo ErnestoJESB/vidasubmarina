@@ -7,6 +7,8 @@ router.get('/incidencias/:id/:idIncidencia', incidenciasController.listIncidenci
 router.post('/upload', incidenciasController.upload);
 router.get('/comentarios/:id', incidenciasController.comentarios);
 router.post('/comentarios', incidenciasController.createComentario);
+router.delete('/comentarios/:id', incidenciasController.deleteComentario);
+router.put('/incidencias/:id', incidenciasController.updateIncidencia);
 
 
 module.exports = router;
