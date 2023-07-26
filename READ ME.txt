@@ -1,0 +1,13 @@
+Este proyecto fue realizado con los Frameworks de ReactJS y Express.JS
+
+Instrucciones de apertura 
+1. Tienes que pegar la carpeta en Visual Studio
+2. Entras a la carpeta Client "cd client" por medio de la terminal ctrl + ñ
+3. Pones "yarn run dev" y con ello abriste el lado del cliente
+4. Ahora abre el servidor en otra terminal "cd server"
+5. Pones "npm run dev"
+6. En caso que no te abra tienes que configurar tus variables de entorno tanto para Yarn y Npm
+7. Otra cosa es que tienes que configurar la BD en el app.js del lado del servidor
+8. En mi git también está el proyecto, posiblemente lo siga cambiando así que deberás descargar los cambios que haya hecho
+9. En caso que no funcionen las dependencias de ambos vuélvelas a instalar, "npm install"
+
