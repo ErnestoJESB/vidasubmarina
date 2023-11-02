@@ -5,7 +5,7 @@ import SuperAdmin from "../vistasUsuarios/superadmin/superadmin";
 import Condomino from "../vistasUsuarios/condomino/condomino";
 import IniciaSesion from "../cards/inicia_sesion";
 
-/* prueba */
+/* prueba 2 */
 
 const Home = () => {
     const [auth, setAuth] = useState(false);
