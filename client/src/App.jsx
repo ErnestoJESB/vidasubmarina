@@ -16,6 +16,9 @@ import Usuarios from "./components/vistasUsuarios/superadmin/usuarios";
 import Conocenosweb from "./components/website/conócenos";
 import Footer from "./components/footer/footer";
 
+/* test ernesto */
+
+
 function App({ auth, role, id, condominioUser }) {
   const autenticacion = auth;
   const rol = role;
