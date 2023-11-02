@@ -11,3 +11,5 @@ Instrucciones de apertura
 8. En mi git también está el proyecto, posiblemente lo siga cambiando así que deberás descargar los cambios que haya hecho
 9. En caso que no funcionen las dependencias de ambos vuélvelas a instalar, "npm install"
 
+Aquí te dejo el git donde está el proyecto
+https://github.com/ErnestoJESB/MWOLD.git

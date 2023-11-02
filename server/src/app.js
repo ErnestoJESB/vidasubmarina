@@ -65,7 +65,7 @@ app.use('/', loginRoutes);
 app.use('/', incidenciaRoutes);
 
 app.listen(3000, () => {
-  console.log('It´s works')
+  console.log('It works')
 })
 
 
