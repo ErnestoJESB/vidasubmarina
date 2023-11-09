@@ -2,8 +2,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 
 :root {
-    --card: #1b1a1a;
+    --card: #ffffff;
+    --header2: #252525;
     --color1: #c49c4c;
+    --btn2: #c49c4c;
     --color2: #4d3102;
     --color3: #93643a;
     --color4: #a47c54;
@@ -25,7 +27,7 @@
 }
 
 body {
-    background-color: #000000;
+    background-color: #ffffff;
 }
 
 h3 {
@@ -701,7 +703,7 @@ section {
     border-radius: 2rem;
     padding: 2rem;
     text-align: center;
-    background: var(--color1);
+    background: var(--header2);
 }
 
 .order .icons-container .icons img svg{
