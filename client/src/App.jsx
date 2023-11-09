@@ -27,8 +27,8 @@ function App({ auth, role, id, condominioUser }) {
       <Routes>
         <Route path="/" element={<div>
           <Cards />
-          <Conocenos />
-          <Carrousel />
+          {/* <Conocenos /> */}
+          {/* <Carrousel /> */}
         </div>} />
         <Route path="/conocenos" element={<Conocenosweb />} />
         <Route path="/login" element={<Login />} />

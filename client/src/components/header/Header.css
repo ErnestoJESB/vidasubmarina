@@ -7,7 +7,7 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    background: var(--card);
+    background: var(--header2);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -40,7 +40,7 @@
 }
 
 .navbar{
-    background-color: var(--card);
+    background-color: var(--header2);
 }
 .header .navbar a {
     font-size: 1.7rem;
@@ -205,7 +205,7 @@
         right: 0;
         margin: 2%;
         border-radius: 2rem;
-        background: var(--card);
+        background: var(--header2);
         text-align: center;
         border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
