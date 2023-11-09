@@ -17,6 +17,7 @@ import Conocenosweb from "./components/website/conócenos";
 import Footer from "./components/footer/footer";
 import Card1 from "./components/cards_principal/carrousel";
 import Producto from "./components/producto/producto";
+import Proveedor from "./components/proveedor/proveedor";
 
 function App({ auth, role, id, condominioUser }) {
   const autenticacion = auth;
@@ -28,8 +29,9 @@ function App({ auth, role, id, condominioUser }) {
       <Header auth={autenticacion} role={rol} />
       <Routes>
 
-        <Route path="/prueba" element={<Card1 />} />
+        <Route path="/main" element={<Card1 />} />
         <Route path="producto" element={<Producto />} />
+        <Route path="/proveedor" element={<Proveedor />} />
         <Route path="/" element={<div>
           <Cards />
           <Conocenos />
