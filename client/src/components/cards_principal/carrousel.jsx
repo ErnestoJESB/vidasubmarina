@@ -146,7 +146,8 @@ const Card1 = () => {
     return (
         <section className="popular" id="condominios">
             <div className="heading">
-                <span>Nuestros</span>
+                <h3>---------------------------------------------------------------------------</h3>
+                {/* <span>Nuestros</span> */}
                 <h3>Productos</h3>
             </div>
             <div className="box-container">

@@ -32,8 +32,9 @@ function App({ auth, role, id, condominioUser }) {
         <Route path="producto" element={<Producto />} />
         <Route path="/" element={<div>
           <Cards />
+          <Card1/>
           <Conocenos />
-          <Carrousel />
+          {/* <Carrousel /> */}
         </div>} />
         <Route path="/conocenos" element={<Conocenosweb />} />
         <Route path="/login" element={<Login />} />
@@ -78,7 +79,7 @@ function App({ auth, role, id, condominioUser }) {
 
 
       </Routes>
-      <Footer />
+      {<Footer />}
     </BrowserRouter>
 
   );

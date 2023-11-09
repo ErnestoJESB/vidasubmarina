@@ -64,7 +64,7 @@ const Header = ({ auth, role }) => {
           :
           <header className="header">
             <a href="http://localhost:5173/" className="logo"><div>
-              <img src="/img/logoMWOLD.png" alt="..." /></div>
+              <img src="/img/vidaLogo1.png" alt="..." /></div>
             </a>
 
             <nav className="navbar">
