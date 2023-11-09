@@ -11,7 +11,6 @@ const Conocenos = () => {
     var iconos3 = "13-reporte.png"
 
     return (
-
         <section className="about" id="servicios">
             <div className="image">
                 <img src="/img/ejecutivo2.jpg" alt="..." />
