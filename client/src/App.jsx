@@ -16,6 +16,7 @@ import Usuarios from "./components/vistasUsuarios/superadmin/usuarios";
 import Conocenosweb from "./components/website/conócenos";
 import Footer from "./components/footer/footer";
 import Card1 from "./components/cards_principal/carrousel";
+import Producto from "./components/producto/producto";
 
 function App({ auth, role, id, condominioUser }) {
   const autenticacion = auth;
@@ -28,6 +29,7 @@ function App({ auth, role, id, condominioUser }) {
       <Routes>
 
         <Route path="/prueba" element={<Card1 />} />
+        <Route path="producto" element={<Producto />} />
         <Route path="/" element={<div>
           <Cards />
           <Conocenos />
