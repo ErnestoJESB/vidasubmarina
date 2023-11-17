@@ -34,6 +34,7 @@ const customersRoutes = require('./routes/customer');
 const condominioRoutes = require('./routes/condominio');
 const loginRoutes = require('./routes/login');
 const incidenciaRoutes = require('./routes/incidencias');
+const pescadosRoutes = require('./routes/pescados')
 
 
 //settings
@@ -48,7 +49,7 @@ app.use(myConnection(mysql, {
   user: 'root',
   password: 'Soberano15',
   port: 3306,
-  database: 'mwold'
+  database: 'vidaSub'
 }, 'single'))
 app.use(express.urlencoded({ extended: false }))
 
@@ -63,6 +64,7 @@ app.use('/', customersRoutes);
 app.use('/', condominioRoutes);
 app.use('/', loginRoutes);
 app.use('/', incidenciaRoutes);
+app.use('/', pescadosRoutes);
 
 app.listen(3000, () => {
   console.log('It works')
@@ -72,3 +74,4 @@ app.listen(3000, () => {
 app.use(express.static(path.join(__dirname, 'dbimages')))
 app.use(express.static(path.join(__dirname, 'condominios')))
 app.use(express.static(path.join(__dirname, 'incidencias')))
+app.use(express.static(path.join(__dirname, 'pescados')))

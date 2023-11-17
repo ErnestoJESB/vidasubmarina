@@ -1,5 +1,5 @@
-CREATE DATABASE Ejemplo;
-USE Ejemplo;
+CREATE DATABASE vidaSub;
+USE vidaSub;
 
 CREATE TABLE `Cliente` (
     `cliente_id` bigint PRIMARY KEY  NOT NULL,

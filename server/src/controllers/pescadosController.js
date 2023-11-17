@@ -9,7 +9,7 @@ const controller = {};
 
 
 controller.pescados = (req, res) => {
-    const sql = 'SELECT id, name FROM condominio';
+    const sql = 'SELECT * FROM cliente';
     req.getConnection((err, conn) => {
       if (err) return res.status(500).send('Error del servidor');
       conn.query(sql, (err, result) => {
