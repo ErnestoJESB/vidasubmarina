@@ -15,6 +15,7 @@
   --btnsh: #00a0d4;
   --btnsc: #ff7f00;
   --txt: #065974;
+
 }
 
 * {
@@ -33,6 +34,7 @@
 
 body {
   background-color: #ffffff;
+
 }
 
 h3 {
