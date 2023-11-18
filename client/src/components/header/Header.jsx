@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import "./Header.css"
-const Header = ({auth, role}) => {
+const Header = ({ auth, role }) => {
 
   useEffect(() => {
-    
+
     const navbar = document.querySelector('.header .navbar');
     const menuBtn = document.querySelector('#menu-btn');
 
@@ -29,7 +29,7 @@ const Header = ({auth, role}) => {
   }, []);
   /* A partir de aquí todo estaba bien xd */
 
-  
+
 
   const handleDelete = () => {
     axios.get("http://localhost:3000/logout")
@@ -46,6 +46,10 @@ const Header = ({auth, role}) => {
       {
         auth ?
           <header className="header">
+            <a href="http://localhost:5173/" className="logo"><div>
+              <img src="/img/logoMWOLD.png" alt="..." />
+            </div>
+            </a>
             <nav className="navbar">
               <a href="http://localhost:5173/">Inicio</a>
               <a href="http://localhost:3000/customer">Clientes</a>
@@ -62,6 +66,10 @@ const Header = ({auth, role}) => {
           </header>
           :
           <header className="header">
+            <a href="http://localhost:5173/" className="logo"><div>
+              <img src="/img/vidaLogo1.png" alt="..." /></div>
+            </a>
+
 
             <nav className="navbar">
               <a href="http://localhost:5173/">Inicio</a>
