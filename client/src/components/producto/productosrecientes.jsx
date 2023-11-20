@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import Productos from '../cards_principal/carrousel';
-const Producto = ({proveedorId}) => {
+const ProductoRec = () => {
     const [producto, setproducto] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:3000/producto/${proveedorId}`)
+        fetch(`http://localhost:3000/productos`)
             .then(response => response.json())
             .then(data => {
                 setproducto(data);
@@ -16,4 +16,4 @@ const Producto = ({proveedorId}) => {
         <Productos data={producto} />
     )
 }
-export default Producto;
+export default ProductoRec;

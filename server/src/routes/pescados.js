@@ -7,7 +7,11 @@ router.get('/pescados', pescadosController.pescados)
 router.get('/ticket', pescadosController.ticket)
 router.get('/empresas', pescadosController.empresas)
 router.get('/proveedor/:idproveedor', pescadosController.proveedor)
-router.get('/producto', pescadosController.producto)
+router.get('/producto/:idproveedor', pescadosController.idproducto)
+router.get('/productos', pescadosController.productos)
+router.get('/productos/:producto', pescadosController.producto)
+router.get('/empresa/:idUser', pescadosController.empresa)
+router.get('/empresaprod/:idUser', pescadosController.empresaprod)
 
 
 module.exports = router;

@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import Empresas from './cards_principal/carrousel';
 
-const Empresa = () => {
+const Empresas1 = () => {
 
     const [empresas, setempresas] = useState([]);
 
@@ -24,4 +24,4 @@ const Empresa = () => {
     )
 }   
 
-export default Empresa;
+export default Empresas1;
