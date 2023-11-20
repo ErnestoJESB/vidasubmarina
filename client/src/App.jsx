@@ -36,7 +36,7 @@ function App({ auth, role, id }) {
           element={
             <div>
               <Cards />
-              <Productos />
+              {/* <Productos />*/}
               <Conocenos />
               {/* <Carrousel /> */}
             </div>
