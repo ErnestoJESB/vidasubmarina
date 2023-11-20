@@ -41,7 +41,9 @@ function App({ auth, role, id, name }) {
           element={
             <div>
               <Cards />
+
               {/*<Productos />*/}
+
               <Conocenos />
               <ProductoRec />
             </div>
