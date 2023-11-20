@@ -47,7 +47,7 @@ const Header = ({ auth, role }) => {
         auth ?
           <header className="header">
             <a href="http://localhost:5173/" className="logo"><div>
-              <img src="/img/logoMWOLD.png" alt="..." />
+              <img src="/img/vidaLogo1.png" alt="..." />
             </div>
             </a>
             <nav className="navbar">
@@ -56,6 +56,10 @@ const Header = ({ auth, role }) => {
               <a href="http://localhost:3000/condominio">Condominios</a>
               <a href="http://localhost:5173/home">{role}</a>
             </nav>
+            <div className="icons">
+              <div id="menu-btn" className="ri-menu-line"></div>
+              <button className="btn" onClick={handleDelete}>logout</button>
+            </div>
             
             
           </header>
@@ -71,6 +75,7 @@ const Header = ({ auth, role }) => {
             </nav>
             <div className="icons">
               <div id="menu-btn" className="ri-menu-line"></div>
+                <a href="http://localhost:5173/login"><div className="ri-user-line"></div></a>
             </div>
           </header>
       }

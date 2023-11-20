@@ -272,10 +272,10 @@
   resolved "https://registry.npmjs.org/@kurkle/color/-/color-0.3.2.tgz"
   integrity sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==
 
-"@remix-run/router@1.7.2":
-  version "1.7.2"
-  resolved "https://registry.npmjs.org/@remix-run/router/-/router-1.7.2.tgz"
-  integrity sha512-7Lcn7IqGMV+vizMPoEl5F0XDshcdDYtMI6uJLQdQz5CfZAwy3vvGKYSUk789qndt5dEC4HfSjviSYlSoHGL2+A==
+"@remix-run/router@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.npmjs.org/@remix-run/router/-/router-1.12.0.tgz"
+  integrity sha512-2hXv036Bux90e1GXTWSMfNzfDDK8LA8JYEWfyHxzvwdp6GyoWEovKc9cotb3KCKmkdwsIBuFGX7ScTWyiHv7Eg==
 
 "@rollup/plugin-babel@^6.0.3":
   version "6.0.3"
@@ -1057,20 +1057,20 @@ react-refresh@^0.14.0:
   resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.14.0.tgz"
   integrity sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==
 
-react-router-dom@^6.14.2:
-  version "6.14.2"
-  resolved "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.14.2.tgz"
-  integrity sha512-5pWX0jdKR48XFZBuJqHosX3AAHjRAzygouMTyimnBPOLdY3WjzUSKhus2FVMihUFWzeLebDgr4r8UeQFAct7Bg==
+react-router-dom@^6.19.0:
+  version "6.19.0"
+  resolved "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.19.0.tgz"
+  integrity sha512-N6dWlcgL2w0U5HZUUqU2wlmOrSb3ighJmtQ438SWbhB1yuLTXQ8yyTBMK3BSvVjp7gBtKurT554nCtMOgxCZmQ==
   dependencies:
-    "@remix-run/router" "1.7.2"
-    react-router "6.14.2"
+    "@remix-run/router" "1.12.0"
+    react-router "6.19.0"
 
-react-router@6.14.2:
-  version "6.14.2"
-  resolved "https://registry.npmjs.org/react-router/-/react-router-6.14.2.tgz"
-  integrity sha512-09Zss2dE2z+T1D03IheqAFtK4UzQyX8nFPWx6jkwdYzGLXd5ie06A6ezS2fO6zJfEb/SpG6UocN2O1hfD+2urQ==
+react-router@6.19.0:
+  version "6.19.0"
+  resolved "https://registry.npmjs.org/react-router/-/react-router-6.19.0.tgz"
+  integrity sha512-0W63PKCZ7+OuQd7Tm+RbkI8kCLmn4GPjDbX61tWljPxWgqTKlEpeQUwPkT1DRjYhF8KSihK0hQpmhU4uxVMcdw==
   dependencies:
-    "@remix-run/router" "1.7.2"
+    "@remix-run/router" "1.12.0"
 
 react@*, "react@^0.14 || ^15.0.0 || ^16.0.0-alpha", "react@^0.14 || >=15", "react@^16.3.2 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", react@^18.0.0, react@^18.2.0, "react@>= 16.3.0", react@>=16.8:
   version "18.2.0"

@@ -5,13 +5,12 @@ import axios from "axios";
 
 const Register = () => {
     const [values, setValues] = useState({
-        email: '',
-        password: '',
         name: '',
         lastname: '',
+        email: '',
+        password: '',
         phone: '',
         address: '',
-        condominio: '',
         password2: ''
     });
     const navigate = useNavigate();
@@ -35,7 +34,7 @@ const Register = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         setErrors(Validation(values));
-        if (errors.email === "" && errors.password === "" && errors.name === "" && errors.lastname === "" && errors.phone === "" && errors.address === "" && errors.password2 === "" && errors.condominio === "") {
+        if (errors.email === "" && errors.password === "" && errors.name === "" && errors.lastname === "" && errors.phone === "" && errors.address === "" && errors.password2 === "" ) {
             axios.post('http://localhost:3000/register', values)
                 .then(res => {
                     navigate('/home');
@@ -95,16 +94,7 @@ const Register = () => {
                         <input type="password" placeholder="confirmar contraseña" className="form-control" name="password2" onChange={handleInput} autoComplete="disable" />
                         {errors.password2 && <span style={{ fontSize: '1.4rem', color: 'red' }}>{errors.password2}</span>}
                     </div>
-                    <div className="inputBox">
-                        <span>Condominio</span>
-                        <select name="condominio" className="form-control" onChange={handleInput}>
-                            <option value="">Selecciona un condominio</option>
-                            {condominio && condominio.map((condo, index) => (
-                                <option key={index} value={condo.id}>{condo.name}</option>
-                            ))}
-                        </select>
-                        {errors.condominio && <span style={{ fontSize: '1.4rem', color: 'red' }}>{errors.condominio}</span>}
-                    </div>
+                    
                 </div>
                 <input type="submit" value="Registrar" className="btn btn2" onClick={handleSubmit} />
                 <p>

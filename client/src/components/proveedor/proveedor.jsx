@@ -1,7 +1,7 @@
 import React from 'react';
 import Card1 from '../cards_principal/carrousel';
 
-const Proveedor = () => {
+const Proveedo = () => {
 
     let proveedor = [
         {
@@ -228,4 +228,4 @@ const Proveedor = () => {
     );
 }
 
-export default Proveedor;
+export default Proveedo;
