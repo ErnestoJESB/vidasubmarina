@@ -15,20 +15,20 @@ import CrearComentario from './components/incidencias/comentarios/crearcomentari
 import Usuarios from './components/vistasUsuarios/superadmin/usuarios';
 import Conocenosweb from './components/website/conócenos';
 import Footer from './components/footer/footer';
-import Card1 from './components/cards_principal/carrousel';
+import Productos from './components/cards_principal/carrousel';
 import Producto from './components/producto/producto';
-import Proveedor from './components/proveedor/proveedor';
+import Empresa from './components/empresas/empresas';
+import Proveedor from './components/empresas/proveedor';
 
-function App({ auth, role, id, condominioUser }) {
+function App({ auth, role, id }) {
   const autenticacion = auth;
   const rol = role;
   const idUsuario = id;
-  const idCondominio = condominioUser;
   return (
     <BrowserRouter>
       <Header auth={autenticacion} role={rol} />
       <Routes>
-        <Route path="/main" element={<Card1 />} />
+        <Route path="/main" element={<Productos />} />
         <Route path="producto" element={<Producto />} />
         <Route path="/proveedor" element={<Proveedor />} />
         <Route
@@ -36,7 +36,7 @@ function App({ auth, role, id, condominioUser }) {
           element={
             <div>
               <Cards />
-              <Card1 />
+              <Productos />
               <Conocenos />
               {/* <Carrousel /> */}
             </div>
@@ -46,7 +46,42 @@ function App({ auth, role, id, condominioUser }) {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
+
         {auth ? (
+          <Route
+            path="/cliente"
+            element={
+              <Empresa />
+            }
+          />
+        ) : (
+          <Route path="/cliente" element={<Login />} />
+        )}
+
+        {auth ? (
+          <Route
+            path="/proveedor/:idproveedor"
+            element={
+              <div>
+                <Proveedor />
+                <Producto/>
+              </div>
+            }
+          />
+        ) : (
+          <Route path="/proveedor/:idproveedor" element={<Login />} />
+        )}
+
+      </Routes>
+      {<Footer />}
+    </BrowserRouter>
+  );
+}
+
+export default App;
+
+
+{/* {auth ? (
           <Route
             path="/crearincidencia"
             element={
@@ -55,8 +90,8 @@ function App({ auth, role, id, condominioUser }) {
           />
         ) : (
           <Route path="/crearincidencia" element={<Login />} />
-        )}
-
+        )} 
+        
         {auth ? (
           <Route
             path="/comentarios/:idIncidencia/:idCondomino"
@@ -108,11 +143,4 @@ function App({ auth, role, id, condominioUser }) {
           <Route path="/usuarios" element={<Usuarios />} />
         ) : (
           <Route path="/usuarios" element={<Login />} />
-        )}
-      </Routes>
-      {<Footer />}
-    </BrowserRouter>
-  );
-}
-
-export default App;
+        )} */}

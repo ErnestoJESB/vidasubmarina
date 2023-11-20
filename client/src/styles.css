@@ -528,7 +528,7 @@ section {
 
 .blogs .box-container .box .content .tags a {
   font-size: 1.5rem;
-  color: #ffffff;
+  color: #000000;
   padding-right: 0.5rem;
 }
 
@@ -548,7 +548,7 @@ section {
 
 .blogs .box-container .box .content p {
   font-size: 1.4rem;
-  color: #ffffff;
+  color: #000000;
   padding: 1rem 0;
   line-height: 2;
 }
@@ -1248,7 +1248,7 @@ h5 {
 }
 
 .card-int__button::before {
-  content: 'More for this article';
+  content: 'Saber más';
   color: white;
   display: flex;
   align-items: center;

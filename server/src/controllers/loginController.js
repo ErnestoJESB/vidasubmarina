@@ -9,19 +9,18 @@ const controller = {};
 
 
 controller.register = (req, res) => {
-  const sql = 'INSERT INTO usuario (email, password, name, lastname, address, telefono, idcondominio, tipo_usuario) VALUES (?)';
+  const sql = 'INSERT INTO user (name, lastname, email, password, address, phone, tipo_user) VALUES (?)';
   bcrypt.hash(req.body.password.toString(), salt, (err, hash) => {
     if (err) return res.json({ Error: "Error al encriptar contraseña" });
-    let tipo_usuario = "usuario";
+    let tipo_user = "cliente";
     const values = [
-      req.body.email,
-      hash,
       req.body.name,
       req.body.lastname,
+      req.body.email,
+      hash,
       req.body.address,
       req.body.phone,
-      req.body.condominio,
-      tipo_usuario
+      tipo_user
     ];
     req.getConnection((err, conn) => {
       if (err) return res.status(500).send('Error del servidor');
@@ -38,7 +37,7 @@ controller.register = (req, res) => {
 
 
 controller.login = (req, res) => {
-  const sql = 'SELECT * FROM usuario WHERE email = ?';
+  const sql = 'SELECT * FROM user WHERE email = ?';
   req.getConnection((err, conn) => {
     if (err) return res.status(500).send('Error del servidor');
     conn.query(sql, [req.body.email], (err, data) => {
@@ -47,13 +46,12 @@ controller.login = (req, res) => {
         bcrypt.compare(req.body.password.toString(), data[0].password, (err, result) => {
           if (err) return res.json({ Error: "Error al comparar contraseñas" });
           if (result) {
-            const tipo_usuario = data[0].tipo_usuario;
+            const tipo_usuario = data[0].tipo_user;
             const name = data[0].name;
             const id = data[0].id;
-            const idcondominio = data[0].idcondominio;
-            const token = jwt.sign({ tipo_usuario, name, id, idcondominio}, 'MWOLD', { expiresIn: '1h' })
+            const token = jwt.sign({ tipo_usuario, name, id}, 'VIDASUB', { expiresIn: '1h' })
             res.cookie('token', token)
-            return res.json({ Login: true, tipo_usuario: data[0].tipo_usuario, userName: data[0].name, userId: data[0].id, idcondominio: data[0].idcondominio });
+            return res.json({ Login: true, tipo_usuario: data[0].tipo_user, userName: data[0].name, userId: data[0].id });
           }
           return res.json({ Login: false });
         });
@@ -69,15 +67,14 @@ controller.login = (req, res) => {
 controller.user = (req, res, next) => {
   const token = req.cookies.token;
   if (!token) return res.json({ Error: "No hay token" });
-  jwt.verify(token, 'MWOLD', (err, decoded) => {
+  jwt.verify(token, 'VIDASUB', (err, decoded) => {
     if (err) return res.json({ Error: "Token invalido" });
     req.tipo_usuario = decoded.tipo_usuario;
     req.userName = decoded.name;
     req.userId = decoded.id;
-    req.idcondominio = decoded.idcondominio;
     next();
   });
-  return res.json({ Status: "Success", tipo_usuario: req.tipo_usuario, userName: req.userName, userId: req.userId, idcondominio: req.idcondominio });
+  return res.json({ Status: "Success", tipo_usuario: req.tipo_usuario, userName: req.userName, userId: req.userId });
 };
 
 controller.logout = (req, res) => {

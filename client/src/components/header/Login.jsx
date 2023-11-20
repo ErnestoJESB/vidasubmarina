@@ -23,7 +23,7 @@ const Login = () => {
     function recargarPaginaUnaVez() {
         if (!reloadEjecutado) {
           reloadEjecutado = true;
-          navigate("/home");
+          navigate("/cliente");
           location.reload();
         }
       }
