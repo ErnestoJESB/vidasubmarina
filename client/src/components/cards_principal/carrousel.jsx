@@ -153,11 +153,12 @@ const Productos = ({data}) => {
             <div className="box-container">
                 <div className="wrapper">
                     <div className="cols">
-                        {data && data.map((producto) => (
+                        {data && 
+                        data.map((producto) => (
                             <div className="card" key={producto.id}>
                                 <div className="card__corner" />
                                 <div className="card__img">
-                                    <img src={`img/${producto.image}`} alt="" />
+                                    <img src={`../img/${producto.image}`} alt="" />
                                     <span className="card__span">{producto.nombre}</span>
                                 </div>
                                 <div className="card-int">
