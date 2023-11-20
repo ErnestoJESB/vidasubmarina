@@ -17,16 +17,21 @@ import Conocenosweb from './components/website/conócenos';
 import Footer from './components/footer/footer';
 import Productos from './components/cards_principal/carrousel';
 import Producto from './components/producto/producto';
-import Empresa from './components/empresas/empresas';
+import Empresas1 from './components/empresas/empresas';
 import Proveedor from './components/empresas/proveedor';
+import ProductoRec from './components/producto/productosrecientes';
+import ProductoId from './components/producto/idproducto';
+import Perfilempresa from './components/empresas/perfilEmpresa';
 
-function App({ auth, role, id }) {
+function App({ auth, role, id, name }) {
   const autenticacion = auth;
   const rol = role;
   const idUsuario = id;
+
+
   return (
     <BrowserRouter>
-      <Header auth={autenticacion} role={rol} />
+      <Header auth={autenticacion} role={rol} nombre={name}/>
       <Routes>
         <Route path="/main" element={<Productos />} />
         <Route path="producto" element={<Producto />} />
@@ -36,9 +41,9 @@ function App({ auth, role, id }) {
           element={
             <div>
               <Cards />
-              <Productos />
+              {/*<Productos />*/}
               <Conocenos />
-              {/* <Carrousel /> */}
+              <ProductoRec />
             </div>
           }
         />
@@ -51,7 +56,7 @@ function App({ auth, role, id }) {
           <Route
             path="/cliente"
             element={
-              <Empresa />
+              <Empresas1 />
             }
           />
         ) : (
@@ -64,12 +69,38 @@ function App({ auth, role, id }) {
             element={
               <div>
                 <Proveedor />
-                <Producto/>
               </div>
             }
           />
         ) : (
           <Route path="/proveedor/:idproveedor" element={<Login />} />
+        )}
+
+        {auth ? (
+          <Route
+            path="/producto/:producto"
+            element={
+              <div>
+                <ProductoId />
+              </div>
+            }
+          />
+        ) : (
+          <Route path="/producto/:producto" element={<Login />} />
+        )}
+
+
+        {auth ? (
+          <Route
+            path="/miempresa"
+            element={
+              <div>
+                <Perfilempresa idUser={idUsuario}/>
+              </div>
+            }
+          />
+        ) : (
+          <Route path="/miempresa" element={<Login />} />
         )}
 
       </Routes>

@@ -46,9 +46,20 @@ controller.proveedor = (req, res) => {
     });
   });
 };
+controller.idproducto = (req, res) => {
+  const { idproveedor } = req.params;
+  const sql = `SELECT * FROM vidasub.productos WHERE idempresa = ${idproveedor};`;
+  req.getConnection((err, conn) => {
+    if (err) return res.status(500).send('Error del servidor');
+    conn.query(sql, (err, result) => {
+      if (err) return res.json("Error al obtener condominios");
+      return res.json(result);
+    });
+  });
+};
 
-controller.producto = (req, res) => {
-  const sql = 'SELECT * FROM vidasub.productos;';
+controller.productos = (req, res) => {
+  const sql = 'SELECT * FROM vidasub.productos ORDER BY idproductos DESC;';
   req.getConnection((err, conn) => {
     if (err) return res.status(500).send('Error del servidor');
     conn.query(sql, (err, result) => {
@@ -58,5 +69,40 @@ controller.producto = (req, res) => {
   });
 }
 
+controller.producto = (req, res) => {
+  const { producto } = req.params;
+  const sql = `SELECT * FROM vidasub.productos WHERE idproductos = ${producto};`;
+  req.getConnection((err, conn) => {
+    if (err) return res.status(500).send('Error del servidor');
+    conn.query(sql, (err, result) => {
+      if (err) return res.json("Error al obtener condominios");
+      return res.json(result);
+    });
+  });
+};
+
+controller.empresa = (req, res) => {
+  const { idUser } = req.params;
+  const sql = `SELECT * FROM vidasub.empresa WHERE user_id = ${idUser};`;
+  req.getConnection((err, conn) => {
+    if (err) return res.status(500).send('Error del servidor');
+    conn.query(sql, (err, result) => {
+      if (err) return res.json("Error al obtener condominios");
+      return res.json(result);
+    });
+  });
+};
+
+controller.empresaprod = (req, res) => {
+  const { idUser } = req.params;
+  const sql = `SELECT * FROM vidasub.productos WHERE idempresa = ${idUser};`;
+  req.getConnection((err, conn) => {
+    if (err) return res.status(500).send('Error del servidor');
+    conn.query(sql, (err, result) => {
+      if (err) return res.json("Error al obtener condominios");
+      return res.json(result);
+    });
+  });
+};
 
 module.exports = controller;
