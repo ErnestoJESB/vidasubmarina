@@ -6,11 +6,11 @@
   --card: #ffffff;
   --header2: #252525;
   --headerb: #006b8d;
-  --color1: #c49c4c;
+  --color1: rgb(0, 0, 0); /* Titulo */
   --btn2: #c49c4c;
   --color2: #4d3102;
-  --color3: #93643a;
-  --color4: #a47c54;
+  --color3: rgb(0, 0, 0); /* botones */ 
+  --color4: #000000;  /* Texto */
   --btns: #00cdff;
   --btnsh: #00a0d4;
   --btnsc: #ff7f00;
@@ -528,7 +528,7 @@ section {
 
 .blogs .box-container .box .content .tags a {
   font-size: 1.5rem;
-  color: #ffffff;
+  color: #000000;
   padding-right: 0.5rem;
 }
 
@@ -548,7 +548,7 @@ section {
 
 .blogs .box-container .box .content p {
   font-size: 1.4rem;
-  color: #ffffff;
+  color: #000000;
   padding: 1rem 0;
   line-height: 2;
 }
@@ -1207,6 +1207,8 @@ h5 {
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.1s ease-in;
   user-select: none;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 .card__span:hover {
@@ -1248,7 +1250,7 @@ h5 {
 }
 
 .card-int__button::before {
-  content: 'More for this article';
+  content: 'Saber más';
   color: white;
   display: flex;
   align-items: center;

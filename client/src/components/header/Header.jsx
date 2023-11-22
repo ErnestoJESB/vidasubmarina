@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import "./Header.css"
-const Header = ({ auth, role }) => {
+const Header = ({ auth, role, nombre }) => {
+
 
   useEffect(() => {
 
@@ -47,40 +48,32 @@ const Header = ({ auth, role }) => {
         auth ?
           <header className="header">
             <a href="http://localhost:5173/" className="logo"><div>
-              <img src="/img/logoMWOLD.png" alt="..." />
+              <img src="/img/vidaLogo1.png" alt="..." />
             </div>
             </a>
             <nav className="navbar">
               <a href="http://localhost:5173/">Inicio</a>
               <a href="http://localhost:3000/customer">Clientes</a>
-              <a href="http://localhost:3000/condominio">Condominios</a>
-              <a href="http://localhost:5173/home">{role}</a>
+              <a href="http://localhost:5173/miempresa/">Mi empresa</a>
+              <a href="http://localhost:5173/cliente">{nombre}</a>
             </nav>
-            <a href="http://localhost:5173/" className="logo"><div>
-              <img src="/img/logoMWOLD.png" alt="..." /></div>
-            </a>
             <div className="icons">
               <div id="menu-btn" className="ri-menu-line"></div>
               <button className="btn" onClick={handleDelete}>logout</button>
             </div>
+            
+            
           </header>
           :
           <header className="header">
             <a href="http://localhost:5173/" className="logo"><div>
               <img src="/img/vidaLogo1.png" alt="..." /></div>
             </a>
-
-
             <nav className="navbar">
               <a href="http://localhost:5173/">Inicio</a>
               <a href="http://localhost:5173/conocenos">Conócenos</a>
               <a href="http://localhost:3000/condominio">Condominios</a>
             </nav>
-            
-            <a href="http://localhost:5173/" className="logo"><div>
-              <img src="/img/logoMWOLD.png" alt="..." /></div>
-            </a>
-
             <div className="icons">
               <div id="menu-btn" className="ri-menu-line"></div>
                 <a href="http://localhost:5173/login"><div className="ri-user-line"></div></a>

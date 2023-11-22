@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Validation from "./RegisterValidation";
 import axios from "axios";
 
-const Register = () => {
+const Pedido = () => {
     const [values, setValues] = useState({
         name: '',
         lastname: '',
@@ -49,7 +49,7 @@ const Register = () => {
         <section className="order" id="order">
             <div className="heading">
                 <span>Registrar</span>
-                <h3>Usuario</h3>
+                <h3>Pedido</h3>
             </div>
             <form action="" onSubmit={handleInput} >
                 <div className="flex">
@@ -76,34 +76,11 @@ const Register = () => {
                         {errors.phone && <span style={{ fontSize: '1.4rem', color: 'red' }}>{errors.phone}</span>}
                     </div>
                 </div>
-                <div className="flex">
-                    <div className="inputBox">
-                        <span>Dirección</span>
-                        <input type="text" placeholder="dirección" className="form-control" name="address" onChange={handleInput} autoComplete="disable" />
-                        {errors.address && <span style={{ fontSize: '1.4rem', color: 'red' }}>{errors.address}</span>}
-                    </div>
-                    <div className="inputBox">
-                        <span>Contraseña</span>
-                        <input type="password" placeholder="contraseña" className="form-control" name="password" onChange={handleInput} autoComplete="disable" />
-                        {errors.password && <span style={{ fontSize: '1.4rem', color: 'red' }}>{errors.password}</span>}
-                    </div>
-                </div>
-                <div className="flex">
-                    <div className="inputBox">
-                        <span>Confirmar contraseña</span>
-                        <input type="password" placeholder="confirmar contraseña" className="form-control" name="password2" onChange={handleInput} autoComplete="disable" />
-                        {errors.password2 && <span style={{ fontSize: '1.4rem', color: 'red' }}>{errors.password2}</span>}
-                    </div>
-                    
-                </div>
                 <input type="submit" value="Registrar" className="btn btn2" onClick={handleSubmit} />
-                <p>
-                    ¿Ya tienes una cuenta? <a href="http://localhost:5173/login">Inicia sesión</a>{" "}
-                </p>
             </form>
 
         </section >
     )
 }
 
-export default Register
+export default Pedido
