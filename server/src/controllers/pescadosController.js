@@ -46,6 +46,7 @@ controller.proveedor = (req, res) => {
     });
   });
 };
+
 controller.idproducto = (req, res) => {
   const { idproveedor } = req.params;
   const sql = `SELECT * FROM vidasub.productos WHERE idempresa = ${idproveedor};`;
@@ -58,6 +59,7 @@ controller.idproducto = (req, res) => {
   });
 };
 
+/* basico */
 controller.productos = (req, res) => {
   const sql = 'SELECT * FROM vidasub.productos ORDER BY idproductos DESC;';
   req.getConnection((err, conn) => {
@@ -104,5 +106,17 @@ controller.empresaprod = (req, res) => {
     });
   });
 };
+
+
+controller.productosname = (req, res) => {
+  const sql = 'SELECT nombre, image FROM vidasub.productos;';
+  req.getConnection((err, conn) => {
+    if (err) return res.status(500).send('Error del servidor');
+    conn.query(sql, (err, result) => {
+      if (err) return res.json("Error al obtener condominios");
+      return res.json(result);
+    });
+  });
+}
 
 module.exports = controller;
