@@ -14,10 +14,8 @@ const Productos = ({ data }) => {
     /* End Pagination */
 
     return (
-        <section className="popular" id="condominios">
+        <section className="popularP" id="condominios">
             <div className="heading">
-                <h3>---------------------------------------------------------------------------</h3>
-                {/* <span>Nuestros</span> */}
                 <h3>Productos</h3>
             </div>
             <div className="box-container">
