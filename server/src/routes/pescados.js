@@ -13,6 +13,7 @@ router.get('/productos/:producto', pescadosController.producto)
 router.get('/empresa/:idUser', pescadosController.empresa)
 router.get('/empresaprod/:idUser', pescadosController.empresaprod)
 router.get('/productosname', pescadosController.productosname)
+router.post('/addproducto', pescadosController.addProducto)
 
 
 module.exports = router;

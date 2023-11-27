@@ -22,12 +22,13 @@ import Proveedor from './components/empresas/proveedor';
 import ProductoRec from './components/producto/productosrecientes';
 import ProductoId from './components/producto/idproducto';
 import Perfilempresa from './components/empresas/perfilEmpresa';
+import RegistrarProducto from './components/producto/registrarproductos';
 
-function App({ auth, role, id, name }) {
+function App({ auth, role, id, name, empresaId }) {
   const autenticacion = auth;
   const rol = role;
   const idUsuario = id;
-
+  const idEmpresa = empresaId;
 
   return (
     <BrowserRouter>
@@ -97,12 +98,25 @@ function App({ auth, role, id, name }) {
             path="/miempresa"
             element={
               <div>
-                <Perfilempresa idUser={idUsuario}/>
+                <Perfilempresa idUser={idUsuario} idEmp={idEmpresa}/>
               </div>
             }
           />
         ) : (
           <Route path="/miempresa" element={<Login />} />
+        )}
+
+        {auth ? (
+          <Route
+            path="/registrarproducto/:idempresa"
+            element={
+              <div>
+                <RegistrarProducto />
+              </div>
+            }
+          />
+        ) : (
+          <Route path="/registrarproducto/:idempresa" element={<Login />} />
         )}
 
       </Routes>

@@ -1,3 +1,8 @@
+const express = require('express')
+const fs = require('fs');
+const path = require('path');
+const multer = require('multer')
+
 const controller = {};
 
 
@@ -119,4 +124,48 @@ controller.productosname = (req, res) => {
   });
 }
 
+
+/* CRUD productos */
+
+/* Guarda la imagen y datos */
+const diskstorage = multer.diskStorage({
+  destination: path.join(__dirname, '../productos'),
+  filename: (req, file, cb) => {
+    const originalname = file.originalname.replace(/[^\w.-]/g, ''); // Eliminar espacios en blanco
+    cb(null, 'VidaSub-Producto' + originalname);
+  }
+});
+
+const fileUpload = multer({
+  storage: diskstorage
+}).single('image');
+
+controller.addProducto = (req, res) => {
+  fileUpload(req, res, (err) => {
+    if (err) {
+      console.error('Error uploading image:', err);
+      return res.status(500).send('Error uploading image');
+    }
+    console.log(req.body);
+    const filename = req.file.filename;
+    const data = req.body;
+    data.image = filename;
+    console.log(data);
+    req.getConnection((err, conn) => {
+      if (err) {
+        console.error('Server error:', err);
+        return res.status(500).send('Server error');
+      }
+
+
+      conn.query('INSERT INTO productos SET ?', data, (err, rows) => {
+        if (err) {
+          console.error('Error inserting image:', err);
+          return res.status(500).send('Error inserting image');
+        }
+        console.log('Image inserted successfully');
+      }); 
+    });
+  });
+};
 module.exports = controller;
