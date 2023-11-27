@@ -12,6 +12,7 @@ router.get('/productos', pescadosController.productos)
 router.get('/productos/:producto', pescadosController.producto)
 router.get('/empresa/:idUser', pescadosController.empresa)
 router.get('/empresaprod/:idUser', pescadosController.empresaprod)
+router.get('/productosname', pescadosController.productosname)
 
 
 module.exports = router;
