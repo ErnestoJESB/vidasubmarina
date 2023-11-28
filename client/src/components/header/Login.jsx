@@ -39,7 +39,7 @@ const Login = () => {
                     if (res.data.Login) {
                         recargarPaginaUnaVez();
                     } else {
-                        alert("Usuario o contraseña incorrectos");
+                        alert(values);
                     }
                 })
                 .catch(error => {

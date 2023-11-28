@@ -9,7 +9,6 @@ const Auth = () => {
         const [role, setRole] = useState('');
         const [nombre, setNombre] = useState('');
         const [id, setId] = useState('');
-        const [idEmpresa, setIdEmpresa] = useState('');
       
         axios.defaults.withCredentials = true;
         useEffect(() => {
@@ -20,7 +19,6 @@ const Auth = () => {
                 setRole(res.data.tipo_usuario);
                 setId(res.data.userId);
                 setNombre(res.data.userName);
-                setIdEmpresa(res.data.idempresa);
               } else {
                 setAuth(false);
               }
@@ -32,7 +30,7 @@ const Auth = () => {
 
         return (
             <div>
-                <App auth={auth} role={role} id={id} name={nombre} empresaId={idEmpresa} />
+                <App auth={auth} role={role} id={id} name={nombre} />
             </div>
             )
 }

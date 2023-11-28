@@ -69,6 +69,7 @@ const RegistrarProducto = () => {
                     console.log(err);
                     setError('Ha ocurrido un error al registrar el producto. Por favor, inténtalo nuevamente.');
                 });
+            navigate(`/miempresa`);
         }
     }
 

@@ -23,6 +23,10 @@ import ProductoRec from './components/producto/productosrecientes';
 import ProductoId from './components/producto/idproducto';
 import Perfilempresa from './components/empresas/perfilEmpresa';
 import Conocenos2 from './components/conocenos/conocenos2';
+import RegistrarProducto from './components/producto/registrarproductos';
+import SerEmpresa from './components/cards/serEmpresa';
+import Registrarempresa from './components/empresas/registrarempresa';
+import Productosempresas from './components/empresas/productosempresas';
 
 
 function App({ auth, role, id, name, empresaId }) {
@@ -33,7 +37,7 @@ function App({ auth, role, id, name, empresaId }) {
 
   return (
     <BrowserRouter>
-      <Header auth={autenticacion} role={rol} nombre={name}/>
+      <Header auth={autenticacion} role={rol} nombre={name} />
       <Routes>
         <Route path="/main" element={<Productos />} />
         <Route path="producto" element={<Producto />} />
@@ -43,9 +47,6 @@ function App({ auth, role, id, name, empresaId }) {
           element={
             <div>
               <Cards />
-
-              {/*<Productos />*/}
-
               <Conocenos />
               <Empresas1 />
               <Conocenos2 />
@@ -69,18 +70,6 @@ function App({ auth, role, id, name, empresaId }) {
           <Route path="/cliente" element={<Login />} />
         )}
 
-        {auth ? (
-          <Route
-            path="/proveedor/:idproveedor"
-            element={
-              <div>
-                <Proveedor />
-              </div>
-            }
-          />
-        ) : (
-          <Route path="/proveedor/:idproveedor" element={<Login />} />
-        )}
 
         {auth ? (
           <Route
@@ -96,17 +85,23 @@ function App({ auth, role, id, name, empresaId }) {
         )}
 
 
-        {auth ? (
+        {rol === 'proveedor' ? (
           <Route
             path="/miempresa"
             element={
               <div>
-                <Perfilempresa idUser={idUsuario} idEmp={idEmpresa}/>
+                <Perfilempresa idUser={idUsuario} idEmp={idEmpresa} />
               </div>
             }
           />
         ) : (
-          <Route path="/miempresa" element={<Login />} />
+          <Route path="/miempresa" element={<SerEmpresa />} />
+        )}
+
+        {auth ? (
+          <Route path="/registrarempresa" element={<Registrarempresa userId={idUsuario} />} />
+        ) : (
+          <Route path="/registrarempresa" element={<Login />} />
         )}
 
         {auth ? (
@@ -122,6 +117,45 @@ function App({ auth, role, id, name, empresaId }) {
           <Route path="/registrarproducto/:idempresa" element={<Login />} />
         )}
 
+        {auth ? (
+          <Route
+            path="/productosemp/:empId"
+            element={
+              <div>
+                <Productosempresas />
+              </div>
+            }
+          />
+        ) : (
+          <Route path="/productosemp/:empId" element={<Login />} />
+        )}
+
+        {auth ? (
+          <Route
+            path="/proveedor/:idproveedor"
+            element={
+              <div>
+                <Proveedor />
+              </div>
+            }
+          />
+        ) : (
+          <Route path="/proveedor/:idproveedor" element={<Login />} />
+        )}
+
+        {auth ? (
+          <Route
+            path="/mispedidos"
+            element={
+              <div>
+              </div>
+            }
+          />
+        ) : (
+          <Route path="/mispedidos" element={<Login />} />
+        )}
+
+
       </Routes>
       {<Footer />}
     </BrowserRouter>
@@ -129,8 +163,32 @@ function App({ auth, role, id, name, empresaId }) {
 }
 
 export default App;
+{/* {auth ? (
+          <Route
+            path="/proveedor/:idproveedor"
+            element={
+              <div>
+                <Proveedor />
+              </div>
+            }
+          />
+        ) : (
+          <Route path="/proveedor/:idproveedor" element={<Login />} />
+        )} */}
 
-
+{/* {auth ? (
+          <Route
+            path="/registrarproducto/:idempresa"
+            element={
+              <div>
+                <RegistrarProducto />
+              </div>
+            }
+          />
+        ) : (
+          <Route path="/registrarproducto/:idempresa" element={<Login />} />
+        )}
+ */}
 {/* {auth ? (
           <Route
             path="/crearincidencia"

@@ -14,7 +14,7 @@ const Empresa = ({data}) => {
                         <div className="box" >
                             <div className="image">
                                 <h3> <i className="fas fa-calendar"></i> {datas.empresa} </h3>
-                                <img src={`../img/${datas.image}`} alt="" />
+                                <img src={`http://localhost:3000/${datas.image}`} alt="" />
                             </div>
                             <div className="content">
                                 <div className="tags">

@@ -30,7 +30,7 @@ const Empresas = ({data}) => {
                   <div className="card" key={datas.idempresa}>
                     <div className="card__corner" />
                     <div className="card__img">
-                      <img src={`img/${datas.image}`} alt="" />
+                      <img src={`http://localhost:3000/${datas.image}`} alt="" />
                       <span className="card__span">{datas.empresa}</span>
                     </div>
                     <div className="card-int">

@@ -156,14 +156,61 @@ controller.addProducto = (req, res) => {
         console.error('Server error:', err);
         return res.status(500).send('Server error');
       }
-
-
       conn.query('INSERT INTO productos SET ?', data, (err, rows) => {
         if (err) {
           console.error('Error inserting image:', err);
           return res.status(500).send('Error inserting image');
         }
         console.log('Image inserted successfully');
+      }); 
+    });
+  });
+};
+/* CRUD empresa */
+
+/* Guarda la imagen y datos */
+const diskstorageEmpresa = multer.diskStorage({
+  destination: path.join(__dirname, '../empresas'),
+  filename: (req, file, cb) => {
+    const originalname = file.originalname.replace(/[^\w.-]/g, ''); // Eliminar espacios en blanco
+    cb(null, 'VidaSub-Empresas' + originalname);
+  }
+});
+
+const fileUploadEmpresa = multer({
+  storage: diskstorageEmpresa
+}).single('image');
+
+controller.addEmpresa = (req, res) => {
+  fileUploadEmpresa(req, res, (err) => {
+    if (err) {
+      console.error('Error uploading image:', err);
+      return res.status(500).send('Error uploading image');
+    }
+    console.log(req.body);
+    const filename = req.file.filename;
+    const data = req.body;
+    const idUser = req.body.user_id;
+    data.image = filename;
+    console.log(data);
+    req.getConnection((err, conn) => {
+      if (err) {
+        console.error('Server error:', err);
+        return res.status(500).send('Server error');
+      }
+      conn.query('INSERT INTO empresa SET ?', data, (err, rows) => {
+        if (err) {
+          console.error('Error inserting image:', err);
+          return res.status(500).send('Error inserting image');
+        }
+        console.log('Image inserted successfully');
+      }); 
+      conn.query('UPDATE user SET tipo_user = "proveedor" WHERE id =?', idUser, (err, rows) => {
+        if (err) {
+          console.error('Error inserting image:', err);
+          return res.status(500).send('Error inserting image');
+        }
+        console.log('Se actualizo el tipo de usuario');
       }); 
     });
   });
