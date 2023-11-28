@@ -85,17 +85,17 @@ function App({ auth, role, id, name, empresaId }) {
         )}
 
 
-        {rol === 'proveedor' ? (
+        {rol === 'cliente' ? (
+          <Route path="/miempresa" element={<SerEmpresa />} />
+        ) : (
           <Route
             path="/miempresa"
             element={
               <div>
-                <Perfilempresa idUser={idUsuario} idEmp={idEmpresa} />
+                <Perfilempresa idUser={idUsuario} />
               </div>
             }
           />
-        ) : (
-          <Route path="/miempresa" element={<SerEmpresa />} />
         )}
 
         {auth ? (

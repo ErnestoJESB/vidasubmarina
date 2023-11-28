@@ -18,7 +18,6 @@ const Perfilempresa = ({ idUser }) => {
                 console.error('Error:', error);
             });
     }, []);
-
     return (
         <div>
             <Empresa data={empresaData} />
