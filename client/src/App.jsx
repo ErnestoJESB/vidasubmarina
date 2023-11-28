@@ -22,7 +22,8 @@ import Proveedor from './components/empresas/proveedor';
 import ProductoRec from './components/producto/productosrecientes';
 import ProductoId from './components/producto/idproducto';
 import Perfilempresa from './components/empresas/perfilEmpresa';
-import RegistrarProducto from './components/producto/registrarproductos';
+import Conocenos2 from './components/conocenos/conocenos2';
+
 
 function App({ auth, role, id, name, empresaId }) {
   const autenticacion = auth;
@@ -46,6 +47,8 @@ function App({ auth, role, id, name, empresaId }) {
               {/*<Productos />*/}
 
               <Conocenos />
+              <Empresas1 />
+              <Conocenos2 />
               <ProductoRec />
             </div>
           }

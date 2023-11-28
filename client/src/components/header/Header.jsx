@@ -67,7 +67,7 @@ const Header = ({ auth, role, nombre }) => {
           :
           <header className="header">
             <a href="http://localhost:5173/" className="logo"><div>
-              <img src="/img/vidaLogo1.png" alt="..." /></div>
+              <img src="/img/logoVidaS-.png" alt="..." /></div>
             </a>
             <nav className="navbar">
               <a href="http://localhost:5173/">Inicio</a>
@@ -76,7 +76,9 @@ const Header = ({ auth, role, nombre }) => {
             </nav>
             <div className="icons">
               <div id="menu-btn" className="ri-menu-line"></div>
-                <a href="http://localhost:5173/login"><div className="ri-user-line"></div></a>
+                <a href="http://localhost:5173/login">
+                <div className="ri-user-line" style={{ color: 'black' }}></div>
+                </a>
             </div>
           </header>
       }

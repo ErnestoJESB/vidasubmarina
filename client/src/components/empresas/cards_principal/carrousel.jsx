@@ -17,7 +17,7 @@ const Empresas = ({data}) => {
   return (
     <section className="popular" id="condominios">
       <div className="heading">
-        <hr style={{ border: '1px solid #000', margin: '10px 0' }} />
+        {/* <hr style={{ border: '1px solid #000', margin: '10px 0' }} /> */}
         {/* <span>Nuestros</span> */}
         <h3>Empresas</h3>
       </div>
