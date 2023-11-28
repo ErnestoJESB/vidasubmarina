@@ -12,6 +12,7 @@ const Productos = ({ data }) => {
     const indexOfFirstCondominio = indexOfLastCondominio - condominiosPerPage;
 
     /* End Pagination */
+    
 
     return (
         <section className="popularP" id="condominios">
@@ -26,7 +27,7 @@ const Productos = ({ data }) => {
                             <div className="card" key={producto.id}>
                                 <div className="card__corner" />
                                 <div className="card__img">
-                                    <img src={`../img/${producto.image}`} alt="" />
+                                    <img src={`http://localhost:3000/${producto.image}`} alt="" />
                                     <span className="card__span">{producto.nombre}</span>
                                 </div>
                                 <div className="card-int">
