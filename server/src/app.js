@@ -47,7 +47,7 @@ app.use(morgan('dev'));
 app.use(myConnection(mysql, {
   host: 'localhost',
   user: 'root',
-  password: '',
+  password: 'Soberano15',
   port: 3306,
   database: 'vidaSub'
 }, 'single'))
