@@ -5,7 +5,7 @@ const Cards = () => {
   return (
     <section className="home" id="home">
       <div className="content">
-        <span>Bienvenido(a) a Prolocal</span>
+        <span>Bienvenido(a) a PescaWeb</span>
         <h3>Impulso al consumo de productos locales</h3>
         <p>
           Buscamos que los establecimientos que venden productos locales puedan

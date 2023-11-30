@@ -10,9 +10,9 @@
   -ms-flex-align: center;
   align-items: center;
   gap: 2rem;
-  background: var(--card);
-  border-radius: 3rem;
-  margin: 5%;
+  background: var(--fondo);
+  /* border-radius: 3rem; */
+  /* margin: 5%; */
   margin-bottom: 2%;
 }
 
@@ -32,6 +32,7 @@
   -webkit-box-flex: 1;
   -ms-flex: 1 1 40rem;
   flex: 1 1 40rem;
+  padding: 5%;
 }
 
 .about .content span {
@@ -69,7 +70,8 @@
   -ms-flex: 1 1 20rem;
   flex: 1 1 20rem;
   border-radius: 1.75rem;
-  background: var(--color3);
+  background: var(--fondo);
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

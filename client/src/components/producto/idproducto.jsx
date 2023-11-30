@@ -5,6 +5,7 @@ import Pedido from '../pedido/pedido';
 const ProductoId = () => {
     const params = useParams();
     const productos = params.producto;
+    console.log(productos);
     const [producto, setProducto] = useState([]);
     useEffect(() => {
         fetch(`http://localhost:3000/productos/${productos}`)
@@ -37,12 +38,15 @@ const ProductoId = () => {
                                 </div>
                                 <h3>Descripción</h3>
                                 <p>{datas.descripcion}</p>
+                                <h3>Precio</h3>
+                                <p>${datas.precio} MXN</p>
+                                <Pedido stock={datas.cantidad} unidad={datas.unidad_medida} />
                             </div>
                         </div>
                     </div>
                 </section>
             ))}
-            <Pedido />  
+            
         </div>
     )
 }

@@ -1,3 +1,8 @@
+const express = require('express')
+const fs = require('fs');
+const path = require('path');
+const multer = require('multer')
+
 const controller = {};
 
 
@@ -46,6 +51,7 @@ controller.proveedor = (req, res) => {
     });
   });
 };
+
 controller.idproducto = (req, res) => {
   const { idproveedor } = req.params;
   const sql = `SELECT * FROM vidasub.productos WHERE idempresa = ${idproveedor};`;
@@ -58,6 +64,7 @@ controller.idproducto = (req, res) => {
   });
 };
 
+/* basico */
 controller.productos = (req, res) => {
   const sql = 'SELECT * FROM vidasub.productos ORDER BY idproductos DESC;';
   req.getConnection((err, conn) => {
@@ -105,4 +112,107 @@ controller.empresaprod = (req, res) => {
   });
 };
 
+
+controller.productosname = (req, res) => {
+  const sql = 'SELECT nombre, image FROM vidasub.productos;';
+  req.getConnection((err, conn) => {
+    if (err) return res.status(500).send('Error del servidor');
+    conn.query(sql, (err, result) => {
+      if (err) return res.json("Error al obtener condominios");
+      return res.json(result);
+    });
+  });
+}
+
+
+/* CRUD productos */
+
+/* Guarda la imagen y datos */
+const diskstorage = multer.diskStorage({
+  destination: path.join(__dirname, '../productos'),
+  filename: (req, file, cb) => {
+    const originalname = file.originalname.replace(/[^\w.-]/g, ''); // Eliminar espacios en blanco
+    cb(null, 'VidaSub-Producto' + originalname);
+  }
+});
+
+const fileUpload = multer({
+  storage: diskstorage
+}).single('image');
+
+controller.addProducto = (req, res) => {
+  fileUpload(req, res, (err) => {
+    if (err) {
+      console.error('Error uploading image:', err);
+      return res.status(500).send('Error uploading image');
+    }
+    console.log(req.body);
+    const filename = req.file.filename;
+    const data = req.body;
+    data.image = filename;
+    console.log(data);
+    req.getConnection((err, conn) => {
+      if (err) {
+        console.error('Server error:', err);
+        return res.status(500).send('Server error');
+      }
+      conn.query('INSERT INTO productos SET ?', data, (err, rows) => {
+        if (err) {
+          console.error('Error inserting image:', err);
+          return res.status(500).send('Error inserting image');
+        }
+        console.log('Image inserted successfully');
+      }); 
+    });
+  });
+};
+/* CRUD empresa */
+
+/* Guarda la imagen y datos */
+const diskstorageEmpresa = multer.diskStorage({
+  destination: path.join(__dirname, '../empresas'),
+  filename: (req, file, cb) => {
+    const originalname = file.originalname.replace(/[^\w.-]/g, ''); // Eliminar espacios en blanco
+    cb(null, 'VidaSub-Empresas' + originalname);
+  }
+});
+
+const fileUploadEmpresa = multer({
+  storage: diskstorageEmpresa
+}).single('image');
+
+controller.addEmpresa = (req, res) => {
+  fileUploadEmpresa(req, res, (err) => {
+    if (err) {
+      console.error('Error uploading image:', err);
+      return res.status(500).send('Error uploading image');
+    }
+    console.log(req.body);
+    const filename = req.file.filename;
+    const data = req.body;
+    const idUser = req.body.user_id;
+    data.image = filename;
+    console.log(data);
+    req.getConnection((err, conn) => {
+      if (err) {
+        console.error('Server error:', err);
+        return res.status(500).send('Server error');
+      }
+      conn.query('INSERT INTO empresa SET ?', data, (err, rows) => {
+        if (err) {
+          console.error('Error inserting image:', err);
+          return res.status(500).send('Error inserting image');
+        }
+        console.log('Image inserted successfully');
+      }); 
+      conn.query('UPDATE user SET tipo_user = "proveedor" WHERE id =?', idUser, (err, rows) => {
+        if (err) {
+          console.error('Error inserting image:', err);
+          return res.status(500).send('Error inserting image');
+        }
+        console.log('Se actualizo el tipo de usuario');
+      }); 
+    });
+  });
+};
 module.exports = controller;

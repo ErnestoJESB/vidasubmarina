@@ -11,15 +11,20 @@ const Conocenos = () => {
   return (
     <section className="about" id="servicios">
       <div className="image">
-        <img src="/img/ejecutivo2.jpg" alt="..." />
+        <img src="/img/pescadores.jpg" alt="..." />
       </div>
       <div className="content">
         <span>¿Qué hacemos?</span>
         <h3 className="title">Nuestros servicios</h3>
         <p>
-          Proporcionamos ideas prácticas y objetivas, a través de un equipo de
-          profesionales cuya experiencia y dedicación nos permite garantizar un
-          excelente servicio.{' '}
+            Somos los encargados de conectar 
+            a los pequeños hoteles de la Isla 
+            Holbox con los pescadores artesanales 
+            pertenecientes a las comunidades de 
+            la zona, pues buscamos que estos tengan 
+            un mayor alcance para que puedan ofrecer 
+            productos de calidad a un precio competitivo, 
+            generando así apoyo al consumo local..{' '}
         </p>
         <div className="icons-container">
           {/* Modal asesoria*/}

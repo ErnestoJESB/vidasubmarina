@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
 }
 
 .pagination {
@@ -14,7 +14,7 @@
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: var(--card);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
 }
 
 .pagination__button {

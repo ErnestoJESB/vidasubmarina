@@ -47,7 +47,7 @@ app.use(morgan('dev'));
 app.use(myConnection(mysql, {
   host: 'localhost',
   user: 'root',
-  password: '',
+  password: 'Soberano15',
   port: 3306,
   database: 'vidaSub'
 }, 'single'))
@@ -75,3 +75,5 @@ app.use(express.static(path.join(__dirname, 'dbimages')))
 app.use(express.static(path.join(__dirname, 'condominios')))
 app.use(express.static(path.join(__dirname, 'incidencias')))
 app.use(express.static(path.join(__dirname, 'pescados')))
+app.use(express.static(path.join(__dirname, 'productos')))
+app.use(express.static(path.join(__dirname, 'empresas')))

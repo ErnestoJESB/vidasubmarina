@@ -48,13 +48,13 @@ const Header = ({ auth, role, nombre }) => {
         auth ?
           <header className="header">
             <a href="http://localhost:5173/" className="logo"><div>
-              <img src="/img/vidaLogo1.png" alt="..." />
+              <img src="/img/logoVidaS-.png" alt="..." />
             </div>
             </a>
             <nav className="navbar">
               <a href="http://localhost:5173/">Inicio</a>
               <a href="http://localhost:3000/customer">Clientes</a>
-              <a href="http://localhost:5173/miempresa/">Mi empresa</a>
+              <a href="http://localhost:5173/miempresa">Mi empresa</a>
               <a href="http://localhost:5173/cliente">{nombre}</a>
             </nav>
             <div className="icons">
@@ -67,16 +67,16 @@ const Header = ({ auth, role, nombre }) => {
           :
           <header className="header">
             <a href="http://localhost:5173/" className="logo"><div>
-              <img src="/img/vidaLogo1.png" alt="..." /></div>
+              <img src="/img/logoVidaS-.png" alt="..." /></div>
             </a>
             <nav className="navbar">
-              <a href="http://localhost:5173/">Inicio</a>
-              <a href="http://localhost:5173/conocenos">Conócenos</a>
-              <a href="http://localhost:3000/condominio">Condominios</a>
+              <a href="http://localhost:5173/">Inicio</a>              
             </nav>
             <div className="icons">
               <div id="menu-btn" className="ri-menu-line"></div>
-                <a href="http://localhost:5173/login"><div className="ri-user-line"></div></a>
+                <a href="http://localhost:5173/login">
+                <div className="ri-user-line" style={{ color: 'black' }}></div>
+                </a>
             </div>
           </header>
       }

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Productos from '../cards_principal/carrousel';
 const Producto = ({proveedorId}) => {
+    console.log(proveedorId);
     const [producto, setproducto] = useState([]);
     useEffect(() => {
         fetch(`http://localhost:3000/producto/${proveedorId}`)

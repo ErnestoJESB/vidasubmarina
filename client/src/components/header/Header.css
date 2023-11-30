@@ -66,7 +66,7 @@
   line-height: 4.5rem;
   font-size: 2rem;
   background: #edecf2;
-  color: var(--card);
+  color: var(--card1);
   border-radius: 50%;
   margin-left: 0.3rem;
   cursor: pointer;
@@ -75,7 +75,7 @@
 }
 
 .header .icons div:hover {
-  background: var(--card1);
+  background: var(--fondo);
 }
 
 #menu-btn {
@@ -231,5 +231,9 @@
 
   .order form .flex .inputBox {
     width: 100%;
+  }
+
+  .ri-user-line {
+    color: black;
   }
 }

@@ -17,7 +17,7 @@ const Empresas = ({data}) => {
   return (
     <section className="popular" id="condominios">
       <div className="heading">
-        <hr style={{ border: '1px solid #000', margin: '10px 0' }} />
+        {/* <hr style={{ border: '1px solid #000', margin: '10px 0' }} /> */}
         {/* <span>Nuestros</span> */}
         <h3>Empresas</h3>
       </div>
@@ -30,7 +30,7 @@ const Empresas = ({data}) => {
                   <div className="card" key={datas.idempresa}>
                     <div className="card__corner" />
                     <div className="card__img">
-                      <img src={`img/${datas.image}`} alt="" />
+                      <img src={`http://localhost:3000/${datas.image}`} alt="" />
                       <span className="card__span">{datas.empresa}</span>
                     </div>
                     <div className="card-int">

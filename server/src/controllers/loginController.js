@@ -37,7 +37,7 @@ controller.register = (req, res) => {
 
 
 controller.login = (req, res) => {
-  const sql = 'SELECT * FROM user WHERE email = ?';
+  const sql = 'SELECT user.tipo_user, user.name, user.id, user.password FROM user WHERE user.email = ?';
   req.getConnection((err, conn) => {
     if (err) return res.status(500).send('Error del servidor');
     conn.query(sql, [req.body.email], (err, data) => {
@@ -51,7 +51,7 @@ controller.login = (req, res) => {
             const id = data[0].id;
             const token = jwt.sign({ tipo_usuario, name, id}, 'VIDASUB', { expiresIn: '1h' })
             res.cookie('token', token)
-            return res.json({ Login: true, tipo_usuario: data[0].tipo_user, userName: data[0].name, userId: data[0].id });
+            return res.json({ Login: true, tipo_usuario: data[0].tipo_user, userName: data[0].name, userId: data[0].id});
           }
           return res.json({ Login: false });
         });

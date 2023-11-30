@@ -15,6 +15,7 @@
   --btnsh: #00a0d4;
   --btnsc: #ff7f00;
   --txt: #065974;
+  --fondo: #F6F6F6;
 
 }
 
@@ -98,7 +99,7 @@ section {
   font-size: 1.7rem;
   cursor: pointer;
   color: #f7f6f9;
-  background: linear-gradient(135deg, var(--color1), var(--color3));
+  background: linear-gradient(135deg, var(--headerb), var(--headerb));
   border-radius: 1rem;
 }
 
@@ -109,7 +110,7 @@ section {
   font-size: 1.7rem;
   cursor: pointer;
   color: #f7f6f9;
-  background: linear-gradient(135deg, var(--color1), var(--color3));
+  background: linear-gradient(135deg, var(--headerb), var(--headerb));
   border-radius: 1rem;
 }
 
@@ -170,6 +171,17 @@ section {
   background: var(--card);
   padding: 2rem;
   border-radius: 3rem;
+}
+
+.popularP .box-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(25rem, 1fr)) [auto-fit];
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  /* gap: 1.5rem; */
+  background: var(--card);
+  /* padding: 2rem; */
+  /* border-radius: 3rem; */
 }
 
 .popular .box-container .box {
@@ -562,9 +574,9 @@ section {
 /* footer section start */
 
 .footer {
-  background: var(--card);
-  border-radius: 3rem;
-  margin: 2%;
+  background: var(--headerb);
+  /* border-radius: 3rem; */
+  /* margin: 2%; */
   padding: 3rem;
 }
 
@@ -575,7 +587,7 @@ section {
 
 .footer .newsletter h3 {
   font-size: 2.5rem;
-  color: var(--color1);
+  color: var(--card);
   padding-bottom: 1rem;
 }
 
@@ -589,20 +601,20 @@ section {
 
 .footer .box-container .box h3 {
   font-size: 2.2rem;
-  color: var(--color3);
+  color: var(--card);
   padding: 1rem 0;
 }
 
 .footer .box-container .box p {
   font-size: 1.4rem;
-  color: var(--color4);
+  color: var(--card);
   padding: 1rem 0;
 }
 
 .footer .box-container .box a {
   display: block;
   font-size: 1.4rem;
-  color: var(--color4);
+  color: var(--card);
   padding: 1rem 0;
 }
 
@@ -647,7 +659,7 @@ section {
 
 .footer .bottom .credit {
   font-size: 2rem;
-  color: var(--color1);
+  color: var(--card);
   padding: 1rem;
 }
 
@@ -708,7 +720,7 @@ section {
   border-radius: 2rem;
   padding: 2rem;
   text-align: center;
-  background: var(--color1);
+  /* background: var(--color1); */
 }
 
 .order .icons-container .icons img svg {
@@ -870,8 +882,8 @@ tr {
   width: 330px;
   min-height: 370px;
   border-radius: 20px;
-  background: #212121;
-  box-shadow: 5px 5px 8px #1b1b1b, -5px -5px 8px #272727;
+  /* background: #212121; */
+  box-shadow: 1px 2px 20px;
   transition: 0.4s;
   margin: 20px;
 }
@@ -947,6 +959,7 @@ h1 {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  /* background: var(--fondo); */
 }
 
 .col {
@@ -1395,3 +1408,8 @@ h5 {
   color: var(--main-color);
 }
 /* termina card proveedor */
+
+/* Inicio de productos */
+/* .condominios{
+  background: var(--fondo);
+} */
