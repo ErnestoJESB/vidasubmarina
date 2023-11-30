@@ -54,7 +54,7 @@ const Header = ({ auth, role, nombre }) => {
             <nav className="navbar">
               <a href="http://localhost:5173/">Inicio</a>
               <a href="http://localhost:3000/customer">Clientes</a>
-              <a href="http://localhost:5173/miempresa/">Mi empresa</a>
+              <a href="http://localhost:5173/miempresa">Mi empresa</a>
               <a href="http://localhost:5173/cliente">{nombre}</a>
             </nav>
             <div className="icons">
@@ -70,9 +70,7 @@ const Header = ({ auth, role, nombre }) => {
               <img src="/img/logoVidaS-.png" alt="..." /></div>
             </a>
             <nav className="navbar">
-              <a href="http://localhost:5173/">Inicio</a>
-              <a href="http://localhost:5173/conocenos">Conócenos</a>
-              <a href="http://localhost:3000/condominio">Condominios</a>
+              <a href="http://localhost:5173/">Inicio</a>              
             </nav>
             <div className="icons">
               <div id="menu-btn" className="ri-menu-line"></div>

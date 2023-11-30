@@ -27,6 +27,7 @@ import RegistrarProducto from './components/producto/registrarproductos';
 import SerEmpresa from './components/cards/serEmpresa';
 import Registrarempresa from './components/empresas/registrarempresa';
 import Productosempresas from './components/empresas/productosempresas';
+import Pedido from './components/pedido/pedido';
 
 
 function App({ auth, role, id, name, empresaId }) {
@@ -84,18 +85,15 @@ function App({ auth, role, id, name, empresaId }) {
           <Route path="/producto/:producto" element={<Login />} />
         )}
 
-
-        {rol === 'cliente' ? (
-          <Route path="/miempresa" element={<SerEmpresa />} />
-        ) : (
+        {auth ? (
           <Route
-            path="/miempresa"
-            element={
-              <div>
-                <Perfilempresa idUser={idUsuario} />
-              </div>
-            }
-          />
+          path="/miempresa"
+          element={
+              <Perfilempresa idUser={idUsuario} />
+          }
+        />
+        ) : (
+          <Route path="/miempresa" element={<SerEmpresa />} />
         )}
 
         {auth ? (
@@ -153,6 +151,19 @@ function App({ auth, role, id, name, empresaId }) {
           />
         ) : (
           <Route path="/mispedidos" element={<Login />} />
+        )}
+
+        {auth ? (
+          <Route
+            path="/pedido/:idproducto"
+            element={
+              <div>
+                <Pedido />
+              </div>
+            }
+          />
+        ) : (
+          <Route path="/pedido" element={<Login />} />
         )}
 
 
